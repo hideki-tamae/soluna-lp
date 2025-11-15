@@ -1,74 +1,86 @@
-import { NextResponse } from 'next/server'
-import { Pool } from 'pg'
-import crypto from 'crypto'
+// app/api/claim-wallet/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { signToken } from '@/lib/hmac';
 
-export const runtime = 'nodejs' // EdgeじゃなくNode
+export const runtime = 'edge';
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-})
-
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const { passphrase, walletAddress, bookId } = await req.json()
-
-    if (!passphrase || !walletAddress || !bookId) {
+    // 1) クレーム受付フラグ
+    if (process.env.CLAIM_OPEN !== '1') {
       return NextResponse.json(
-        { ok: false, message: 'passphrase, walletAddress, bookId は必須です。' },
-        { status: 400 },
-      )
+        { ok: false, error: 'Claim not open yet.' },
+        { status: 403 }
+      );
     }
 
-    if (!/^0x[a-fA-F0-9]{40}$/.test(walletAddress)) {
+    const body = await req.json();
+
+    const soluna = String(body?.soluna ?? '').trim();
+    const phrase = String(body?.phrase ?? '').trim();
+    const wallet = String(body?.wallet ?? '').trim();
+    const turnstile = String(body?.turnstile ?? '').trim(); // いまは未使用
+
+    // 2) SOLUNA の文字チェック
+    const expectedLiteral = process.env.NEXT_PUBLIC_SOLUNA_LITERAL || 'SOLUNA';
+    if (soluna !== expectedLiteral) {
       return NextResponse.json(
-        { ok: false, message: 'ウォレットアドレスの形式が正しくありません。' },
-        { status: 400 },
-      )
+        { ok: false, error: 'Invalid SOLUNA literal.' },
+        { status: 400 }
+      );
     }
 
-    const passphraseHash = crypto
-      .createHash('sha256')
-      .update(passphrase, 'utf8')
-      .digest('hex')
-
-    const client = await pool.connect()
-
-    const result = await client.query(
-      `
-      INSERT INTO claims (
-        passphrase_hash,
-        address,
-        recipient_address,
-        book_id,
-        status
-      )
-      VALUES ($1, $2, $3, $4, 'PENDING')
-      ON CONFLICT (book_id, recipient_address)
-      DO NOTHING
-      RETURNING id;
-      `,
-      [passphraseHash, walletAddress, walletAddress, bookId],
-    )
-
-    client.release()
-
-    if (result.rowCount === 0) {
-      return NextResponse.json({
-        ok: true,
-        message: 'このウォレットは既にこの本のSOLUNAを受け取っています。',
-      })
+    // 3) 本のパスフレーズチェック
+    const passphrase = process.env.CLAIM_PASSPHRASE;
+    if (!passphrase || phrase !== passphrase) {
+      return NextResponse.json(
+        { ok: false, error: 'Invalid passphrase.' },
+        { status: 401 }
+      );
     }
 
-    return NextResponse.json({
-      ok: true,
-      message: 'SOLUNA受け取りリクエストを登録しました。',
-    })
+    // 4) ウォレット必須チェック
+    if (!wallet) {
+      return NextResponse.json(
+        { ok: false, error: 'Wallet is required.' },
+        { status: 400 }
+      );
+    }
+
+    // 5) バックエンド URL チェック
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+    if (!backendUrl) {
+      return NextResponse.json(
+        { ok: false, error: 'Backend URL not configured.' },
+        { status: 500 }
+      );
+    }
+
+    // 6) バックエンドに送るペイロード
+    const payload = { wallet, soluna, phrase };
+
+    // 7) HMAC 署名をつける
+    const signature = signToken(payload);
+
+    // 8) バックエンド /claim に転送
+    const resp = await fetch(`${backendUrl}/claim`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-signature': signature,
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const json = await resp.json();
+
+    // 9) バックエンドのレスポンスをそのまま返す
+    return NextResponse.json(json, { status: resp.status });
   } catch (err) {
-    console.error(err)
+    console.error('claim-wallet error:', err);
     return NextResponse.json(
-      { ok: false, message: 'サーバー側でエラーが発生しました。' },
-      { status: 500 },
-    )
+      { ok: false, error: 'Internal server error.' },
+      { status: 500 }
+    );
   }
 }
-
