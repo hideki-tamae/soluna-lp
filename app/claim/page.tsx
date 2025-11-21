@@ -2,17 +2,12 @@
 
 import React, { useState } from "react";
 
+// APIからのレスポンス型定義
 type ClaimResponse = {
-  ok: boolean;
-  claimId?: string;
-  status?: string;
+  success?: boolean;
   message?: string;
-  error?: string;
+  id?: string;
 };
-
-const CLAIM_API_URL =
-  process.env.NEXT_PUBLIC_CLAIM_API_URL ?? "http://localhost:3001";
-const BOOK_ID = process.env.NEXT_PUBLIC_BOOK_ID ?? "dev-book-1";
 
 export default function ClaimPage() {
   const [address, setAddress] = useState<string>("");
@@ -71,54 +66,37 @@ export default function ClaimPage() {
     setResultStatus("");
 
     try {
-      const res = await fetch(`${CLAIM_API_URL}/api/claim`, {
+      // ✅ 修正ポイント: URLのドメイン指定を削除し、相対パスにしました。
+      // これで自動的に正しいポート（localhost:3000）へ送信されます。
+      const res = await fetch("/api/claim", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
+        // ✅ バックエンドが期待するデータ形式に合わせています
         body: JSON.stringify({
-          address,
-          bookId: BOOK_ID,
-          passphrase,
+          name: address,      // ウォレットアドレスを名前として送信
+          phrase: passphrase, // 合言葉
+          soluna: "1000",     // 申請ごとの基本額
         }),
       });
 
       const data = (await res.json()) as ClaimResponse;
-      const err = data.error ?? "";
 
-      if (data.ok) {
+      // fetchの `res.ok` はHTTPステータスコードが200-299の時にtrueになります
+      if (res.ok) {
         setResultStatus("success");
         setResultMessage(
-          data.message ??
-            "トークン請求を受け付けました（ステータス: PENDING）。数分以内に送金処理が実行されます。"
+          data.message ?? "申請を受け付けました！管理画面で承認をお待ちください。"
         );
-        console.log("Claim stored:", data);
+        console.log("Claim Success:", data);
       } else {
         setResultStatus("error");
-
-        // 👇 バックエンドの英語メッセージを日本語にマッピング
-        if (err.includes("Already claimed")) {
-          setResultMessage(
-            "このウォレットと本では、すでに請求済み（または処理中）です。"
-          );
-        } else if (err.includes("Invalid passphrase")) {
-          setResultMessage(
-            "合言葉が正しくありません。もう一度ご確認ください。"
-          );
-        } else if (err.includes("Claiming is only allowed after 14 days")) {
-          setResultMessage(
-            "この書籍のトークン請求は、発売から一定期間経過後に利用可能になります。"
-          );
-        } else if (err) {
-          setResultMessage(`サーバーエラー: ${err}`);
-        } else {
-          setResultMessage(
-            "エラーが発生しました。時間をおいて再度お試しください。"
-          );
-        }
+        // サーバーからのエラーメッセージを表示
+        setResultMessage(data.message || "エラーが発生しました。");
       }
     } catch (error) {
-      console.error(error);
+      console.error("Network Error:", error);
       setResultStatus("error");
       setResultMessage(
         "ネットワークエラーが発生しました。サーバーの状態を確認してください。"
