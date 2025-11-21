@@ -39,20 +39,27 @@ export default function Home() {
           書籍・NFT・音楽・メタバース美術館・コミュニティを横断したケア資本主義の土台をつくります。
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-slate-200 transition">
-            ティーザーの一覧を見る
-          </button>
+           // 👇 修正後: Linkタグに直接ボタンのスタイルを適用します (最も安全な書き方)
 
-          {/* 👇 重要な修正ポイント：合言葉ページへのリンク */}
-          <Link href="/claim">
-            <button className="w-full sm:w-auto border border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition">
-              読者の方はこちら（合言葉）
-            </button>
-          </Link>
-        </div>
+    <div className="flex flex-col sm:flex-row gap-4">
+        {/* ティーザーボタン（変更なし） */}
+        <button className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-slate-200 transition">
+        ティーザーの一覧を見る
+        </button>
+
+        {/* 👇 FIX: Linkタグに直接スタイルを適用し、確実にクリックを伝える */}
+         <Link
+        href="/claim"
+        className="text-center sm:w-auto border border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white/10 transition"
+    >
+        読者の方はこちら（合言葉）
+    </Link>
+</div>
+
       </section>
 
+
+ 
       {/* 3つのカードセクション */}
       <section className="px-6 pb-20 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Card 1 */}
