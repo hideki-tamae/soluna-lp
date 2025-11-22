@@ -1,5 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// prisma/schema.prisma
 
 generator client {
   provider = "prisma-client-js"
@@ -10,28 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// 申請データモデル (Claim)
+// ▼▼▼ ここをSOLUNA仕様に完全リニューアル ▼▼▼
 model Claim {
-  id          String   @id @default(cuid()) // ユニークなID
-  userId      String   // 申請者のユーザーID
-  userName    String   // 申請者の名前
-  email       String?  // これが今回の主役（メールアドレス）
-  amount      Int      // 申請金額
-  
-  // プロ仕様の変更点: EnumではなくStringにして柔軟性を確保します
-  // これにより "pending", "PENDING", "Reviewing" など、後から自由にステータスを増やせます
-  status      String   @default("pending") 
-  
-  description String?  // 説明はなくてもエラーにならないよう「?」を付けました
-  
-  createdAt   DateTime @default(now()) // 申請日時
-  updatedAt   DateTime @updatedAt      // 更新日時
+  id            String   @id @default(cuid())
+  walletAddress String   @unique // @uniqueをつけることで「重複禁止」をDBレベルで保証！
+  passphrase    String   
+  status        String   @default("approved")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
-// 管理者操作ログ
 model AdminLog {
   id        String   @id @default(uuid())
-  action    String   // 行った操作（例: "UPDATE_STATUS_TO_approved"）
-  targetId  String   // 操作対象のID
-  createdAt DateTime @default(now()) // 操作日時
+  action    String
+  targetId  String
+  createdAt DateTime @default(now())
 }

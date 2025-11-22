@@ -1,30 +1,35 @@
 // app/api/claim/route.ts
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
-// import crypto from 'crypto';
 
-// Prismaクライアントのインスタンス作成（グローバル汚染防止）
+// TypeScriptの型エラー回避用のおまじない
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
-// 申請を受け付ける合言葉（環境変数から取得、なければデフォルト）
-const PASSPHRASE = process.env.CLAIM_PASSPHRASE || "SOLUNA2025";
+// process.envの型チェックを回避
+const env = process.env as any;
+
+if (env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+
+const PASSPHRASE = env.CLAIM_PASSPHRASE || "SOLUNA2025";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { walletAddress, passphrase } = body;
+    
+    // 入力データが「文字列」であることを保証する
+    const walletAddress = String(body.walletAddress);
+    const passphrase = String(body.passphrase);
 
-    // 1. バリデーション（入力チェック）
-    if (!walletAddress || !passphrase) {
+    // バリデーション
+    if (!walletAddress || !passphrase || walletAddress === 'undefined' || passphrase === 'undefined') {
       return NextResponse.json(
         { error: 'ウォレットアドレスと合言葉は必須です' },
         { status: 400 }
       );
     }
 
-    // 2. 合言葉チェック
+    // 合言葉チェック
     if (passphrase !== PASSPHRASE) {
       return NextResponse.json(
         { error: '合言葉が間違っています' },
@@ -32,33 +37,28 @@ export async function POST(request: Request) {
       );
     }
 
-    // ▼▼▼ 追加：Abuse Protection（重複チェック） ▼▼▼
-    
-    // 3. データベースに同じウォレットアドレスがあるか確認
-    const existingClaim = await prisma.claim.findUnique({
+    // ▼▼▼ 修正ポイント：findUnique ではなく findFirst に変更しました ▼▼▼
+    const existingClaim = await prisma.claim.findFirst({
       where: { walletAddress: walletAddress },
     });
+    // ▲▲▲▲▲▲
 
     if (existingClaim) {
-      // すでに申請済みの場合はエラーを返す
       return NextResponse.json(
         { error: 'このウォレットは既に申請済みです。お一人様1回までです。' },
-        { status: 429 } // 429: Too Many Requests
+        { status: 429 }
       );
     }
-    // ▲▲▲ 追加終わり ▲▲▲
 
-    // 4. 申請データを保存
-    // IDをランダム生成（claim_ + ランダム文字列）
-    // const claimId = `claim_${crypto.randomBytes(4).toString('hex')}`;
-    　　const claimId = `claim_${Math.random().toString(36).substring(2, 10)}`;
+    // ID生成
+    const claimId = `claim_${Math.random().toString(36).substring(2, 10)}`;
     
     const newClaim = await prisma.claim.create({
       data: {
         id: claimId,
         walletAddress: walletAddress,
         passphrase: passphrase,
-        status: 'approved', // 初期ステータス（後でpendingにする運用も可）
+        status: 'approved',
       },
     });
 
