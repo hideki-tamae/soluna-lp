@@ -1,7 +1,7 @@
 // app/api/claim/route.ts
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
-import crypto from 'crypto';
+// import crypto from 'crypto';
 
 // Prismaクライアントのインスタンス作成（グローバル汚染防止）
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
@@ -50,7 +50,8 @@ export async function POST(request: Request) {
 
     // 4. 申請データを保存
     // IDをランダム生成（claim_ + ランダム文字列）
-    const claimId = `claim_${crypto.randomBytes(4).toString('hex')}`;
+    // const claimId = `claim_${crypto.randomBytes(4).toString('hex')}`;
+    　　const claimId = `claim_${Math.random().toString(36).substring(2, 10)}`;
     
     const newClaim = await prisma.claim.create({
       data: {
