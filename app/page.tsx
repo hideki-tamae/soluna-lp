@@ -1,82 +1,123 @@
-// app/page.tsx
-import Image from "next/image";
-import Link from "next/link";
-// ▼ 1. インポート（ここが追加されています）
-import TokenBalance from '@/components/TokenBalance';
+"use client";
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-black text-white">
-      
-      {/* ヘッダーエリア */}
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex mb-10">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          RE-VERSE NETWORK
-        </p>
-      </div>
+import React, { useState, useEffect } from 'react';
+// import Link from 'next/link'; // ★ Linkコンポーネントのインポートを削除し、エラーを回避
 
-      {/* メインタイトルエリア */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
-          Re-Verse Civilization / SOLUNAケア・トークン
-        </h1>
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
-          「優しさが制度になる」世界へ。Proof-of-Care™で貢献を可視化し、書籍・NFT・音楽・メタバース美術館・コミュニティを横断したケア資本主義の土台をつくります。
-        </p>
-      </div>
+// wagmiフックはコメントアウトしたまま維持
+// import { useAccount, useBalance } from 'wagmi'; 
 
-      {/* ボタンエリア */}
-      <div className="flex flex-col md:flex-row gap-6 mb-12">
-        <Link
-          href="/teaser"
-          className="px-8 py-4 rounded-full bg-white text-black font-bold text-lg hover:bg-gray-200 transition-colors duration-200"
-        >
-          ティーザーの一覧を見る
-        </Link>
+// --- コンポーネント定義 ---
 
-        <Link
-          href="/claim"
-          className="px-8 py-4 rounded-full border border-white text-white font-bold text-lg hover:bg-white hover:text-black transition-colors duration-200"
-        >
-          読者の方はこちら（合言葉）
-        </Link>
-      </div>
+// 仮のウォレット残高表示コンポーネント (UI修正を反映)
+const CurrentHoldings = ({ address }: { address: `0x${string}` | undefined }) => {
+    // 仮のトークンシンボルとコントラクトアドレス
+    const tokenContractAddress = "0xYourTokenContractAddressHere"; // 実際のアドレスに置き換える
+    const mockBalance = 10000000000.00; // 桁の多いテスト値
 
-      {/* ▼▼▼ 2. ここにSOLUNA残高カードを配置しました ▼▼▼ */}
-      <div className="w-full flex justify-center mb-20">
-        <TokenBalance />
-      </div>
-      {/* ▲▲▲ 追加ポイント終了 ▲▲▲ */}
+    // useBalance (wagmi)を使って実際の残高を取得する実装を想定 (コメントアウト)
+    
+    const formattedBalance = mockBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-      {/* 3カラム詳細エリア */}
-      <div className="grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left gap-6">
-        <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            1. 世界観に触れる（聴く・観る）
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            音楽（世界185カ国以上で配信中）
-          </p>
+
+    return (
+        <div className="mt-12 p-6 bg-gray-900/80 backdrop-blur-sm rounded-xl border border-gray-700 shadow-2xl w-full max-w-xs mx-auto">
+            <div className="flex items-center space-x-2 mb-2">
+                <span className="h-2 w-2 bg-green-400 rounded-full animate-pulse"></span>
+                <p className="text-sm text-gray-400 font-medium uppercase">CURRENT HOLDINGS</p>
+            </div>
+            
+            {/* 飛び出し修正ロジック: flexとgap-2, text-xlで調整 */}
+            <div className="flex justify-between items-end gap-2"> 
+                <p className="text-3xl sm:text-4xl font-extrabold text-white leading-none break-all">
+                    {formattedBalance}
+                </p>
+                <p className="text-lg font-bold text-gray-300 leading-none">
+                    SOLUNA 
+                </p>
+            </div>
+            
+            <p className="text-xs text-indigo-400 mt-2">
+                Connect to Re-Verse Economy
+            </p>
         </div>
+    );
+}
 
-        <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            2. プロジェクトに参加する（繋がる）
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            ACEs Care HUB JAPANの活動（プロジェクト）
-          </p>
-        </div>
+// --- メインページコンポーネント ---
+export default function HomePage() {
+    // wagmiフックの使用を想定 (コメントアウト)
 
-        <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            3. オープンな議論の場
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Web3公民館で共同議論に参加
-          </p>
-        </div>
-      </div>
-    </main>
-  );
+    return (
+        <main className="min-h-screen bg-black text-white flex flex-col items-center pt-8 md:pt-20 px-4">
+            <div className="w-full max-w-5xl text-center">
+                
+                {/* ヘッダー/ロゴ */}
+                <div className="flex justify-center mb-8">
+                    <span className="text-xs font-semibold tracking-widest px-3 py-1 bg-gray-800 text-gray-400 rounded-full uppercase">
+                        RE-VERSE NETWORK
+                    </span>
+                </div>
+
+                {/* メインタイトル */}
+                <h1 className="text-4xl sm:text-6xl font-extrabold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-300 to-white">
+                    Re-Verse Civilization / SOLUNAケア・トークン
+                </h1>
+                
+                {/* サブテキスト */}
+                <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+                    「優しさが制度になる」世界へ。Proof-of-Care™で貢献を可視化し、書籍・NFT・音楽・メタバース美術館・コミュニティを横断したケア資本主義の土台をつくります。
+                </p>
+
+                {/* CTAボタン群 */}
+                <div className="flex justify-center space-x-4 mb-16">
+                    {/* Linkの使用を<a>タグに置き換え、エラーを回避 */}
+                    <a 
+                        href="/teaser" 
+                        className="px-6 py-3 bg-white text-gray-900 font-bold rounded-full shadow-lg hover:bg-gray-200 transition-all text-lg"
+                    >
+                        ティーザーの一覧を見る
+                    </a>
+                    
+                    {/* Linkの使用を<a>タグに置き換え、エラーを回避 */}
+                    <a 
+                        href="/claim" 
+                        className="px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-full shadow-lg hover:from-purple-500 hover:to-indigo-500 transition-all text-lg"
+                    >
+                        読者の方はこちら (合言葉)
+                    </a>
+                </div>
+
+                {/* 残高表示セクション */}
+                <CurrentHoldings address={undefined} /> 
+                {/* 実際の環境では address={address} を使用 */}
+                
+            </div>
+            
+            {/* 3つの柱セクション */}
+            <div className="mt-20 w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
+                <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition-all shadow-xl">
+                    <h2 className="text-2xl font-bold mb-3 text-indigo-400">1. 世界観に触れる (聴く・観る)</h2>
+                    <p className="text-gray-400">
+                        音楽（世界185カ国以上で配信中）、デジタルアート、VR展示などを通じて、Re-Verseの世界観を体験します。
+                    </p>
+                </div>
+                <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition-all shadow-xl">
+                    <h2 className="text-2xl font-bold mb-3 text-indigo-400">2. プロジェクトに参加する (繋がる)</h2>
+                    <p className="text-gray-400">
+                        ACES Care HUB JAPAN の活動（プロジェクト運営）に参加し、ケア資本主義の推進に貢献します。
+                    </p>
+                </div>
+                <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-indigo-500 transition-all shadow-xl">
+                    <h2 className="text-2xl font-bold mb-3 text-indigo-400">3. オープンな議論の場</h2>
+                    <p className="text-gray-400">
+                        Web3公民館で共同議論に参加し、トークンの活用方針やDAOのルール設計に貢献します。
+                    </p>
+                </div>
+            </div>
+
+            <footer className="w-full text-center py-6 text-gray-500 text-sm border-t border-gray-800">
+                © {new Date().getFullYear()} Re-Verse Civilization / SOLUNA. All rights reserved.
+            </footer>
+        </main>
+    );
 }
