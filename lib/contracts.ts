@@ -1,71 +1,18 @@
-
-
-
-
 // lib/contracts.ts
+// このファイルは、デプロイされた新しいトークンの住所と、
+// トークンと会話するためのABI（翻訳情報）を定義します。
 
+// ✅ 新しい銀行の住所 (最新デプロイのアドレス)
+export const SOLUNA_CONTRACT_ADDRESS = "0x125bF561721f414Ab3769D59Aca8927be1267f46"; 
 
-
-// 1. SOLUNAの住所（コントラクトアドレス）
-
-// あなたの手元にある「0x...」で始まるアドレスに書き換えてください
-
-export const SOLUNA_CONTRACT_ADDRESS = "0x0cda4244430aB35D93E9cfc9AC2b5761dbf66002"; 
-
-
-
-// 2. SOLUNAの合い鍵（最小限のABI）
-
-// これがあれば「残高確認」と「通貨単位の取得」ができます
-
+// ✅ トークンと会話するためのABI (残高確認、送金、シンボル取得に必要な情報)
 export const SOLUNA_ABI = [
-
-  // 残高を問い合わせる機能
-
-  {
-
-    "constant": true,
-
-    "inputs": [{ "name": "_owner", "type": "address" }],
-
-    "name": "balanceOf",
-
-    "outputs": [{ "name": "balance", "type": "uint256" }],
-
-    "type": "function"
-
-  },
-
-  // トークンの桁数を問い合わせる機能（通常は18）
-
-  {
-
-    "constant": true,
-
-    "inputs": [],
-
-    "name": "decimals",
-
-    "outputs": [{ "name": "", "type": "uint8" }],
-
-    "type": "function"
-
-  },
-
-  // 通貨記号（SOLUNAなど）を問い合わせる機能
-
-  {
-
-    "constant": true,
-
-    "inputs": [],
-
-    "name": "symbol",
-
-    "outputs": [{ "name": "", "type": "string" }],
-
-    "type": "function"
-
-  }
-
+  // balanceOf: 残高を確認する機能 (READ)
+  { "constant": true, "inputs": [{ "name": "_owner", "type": "address" }], "name": "balanceOf", "outputs": [{ "name": "balance", "type": "uint256" }], "type": "function" },
+  // transfer: トークンを送金する機能 (WRITE) <-- 管理画面の「Send」ボタンに必要
+  { "constant": false, "inputs": [{ "name": "_to", "type": "address" }, { "name": "_value", "type": "uint256" }], "name": "transfer", "outputs": [{ "name": "success", "type": "bool"}], "type": "function" },
+  // decimals: 小数点以下の桁数を取得する機能 (READ)
+  { "constant": true, "inputs": [], "name": "decimals", "outputs": [{ "name": "", "type": "uint8" }], "type": "function" },
+  // symbol: トークンシンボルを取得する機能 (READ)
+  { "constant": true, "inputs": [], "name": "symbol", "outputs": [{ "name": "", "type": "string" }], "type": "function" }
 ];
