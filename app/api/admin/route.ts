@@ -1,45 +1,41 @@
+// app/api/admin/route.ts
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
+const prisma = globalForPrisma.prisma || new PrismaClient();
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
-// 認証チェック関数
-const isAuthenticated = (req: Request) => {
-  const authHeader = req.headers.get('authorization');
-  return authHeader === `Bearer ${process.env.ADMIN_PASSWORD}`;
-};
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "soluna_admin_secret_key_2026";
 
-// GET: 申請一覧の取得
 export async function GET(request: Request) {
-  if (!isAuthenticated(request)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   try {
-    // 最新順に全件取得
+    const authHeader = request.headers.get('authorization');
+    if (authHeader !== `Bearer ${ADMIN_PASSWORD}`) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const claims = await prisma.claim.findMany({
       orderBy: { createdAt: 'desc' },
     });
+
     return NextResponse.json(claims);
+
   } catch (error) {
-    console.error('Database Error:', error);
-    return NextResponse.json({ error: 'Failed to fetch claims' }, { status: 500 });
+    console.error("Admin API Error:", error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
 
-// PUT: ステータスの更新（承認処理）
 export async function PUT(request: Request) {
-  if (!isAuthenticated(request)) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
   try {
+    const authHeader = request.headers.get('authorization');
+    if (authHeader !== `Bearer ${ADMIN_PASSWORD}`) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const body = await request.json();
     const { id, status } = body;
-
-    if (!id || !status) {
-      return NextResponse.json({ error: 'Missing ID or Status' }, { status: 400 });
-    }
 
     const updatedClaim = await prisma.claim.update({
       where: { id },
@@ -48,7 +44,6 @@ export async function PUT(request: Request) {
 
     return NextResponse.json(updatedClaim);
   } catch (error) {
-    console.error('Update Error:', error);
-    return NextResponse.json({ error: 'Failed to update claim' }, { status: 500 });
+    return NextResponse.json({ error: 'Update Failed' }, { status: 500 });
   }
 }
