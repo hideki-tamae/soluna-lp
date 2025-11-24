@@ -83,7 +83,7 @@ const RoadmapCTA = () => {
               {/* ヘッドライン: 誰よりも早く体験する */}
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 新たな社会OSを、<br className="md:hidden" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300">誰よりも早く体験する。</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300">誰よりも早く体験</span>
               </h2>
               
               {/* サブコピー: 優先搭乗チケット */}
