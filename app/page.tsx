@@ -74,7 +74,7 @@ export default function HeroSection() {
             <div className="w-12 h-12 mb-6 rounded-full bg-pink-500/20 flex items-center justify-center text-pink-300 group-hover:scale-110 transition-transform duration-500">
               <Users size={24} />
             </div>
-            <h3 className="text-lg font-bold mb-3 text-gray-100">未来を共創するケアの推進者へ</h3>
+            <h3 className="text-lg font-bold mb-3 text-gray-100">未来を共創するケア推進者へ</h3>
             <p className="text-sm text-gray-400 leading-relaxed">
               ACES Care Hub JAPANの活動に参画し、「優しさが価値となる」ケア資本主義の実現に貢献しませんか。
               あなたの行動が、新しい文明を形作る力となります。
