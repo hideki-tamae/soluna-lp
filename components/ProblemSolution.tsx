@@ -10,23 +10,22 @@ const ProblemSolution = () => {
       <div className="relative py-24 bg-[#0a0a0a] border-b border-white/5">
         <div className="max-w-4xl mx-auto px-6 text-center">
           
-          {/* 課題の提起 (修正: 人たちが -> 人が) */}
+          {/* 課題の提起 */}
           <h2 className="text-2xl md:text-4xl font-serif font-medium text-slate-500 leading-relaxed tracking-wide mb-10">
             なぜ、もっとも優しい人が<br />
             もっとも<span className="text-slate-300 border-b border-slate-600 pb-1">傷つかなければならない</span>のか？
           </h2>
 
           <p className="text-base md:text-lg text-slate-600 leading-8 md:leading-9 font-serif mb-12">
-            {/* 修正: 「ケア」が、の読点削除 */}
-            誰かのために尽くす「ケア」が評価されず、消費され見えないまま埋もれていく。<br className="hidden md:block" />
-            孤立の中で抱える痛み（ACEs）は、個人の責任として切り捨てられる。<br />
-            <br />
-            {/* 修正: 構造的バグ、改行位置 */}
+            誰かのために尽くす「ケア」が評価されず、消費され見えないまま埋もれていく。
+            <br /><br /> {/* ← 修正: ここに空白行を追加し、呼吸を整える */}
+            孤立の中で抱える痛み（ACEs）は、個人の責任として切り捨てられる。
+            <br /><br /> {/* ← 既存の空白行 */}
             これが、私たちが生きる現代社会OSの<br className="md:hidden" />
             「構造的バグ」です。
           </p>
 
-          {/* 追加: エモーショナルコピー (修正: その削除、1行化) */}
+          {/* エモーショナルコピー */}
           <p className="text-base md:text-lg text-slate-400 font-serif italic mb-16 opacity-80">
             「あなたの優しさは弱さではありません。<br />
             世界を再生する、唯一無二の力です。」
