@@ -1,4 +1,3 @@
-// components/GlobalEcosystem.tsx
 import React from 'react';
 
 const GlobalEcosystem = () => {
@@ -17,8 +16,10 @@ const GlobalEcosystem = () => {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         {/* --- セクションヘッダー --- */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-white to-purple-200 mb-6">
-            共鳴する世界、実装される優しさ。
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-white to-purple-200 mb-6 leading-tight">
+            共鳴する世界、
+            <br className="md:hidden" /> {/* ← 【魔法の改行】スマホのみ有効、PCでは無視されます */}
+            実装される優しさ。
           </h2>
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
             国境を超えた集合知と、Web3テクノロジーが融合。<br className="hidden md:block" />
@@ -63,6 +64,17 @@ const GlobalEcosystem = () => {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* --- 追加のパートナーロゴエリア --- */}
+        <div className="mt-20 pt-10 border-t border-white/5">
+            <p className="text-center text-sm text-slate-500 mb-8">POWERED BY GLOBAL STANDARDS</p>
+            <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <span className="text-xl font-bold text-white">Ethereum</span>
+                <span className="text-xl font-bold text-white">Next.js</span>
+                <span className="text-xl font-bold text-white">Supabase</span>
+                <span className="text-xl font-bold text-white">Vercel</span>
+            </div>
         </div>
       </div>
     </section>

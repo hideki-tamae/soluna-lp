@@ -38,10 +38,12 @@ export default function LandingTop() {
           <span className="text-slate-400">SOLUNA</span> <span className="font-bold text-white">Proof-of-Care</span> Token
         </div>
 
-        {/* リードコピー */}
+        {/* リードコピー (モバイル改行修正済み) */}
         <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
           優しさが制度になる文明へ。<br />
-          AI・Web3・福祉を統合し、見えない「ケア」を価値として証明する新たな社会OS。
+          AI・Web3・福祉を統合し、見えない「ケア」を価値として証明する
+          <br className="md:hidden" />
+          <span className="inline-block">新たな社会OS。</span>
         </p>
 
         {/* アクションボタン */}
@@ -63,7 +65,7 @@ export default function LandingTop() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S13.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
               </svg>
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Re-Verse世界を五感で巡る</h3>
+            <h3 className="text-xl font-bold text-white mb-3">五感で旅する、新たな文明</h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               世界185ヶ国以上に響く音楽、心を揺さぶるデジタルアート、そして没入感あふれるVR展示。Re-Verseが織りなす新たな文明の物語を、あなたの感覚で深くご体験ください。
             </p>
