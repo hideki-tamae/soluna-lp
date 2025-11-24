@@ -1,122 +1,102 @@
-// components/LandingTop.tsx
-// 10/22夜の仕様に戻しつつ、ヒーロー文を「メタバース美術館」に、動画をDay3に差し替え済み。
+import React from 'react';
 
-export default function ランディングトップ() {
+export default function LandingTop() {
   return (
-    <main className="min-h-dvh bg-black text-white">
-      {/* HERO（ロゴは layout.tsx 側で表示） */}
-      <section className="mx-auto max-w-6xl px-4 pt-10 pb-8">
-        <p className="text-xs tracking-widest opacity-70">RE-VERSE NETWORK</p>
-        <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
-          Re-Verse Civilization / SOLUNAケア・トークン
+    <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-[#020617]">
+      
+      {/* --- 背景グラデーション (Midnight Blue & Aurora) --- */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* ベースの青黒いグラデーション */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e1b4b] to-[#020617]" />
+        
+        {/* オーロラのような光 (中央) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-indigo-500/20 blur-[120px] rounded-full opacity-60 mix-blend-screen animate-pulse-slow" />
+        
+        {/* アクセントのシアン (右上) */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-cyan-500/10 blur-[100px] rounded-full opacity-40" />
+      </div>
+
+      {/* --- コンテンツエリア --- */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-24">
+        
+        {/* PUBLIC BETA バッジ */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-400/30 bg-purple-500/10 backdrop-blur-md mb-8">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+          </span>
+          <span className="text-xs font-semibold tracking-widest text-purple-200 uppercase">
+            Public Beta Coming Soon
+          </span>
+        </div>
+
+        {/* メインタイトル */}
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4 drop-shadow-lg">
+          Re-Verse Civilization
         </h1>
-        <p className="mt-4 max-w-3xl leading-relaxed opacity-90">
-          「優しさが制度になる」世界へ。Proof-of-Care™で貢献を可視化し、書籍・NFT・音楽・
-          <span className="font-semibold">メタバース美術館</span>・コミュニティを横断したケア資本主義の土台をつくります。
+        <div className="text-2xl md:text-4xl font-serif italic text-slate-300 mb-8">
+          <span className="text-slate-400">SOLUNA</span> <span className="font-bold text-white">Proof-of-Care</span> Token
+        </div>
+
+        {/* リードコピー */}
+        <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
+          優しさが制度になる文明へ。<br />
+          AI・Web3・福祉を統合し、見えない「ケア」を価値として証明する新たな社会OS。
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-12 items-center">
-          <a
-            href="/teaser"
-            className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium bg-white text-black hover:opacity-90 transition"
-          >
-            ティーザーの一覧を見る
+        {/* アクションボタン */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+          <a href="#" className="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold hover:shadow-[0_0_20px_rgba(124,58,237,0.5)] transition-all transform hover:-translate-y-1">
+            Whitepaperを読む →
           </a>
-          <a
-            href="#"
-            className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium border hover:opacity-90 transition"
-          >
-            読者の方はこちら（合言葉）
+          <a href="#" className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white font-medium backdrop-blur-sm hover:bg-white/10 transition-all">
+            世界観を体験する
           </a>
         </div>
-      </section>
 
-      {/* 1/2/3 の3カード（10/22構成） */}
-      <section className="mx-auto max-w-6xl px-4">
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* 1. 世界観に触れる */}
-          <div className="rounded-3xl border/30 border px-6 py-5">
-            <h3 className="font-semibold mb-2">1. 世界観に触れる（聴く・観る）</h3>
-            <div className="space-y-2 text-sm">
-              <a
-                className="block underline opacity-90 hover:opacity-100"
-                href="https://acescare.fanlink.tv/hidekitamae?fbclid=IwY2xjawNm_L9leHRuA2FlbQIxMABicmlkETExeTJoNFpVQ05pb0sxS2s2AR6BPfTBwZoP0nm9UeDFfjqHHz-xFrUqTHxxgPCS5gUGPTFVD8Jc7J9YbhcmbQ_aem_ck7AuB_l6RPBOCl4nm5dDw"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                音楽（世界185カ国以上で配信中）
-              </a>
-              <a
-                className="block underline opacity-90 hover:opacity-100"
-                href="https://oncyber.io/spaces/0DCUetEBicRPi0fem1WM?coords=-2.07x2.85x5.14x1.58"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                メタバース美術館（Healing Ukiyo-e 3D）
-              </a>
+        {/* 3つのカード (New Version) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          {/* Card 1 */}
+          <div className="p-8 rounded-2xl bg-[#0f172a]/50 border border-white/10 backdrop-blur-md hover:border-cyan-500/30 transition-colors group">
+            <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center mb-6 text-indigo-300 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S13.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+              </svg>
             </div>
+            <h3 className="text-xl font-bold text-white mb-3">Re-Verseの世界を五感で巡る</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              世界185ヶ国以上に響く音楽、心を揺さぶるデジタルアート、そして没入感あふれるVR展示。Re-Verseが織りなす新たな文明の物語を、あなたの感覚で深くご体験ください。
+            </p>
           </div>
 
-          {/* 2. 参加する（段組み＆Tally） */}
-          <div className="rounded-3xl border/30 border px-6 py-5">
-            <h3 className="font-semibold mb-2">2. プロジェクトに参加する（繋がる）</h3>
-            <div className="space-y-2 text-sm">
-              <a
-                href="https://aces-care-hub-site-ru8w.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block underline opacity-90 hover:opacity-100"
-              >
-                ACEs Care HUB JAPANの活動（プロジェクト）
-              </a>
-              <a
-                className="block underline opacity-90 hover:opacity-100"
-                href="https://tally.so/r/wM9JVY"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                β参加フォーム（共創の第一歩）
-              </a>
+          {/* Card 2 */}
+          <div className="p-8 rounded-2xl bg-[#0f172a]/50 border border-white/10 backdrop-blur-md hover:border-purple-500/30 transition-colors group">
+            <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-6 text-purple-300 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 5.272m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+              </svg>
             </div>
+            <h3 className="text-xl font-bold text-white mb-3">未来を共創するケアの推進者へ</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              ACES Care Hub JAPANの活動に参加し、「優しさが価値となる」ケア資本主義の実現に貢献しませんか。あなたの行動が、新しい文明を形作る力となります。
+            </p>
           </div>
 
-          {/* 3. 議論の場（間にラジオ） */}
-          <div className="rounded-3xl border/30 border px-6 py-5">
-            <h3 className="font-semibold mb-2">3. オープンな議論の場</h3>
-            <div className="space-y-2 text-sm">
-              <a
-                className="block underline opacity-90 hover:opacity-100"
-                href="https://discord.gg/PBwPNBfE"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Web3公民館で共同議論に参加
-              </a>
-              <a
-                className="block underline opacity-90 hover:opacity-100"
-                href="https://open.spotify.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                リバース・ラジオ（Spotify・準備中）
-              </a>
-              <div className="opacity-80">月次レポート（構築中・随時更新）</div>
+          {/* Card 3 */}
+          <div className="p-8 rounded-2xl bg-[#0f172a]/50 border border-white/10 backdrop-blur-md hover:border-emerald-500/30 transition-colors group">
+            <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mb-6 text-emerald-300 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+              </svg>
             </div>
+            <h3 className="text-xl font-bold text-white mb-3">集合知が紡ぐ、文明の羅針盤</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Web3公民館にて、トークンの活用方針やDAOのルール設計について、未来を見据えた活発な議論に参加できます。知恵を共有し、Re-Verseの基盤を共に築きましょう。
+            </p>
           </div>
         </div>
-      </section>
 
-      {/* ティーザー動画（Day3） */}
-      <section className="mx-auto max-w-6xl px-4 py-10 space-y-6">
-        <h2 className="text-2xl md:text-3xl font-bold">ティーザー動画（Day3）</h2>
-        <video
-          controls
-          src="/8s_a_dramatic_202510231252_mj6zk.mp4"
-          className="w-full max-w-5xl aspect-video rounded-2xl border"
-          preload="metadata"
-          playsInline
-        />
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
