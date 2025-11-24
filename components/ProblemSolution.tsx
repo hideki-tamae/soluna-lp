@@ -6,29 +6,29 @@ const ProblemSolution = () => {
       
       {/* ==============================================
           PART 1: THE PROBLEM (Shadow / Old World)
-          テーマ: 消費される優しさ、孤立、モノクローム
       ============================================== */}
       <div className="relative py-24 bg-[#0a0a0a] border-b border-white/5">
         <div className="max-w-4xl mx-auto px-6 text-center">
           
-          {/* 課題の提起 (修正: 優しい人たち、下線強調) */}
+          {/* 課題の提起 (修正: 人たちが -> 人が) */}
           <h2 className="text-2xl md:text-4xl font-serif font-medium text-slate-500 leading-relaxed tracking-wide mb-10">
-            なぜ、もっとも優しい人たちが<br />
+            なぜ、もっとも優しい人が<br />
             もっとも<span className="text-slate-300 border-b border-slate-600 pb-1">傷つかなければならない</span>のか？
           </h2>
 
           <p className="text-base md:text-lg text-slate-600 leading-8 md:leading-9 font-serif mb-12">
-            {/* 修正: 読点を削除 */}
-            誰かのために尽くす「ケア」が、評価されず、消費され見えないまま埋もれていく。<br className="hidden md:block" />
+            {/* 修正: 「ケア」が、の読点削除 */}
+            誰かのために尽くす「ケア」が評価されず、消費され見えないまま埋もれていく。<br className="hidden md:block" />
             孤立の中で抱える痛み（ACEs）は、個人の責任として切り捨てられる。<br />
             <br />
-            {/* 修正: 現代社会OS */}
-            これが、私たちが生きる現代社会OSの「バグ」です。
+            {/* 修正: 構造的バグ、改行位置 */}
+            これが、私たちが生きる現代社会OSの<br className="md:hidden" />
+            「構造的バグ」です。
           </p>
 
-          {/* 追加: エモーショナルコピー (修正: 再生する) */}
+          {/* 追加: エモーショナルコピー (修正: その削除、1行化) */}
           <p className="text-base md:text-lg text-slate-400 font-serif italic mb-16 opacity-80">
-            「あなたのその優しさは、弱さではありません。<br className="md:hidden" />
+            「あなたの優しさは弱さではありません。<br />
             世界を再生する、唯一無二の力です。」
           </p>
 
@@ -40,7 +40,6 @@ const ProblemSolution = () => {
 
       {/* ==============================================
           PART 2: THE SOLUTION (Light / Re-Verse World)
-          テーマ: 資産となる優しさ、連携、オーロラ
       ============================================== */}
       <div className="relative py-32 bg-slate-900 overflow-hidden">
         
@@ -49,7 +48,7 @@ const ProblemSolution = () => {
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
           
-          {/* 反転の宣言 (アイコンなし、テキストのみ) */}
+          {/* 反転の宣言 */}
           <div className="inline-block mb-6 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-900/20 text-cyan-300 text-xs tracking-widest uppercase">
             The Great Inversion
           </div>
@@ -61,14 +60,14 @@ const ProblemSolution = () => {
           <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-20">
             見えない「痛み」を癒やし、見えない「ケア」を価値に変える。<br className="hidden md:block" />
             Re-Verse Civilizationは、優しさが循環する
-            <br className="md:hidden" /> {/* 修正: ここで改行 */}
+            <br className="md:hidden" />
             新たな経済圏です。
           </p>
 
-          {/* 3つの解決策 (アイコン変更・テキスト修正版) */}
+          {/* 3つの解決策 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             
-            {/* Feature 1: Proof of Care (Icon: Hexagon/Cube) */}
+            {/* Feature 1: Proof of Care */}
             <div className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-cyan-500/30 transition-all duration-300 group">
               <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mb-6 text-cyan-300 group-hover:scale-110 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -81,7 +80,7 @@ const ProblemSolution = () => {
               </p>
             </div>
 
-            {/* Feature 2: AI Care Partner (Icon: Spark/Brain) */}
+            {/* Feature 2: AI Care Partner */}
             <div className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300 group">
               <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center mb-6 text-purple-300 group-hover:scale-110 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -94,7 +93,7 @@ const ProblemSolution = () => {
               </p>
             </div>
 
-            {/* Feature 3: Well-being Democracy (Icon: Users/Handshake) */}
+            {/* Feature 3: Well-being Democracy */}
             <div className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-emerald-500/30 transition-all duration-300 group">
               <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mb-6 text-emerald-300 group-hover:scale-110 transition-transform">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -103,7 +102,6 @@ const ProblemSolution = () => {
               </div>
               <h3 className="text-xl font-bold text-white mb-3">Well-being Democracy</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                {/* 修正: 民主主義を New Social Standard へ */}
                 競争ではなく、共創へ。誰もが「自分らしく」あることが社会貢献になる、New Social Standard。
               </p>
             </div>
