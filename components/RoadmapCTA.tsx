@@ -1,4 +1,3 @@
-// components/RoadmapCTA.tsx
 import React from 'react';
 
 const RoadmapCTA = () => {
@@ -73,7 +72,7 @@ const RoadmapCTA = () => {
         </div>
 
 
-        {/* --- CTA SECTION --- */}
+        {/* --- CTA SECTION (Updated) --- */}
         <div className="relative rounded-3xl p-1 bg-gradient-to-br from-cyan-500 via-purple-500 to-indigo-500">
           <div className="relative rounded-[20px] bg-[#0f172a] px-8 py-16 md:py-24 text-center overflow-hidden">
             
@@ -81,13 +80,17 @@ const RoadmapCTA = () => {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-500/20 blur-[80px] rounded-full pointer-events-none" />
 
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                文明の<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300">初期住民</span>になる。
+              {/* ヘッドライン: 誰よりも早く体験する */}
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                新たな社会OSを、<br className="md:hidden" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300">誰よりも早く体験する。</span>
               </h2>
-              <p className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
-                Re-Verse Civilizationは、まだ始まったばかりです。<br />
-                β版への先行アクセス権や、限定コミュニティへの招待を受け取るには、<br className="hidden md:block"/>
-                ウェイティングリストに登録してください。
+              
+              {/* サブコピー: 優先搭乗チケット */}
+              <p className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                優しさが資産になる世界線へ。<br />
+                β版の先行利用権や、開発の裏側が見れる限定コミュニティへの<br className="hidden md:block"/>
+                「優先搭乗チケット」を手に入れましょう。
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -100,7 +103,7 @@ const RoadmapCTA = () => {
                   β版 参加申し込み（無料）
                 </a>
                 <a 
-                  href="https://discord.gg/your-link" // ※Discordリンクがあればここに入れる。なければボタン削除も可
+                  href="#" // ※Discordリンクがあればここに入れる
                   className="w-full sm:w-auto px-10 py-4 rounded-full border border-white/20 bg-white/5 text-white font-medium hover:bg-white/10 transition-all"
                 >
                   Discordに参加する
