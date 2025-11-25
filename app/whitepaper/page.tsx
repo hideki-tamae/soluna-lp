@@ -29,7 +29,7 @@ const WhitepaperPage = () => {
             I. 序論・ビジョン<br className="sm:hidden" /> (Vision & Problem)
           </h2>
 
-          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">Web3.0とブロックチェーン誕生背景</h3>{/* 🚩 修正 1: 「の」を削除 */}
+          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">Web3.0とブロックチェーン誕生背景</h3>
           <p className="mb-8">Web3.0は、巨大プラットフォームが情報を独占し、個人の価値が中央集権的にコントロールされるWeb2.0の限界に対するアンチテーゼとして誕生しました。その核心的な目的は、特定の管理者に依存しない非中央集権性（Decentralization）と、改ざんや隠蔽が不可能な透明性と信頼性（Trustlessness）の確立です。</p>
           
           <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">SOLUNAへの接続</h3>
@@ -61,17 +61,34 @@ const WhitepaperPage = () => {
             <li>Decentralized OS: 中央集権的な管理を排除し、透明なプログラムが公平な分配と秩序を自動執行します。</li>
           </ol>
 
-          {/* ... (以下、技術セクションの表とガバナンスが続く) ... */}
-
           <hr className="my-10 border-indigo-700" />
 
           {/* III. 技術とプロトコル */}
           <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4">III. 技術とプロトコル (Technology & Protocol)</h2>
-          {/* ... 表と段落 ... */}
           
           <h3>トークンエコノミー ($SLN$ 設計)</h3>
-          {/* ... 表のデータ ... */}
-
+          <table className="w-full text-left border-collapse table-auto my-6">
+            <thead>
+              <tr className="border-b border-indigo-600">
+                <th className="py-2 px-4">項目</th>
+                <th className="py-2 px-4">設定</th>
+                <th className="py-2 px-4">役割</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-white/10">
+                <td className="py-2 px-4">ティッカー</td>
+                <td className="py-2 px-4">$SLN</td>
+                <td className="py-2 px-4">報酬、ガバナンス、サービスアクセス権。</td>
+              </tr>
+              <tr>
+                <td className="py-2 px-4">総供給量</td>
+                <td className="py-2 px-4">1,000,000,000 SLN (10億枚)</td>
+                <td className="py-2 px-4">エコシステムへの広範な配布と流動性確保。</td>
+              </tr>
+            </tbody>
+          </table>
+          
           <h3>資金調達と持続可能性</h3>
           <p className="mb-8">プロジェクトの公共性を担保するため、初期資金調達の一部としてクラウドファンディングを計画しています。調達資金は、一般社団法人設立費用やガバナンス機構の構築費用、および開発・運営の初期費用に充当されます。</p>
 
@@ -80,16 +97,47 @@ const WhitepaperPage = () => {
 
           <hr className="my-10 border-indigo-700" />
 
-          {/* IV. ロードマップとガバナンス */}
+          {/* IV. ロードマップとガバナンス - 構造統一化 */}
           <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4">
-            IV. ロードマップとガバナンス
+            IV. ロードマップとガバナンス (Roadmap & Governance)
           </h2>
           
-          {/* 🚩 修正 2: ロードマップ直下の副題を結合し、間延びを解消 */}
+          {/* 修正 2: ロードマップ直下の副題を結合し、間延びを解消 */}
           <h3 className="text-xl md:text-2xl font-semibold mt-0 mb-3">Milestones and Timeline</h3>
           {/* ... 表のデータ ... */}
+          <table className="w-full text-left border-collapse table-auto my-6">
+            <thead>
+              <tr className="border-b border-indigo-600">
+                <th className="py-2 px-4">フェーズ</th>
+                <th className="py-2 px-4">期間</th>
+                <th className="py-2 px-4">開発目標 (マイルストーン)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-white/10">
+                <td className="py-2 px-4">Phase 0-1</td>
+                <td className="py-2 px-4">完了済</td>
+                <td className="py-2 px-4">技術的完全稼働（ERC-20実装、Backend構築、Vercelデプロイ完了）</td>
+              </tr>
+              <tr className="border-b border-white/10">
+                <td className="py-2 px-4">Phase 2 (制度設計)</td>
+                <td className="py-2 px-4">2026年 Q1-Q2</td>
+                <td className="py-2 px-4">クラウドファンディング/シード調達成功後、制度設計を加速し、セキュリティ監査を完了。</td>
+              </tr>
+              <tr className="border-b border-white/10">
+                <td className="py-2 px-4">一般社団法人設立</td>
+                <td className="py-2 px-4">2026年 Q2以降</td>
+                <td className="py-2 px-4">ガバナンス構造の構築と、公共機関との連携準備。</td>
+              </tr>
+              <tr>
+                <td className="py-2 px-4">正式リリース</td>
+                <td className="py-2 px-4">2026年 Q2（4月〜6月）</td>
+                <td className="py-2 px-4">安全性と制度設計の完了を最優先。</td>
+              </tr>
+            </tbody>
+          </table>
 
-          {/* 🚩 修正 3: ガバナンスの構造をシンプル化 */}
+          {/* 修正 3: ガバナンスの構造をシンプル化 */}
           <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">ガバナンス（統治構造）</h3>
           <br className="sm:hidden" /> {/* 👈 h3と本文の間に入れる改行 */}
 
