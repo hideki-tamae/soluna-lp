@@ -55,7 +55,7 @@ export default function LandingTop() {
         {/* アクションボタン群 */}
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center items-center">
           
-          {/* プライマリーボタン (Whitepaper) */}
+          {/* プライマリーボタン (Whitepaper) - リンク先は /whitepaper で確定 */}
           <Link 
             href="/whitepaper" 
             className="group relative px-8 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-full font-bold text-white transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.5)] hover:shadow-[0_0_30px_rgba(79,70,229,0.7)] hover:-translate-y-1 overflow-hidden"

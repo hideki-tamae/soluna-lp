@@ -2,11 +2,12 @@
 
 import React from "react";
 
-export default function RoadmapCTA() {
-  const handleConnect = () => {
-    console.log("Connect clicked");
-  };
+// Tally FormのURLをここで定義します
+const TALLY_FORM_URL = "https://tally.so/r/wM9JVY"; 
 
+// NOTE: TALLY_FORM_URL はボタンのリンク先として使用します。
+
+export default function RoadmapCTA() {
   return (
     <section className="relative w-full py-24 overflow-hidden">
       {/* 背景装飾 */}
@@ -14,7 +15,7 @@ export default function RoadmapCTA() {
 
       <div className="relative z-10 flex flex-col items-center text-center space-y-8 max-w-2xl mx-auto px-4">
         
-        {/* 1. キャッチコピー：一行表示のためにフォントサイズを調整＆改行削除 */}
+        {/* 1. キャッチコピー */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-purple-200 drop-shadow-sm whitespace-nowrap">
           その優しさを、資産に。
         </h2>
@@ -25,10 +26,12 @@ export default function RoadmapCTA() {
           ここから書き換える。
         </p>
 
-        {/* 3. ボタン */}
+        {/* 3. 🚩 修正箇所: Tallyフォームの埋め込みを、元のリンクボタンに戻す */}
         <div className="w-full flex justify-center pt-4">
-          <button
-            onClick={handleConnect}
+          <a
+            href={TALLY_FORM_URL} // Tallyフォームのリンクを適用
+            target="_blank" // 外部サイトのため新しいタブで開く
+            rel="noopener noreferrer"
             className="
               group relative w-full max-w-sm overflow-hidden rounded-xl
               bg-gradient-to-r from-blue-600 to-purple-600 
@@ -49,19 +52,16 @@ export default function RoadmapCTA() {
               </span>
             </div>
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
-          </button>
+          </a>
         </div>
 
-　　　　<p className="text-xs text-slate-500 mt-4 leading-relaxed">
-   　　 ※ SOLUNAは、Ethereum Sepolia Network 上で稼働する<br /> {/* 1行目と2行目の間に改行 */}
-   　　“透明性・分配・インセンティブ”を再設計した<br /> {/* 2行目と3行目の間に改行 */}
+        {/* 4. 補足（技術的な注釈） */}
+        <p className="text-xs text-slate-500 mt-4 leading-relaxed">
+   　　 ※ SOLUNAは、Ethereum Sepolia Network 上で稼働する<br />
+   　　“透明性・分配・インセンティブ”を再設計した<br />
     　分散型の社会インフラ〈Soluna Proto-Mainnet〉です。
 　　　</p>
       </div>
     </section>
   );
 }
-
-
-
-
