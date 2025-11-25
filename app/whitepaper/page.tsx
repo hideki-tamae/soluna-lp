@@ -38,7 +38,8 @@ const WhitepaperPage = () => {
           <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">ビジョンとミッション</h3>
           <p className="mb-8">SOLUNAは、AI・Web3・福祉・国際政策を統合し、「優しさが制度として機能する文明（Re-Verse Civilization）」を設計します。究極的な目標は、社会の痛みを構造で反転させ、全ての参加者がケアの提供者として報われる、持続可能な経済圏を構築することです。</p>
 
-          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">世界の成功企業が持つ構造との共通性</h3>
+          {/* 修正箇所：グローバル企業が採用する戦略骨子 */}
+          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">グローバル企業が採用する戦略骨子</h3>
           <p className="mb-8">世界の巨大企業は、例外なく「制度（ルール）」を味方にした構造で収益を爆増させています。Googleの検索アルゴリズムのように、市場における「法律」を作った者が勝つという原理です。SOLUNAの「ケアが制度になる文明OS」は、この成功企業の『制度モデル』をコアに持っています。</p>
 
           <hr className="my-10 border-indigo-700" />
@@ -82,10 +83,16 @@ const WhitepaperPage = () => {
           {/* IV. ロードマップとガバナンス */}
           <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4">IV. ロードマップとガバナンス</h2>
           
-          <h3>ロードマップ (Milestones and Timeline)</h3>
+          {/* 修正箇所 3: h3の前に空白行を追加 */}
+          <br className="sm:hidden" />
+          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">Milestones and Timeline</h3>
           {/* ... 表のデータ ... */}
 
-          <h3>ガバナンス（統治構造）</h3>
+          {/* 修正箇所 4: h3の前に空白行を追加 */}
+          <br className="sm:hidden" />
+          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">ガバナンス（統治構造）</h3>
+          <br className="sm:hidden" /> {/* 👈 ここは以前からの、h3と本文の間に入れる改行 */}
+
           <p className="mb-8">初期体制はプロジェクトコアチーム（Initiative Lead）による集中的な意思決定。将来的な公共トラスト層として一般社団法人 ACEs Care HUB JAPAN を位置づけ、資金調達の完了をもって2026年Q2に設立を計画。</p>
           <p>最終目標は、Phase 3移行時に、Decentralized Governance (DAO)への移行を完了し、トークン保有者による自律分散型の意思決定を確立することです。</p>
 
