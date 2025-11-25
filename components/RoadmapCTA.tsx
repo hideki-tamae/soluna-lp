@@ -1,125 +1,74 @@
-import React from 'react';
+"use client";
 
-const RoadmapCTA = () => {
+import React from "react";
+
+export default function RoadmapCTA() {
+
+  // ▼ ここにボタンを押した時の処理を書きます
+  // もし以前のコードで wallet connect の処理などがあればここに書き戻してください
+  const handleConnect = () => {
+    console.log("Connect clicked");
+    // 例: ウォレット接続モーダルを開く、またはフォームへ遷移する処理
+    // openConnectModal(); 
+  };
+
   return (
-    <section className="relative py-24 bg-[#020617] overflow-hidden">
-      
-      {/* 背景装飾: 終着点へ向かう光のライン */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-[#020617] to-[#020617]" />
-      
-      <div className="relative max-w-5xl mx-auto px-6">
+    <section className="relative w-full py-24 overflow-hidden">
+      {/* 背景装飾（必要に応じて調整してください） */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-blue-900/5 to-purple-900/10 pointer-events-none" />
+
+      {/* ▼ ここからが先ほどの修正デザイン部分です */}
+      <div className="relative z-10 flex flex-col items-center text-center space-y-8 max-w-2xl mx-auto px-4">
         
-        {/* --- ROADMAP SECTION --- */}
-        <div className="mb-32">
-          <h2 className="text-3xl md:text-5xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 to-purple-200 mb-16">
-            Roadmap to Re-Verse
-          </h2>
+        {/* 1. キャッチコピー */}
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-purple-200 drop-shadow-sm">
+          その優しさが、<br className="md:hidden" />
+          資産になる文明へ。
+        </h2>
 
-          <div className="relative">
-            {/* タイムラインの中央線 */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500/50 via-purple-500/50 to-transparent md:-translate-x-1/2" />
+        {/* 2. リード文 */}
+        <p className="text-lg md:text-xl text-blue-100/80 font-medium leading-relaxed max-w-lg">
+          報われない世界を、<br className="md:hidden" />
+          ここから書き換える。
+        </p>
 
-            <div className="space-y-12">
+        {/* 3. ボタン */}
+        <div className="w-full flex justify-center pt-4">
+          <button
+            onClick={handleConnect}
+            className="
+              group relative w-full max-w-sm overflow-hidden rounded-xl
+              bg-gradient-to-r from-blue-600 to-purple-600 
+              p-1 shadow-[0_0_40px_-10px_rgba(79,70,229,0.5)] 
+              transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_-15px_rgba(79,70,229,0.7)]
+            "
+          >
+            <div className="
+              relative flex flex-col items-center justify-center 
+              rounded-[10px] bg-black/20 backdrop-blur-sm 
+              px-8 py-4 transition-all duration-300 group-hover:bg-transparent
+            ">
+              {/* メインテキスト */}
+              <span className="text-xl md:text-2xl font-bold text-white tracking-widest mb-1">
+                第1期・市民先行登録
+              </span>
               
-              {/* Phase 1: Current */}
-              <div className="relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 group">
-                <div className="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
-                  <h3 className="text-xl font-bold text-cyan-300 mb-2">2025 Q4</h3>
-                  <p className="text-slate-400 text-sm">Community Building & System Audit</p>
-                  <p className="text-slate-500 text-xs mt-1">コミュニティ形成・セキュリティ監査・法務調整</p>
-                </div>
-                {/* Center Point */}
-                <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.6)] -translate-x-1/2 order-1 md:order-2 z-10" />
-                <div className="md:w-1/2 md:pl-12 order-3">
-                  <div className="inline-block px-3 py-1 rounded-full bg-cyan-900/30 border border-cyan-500/30 text-cyan-200 text-xs font-semibold">
-                    CURRENT PHASE
-                  </div>
-                </div>
-              </div>
-
-              {/* Phase 2: Beta Launch */}
-              <div className="relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 group">
-                <div className="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
-                  <div className="hidden md:block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs inline-block">
-                    UPCOMING
-                  </div>
-                </div>
-                {/* Center Point */}
-                <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-slate-700 border border-slate-500 -translate-x-1/2 order-1 md:order-2 z-10 group-hover:bg-purple-500 group-hover:border-purple-300 transition-colors" />
-                <div className="md:w-1/2 md:pl-12 order-3">
-                  <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors mb-2">2025 Dec - 2026 Jan</h3>
-                  <p className="text-slate-400 text-sm">Public Beta Launch</p>
-                  <p className="text-slate-500 text-xs mt-1">SOLUNAアプリ β版公開・初期サポーター募集開始</p>
-                </div>
-              </div>
-
-              {/* Phase 3: Token Generation */}
-              <div className="relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0 group">
-                <div className="md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
-                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors mb-2">2026 Q1</h3>
-                  <p className="text-slate-400 text-sm">Token Generation Event (TGE)</p>
-                  <p className="text-slate-500 text-xs mt-1">SOLUNAトークン発行・エコシステム本格稼働</p>
-                </div>
-                {/* Center Point */}
-                <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-slate-700 border border-slate-500 -translate-x-1/2 order-1 md:order-2 z-10 group-hover:bg-emerald-500 group-hover:border-emerald-300 transition-colors" />
-                <div className="md:w-1/2 md:pl-12 order-3">
-                   {/* Empty for balance */}
-                </div>
-              </div>
-
+              {/* サブテキスト */}
+              <span className="text-xs md:text-sm font-medium text-blue-100/90 tracking-wider">
+                （無料・β版アクセス権）
+              </span>
             </div>
-          </div>
-        </div>
-
-
-        {/* --- CTA SECTION (Updated) --- */}
-        <div className="relative rounded-3xl p-1 bg-gradient-to-br from-cyan-500 via-purple-500 to-indigo-500">
-          <div className="relative rounded-[20px] bg-[#0f172a] px-8 py-16 md:py-24 text-center overflow-hidden">
             
-            {/* Background Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-500/20 blur-[80px] rounded-full pointer-events-none" />
-
-            <div className="relative z-10">
-              {/* ヘッドライン: 誰よりも早く体験する */}
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                新たな社会OSを、<br className="md:hidden" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-300">誰よりも早く体験</span>
-              </h2>
-              
-              {/* サブコピー: 優先搭乗チケット */}
-              <p className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-                優しさが資産になる世界線へ。<br />
-                β版の先行利用権や、開発の裏側が見れる限定コミュニティへの<br className="hidden md:block"/>
-                「優先搭乗チケット」を手に入れましょう。
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a 
-                  href="https://tally.so/r/wM9JVY" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-10 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-cyan-50 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
-                >
-                  β版 参加申し込み（無料）
-                </a>
-                <a 
-                  href="#" // ※Discordリンクがあればここに入れる
-                  className="w-full sm:w-auto px-10 py-4 rounded-full border border-white/20 bg-white/5 text-white font-medium hover:bg-white/10 transition-all"
-                >
-                  Discordに参加する
-                </a>
-              </div>
-              
-              <p className="mt-8 text-xs text-slate-500">
-                ※ 登録は無料です。いつでも解除できます。
-              </p>
-            </div>
-          </div>
+            {/* 光のアニメーション */}
+            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:animate-[shimmer_1.5s_infinite]" />
+          </button>
         </div>
 
+        {/* 補足 */}
+        <p className="text-xs text-slate-500 mt-4">
+          ※ SOLUNAはEthereum Sepolia Testnet上で稼働する分散型社会OSです。
+        </p>
       </div>
     </section>
   );
-};
-
-export default RoadmapCTA;
+}
