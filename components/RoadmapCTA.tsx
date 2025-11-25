@@ -4,26 +4,23 @@ import React from "react";
 
 export default function RoadmapCTA() {
 
-  // ▼ ここにボタンを押した時の処理を書きます
-  // もし以前のコードで wallet connect の処理などがあればここに書き戻してください
+  // ▼ ボタンを押した時の処理（接続モーダル表示など）
   const handleConnect = () => {
     console.log("Connect clicked");
-    // 例: ウォレット接続モーダルを開く、またはフォームへ遷移する処理
     // openConnectModal(); 
   };
 
   return (
     <section className="relative w-full py-24 overflow-hidden">
-      {/* 背景装飾（必要に応じて調整してください） */}
+      {/* 背景装飾 */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-blue-900/5 to-purple-900/10 pointer-events-none" />
 
-      {/* ▼ ここからが先ほどの修正デザイン部分です */}
       <div className="relative z-10 flex flex-col items-center text-center space-y-8 max-w-2xl mx-auto px-4">
         
-        {/* 1. キャッチコピー */}
+        {/* 1. キャッチコピー：最強の「体言止め」で断定する */}
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-purple-200 drop-shadow-sm">
           その優しさが、<br className="md:hidden" />
-          資産になる文明へ。
+          資産に。
         </h2>
 
         {/* 2. リード文 */}
@@ -64,9 +61,10 @@ export default function RoadmapCTA() {
           </button>
         </div>
 
-        {/* 補足 */}
-        <p className="text-xs text-slate-500 mt-4">
-          ※ SOLUNAはEthereum Sepolia Testnet上で稼働する分散型社会OSです。
+        {/* 補足：モバイルで見やすいように改行を追加 */}
+        <p className="text-xs text-slate-500 mt-4 leading-relaxed">
+          ※ SOLUNAはEthereum Sepolia Testnet上で稼働する<br className="md:hidden" />
+          分散型社会OSです。
         </p>
       </div>
     </section>
