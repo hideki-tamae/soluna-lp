@@ -66,22 +66,30 @@ const GlobalEcosystem = () => {
           </div>
         </div>
 
-        {/* --- 追加のパートナーロゴエリア (6つに増強) --- */}
+        {/* --- パートナーロゴエリア --- */}
         <div className="mt-20 pt-10 border-t border-white/5">
-            <p className="text-center text-sm text-slate-500 mb-8 tracking-widest uppercase">Powered by Global Standards</p>
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center justify-items-center opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+            {/* 🚩 修正箇所 1: 信頼性を訴求するキャッチフレーズの強化 */}
+            <p className="text-center text-lg md:text-xl text-white font-semibold tracking-widest uppercase mb-4">
+                POWERED BY GLOBAL STANDARDS
+            </p>
+            <p className="text-center text-sm text-slate-500 mb-8 max-w-2xl mx-auto">
+                透明性の高い分散型台帳技術と世界的な開発ツールの上に構築されています。
+            </p>
+
+            {/* 🚩 修正箇所 2: ロゴサイズを大きくし、存在感を強調 */}
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center justify-items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                 {/* Ethereum */}
-                <span className="text-lg md:text-xl font-bold text-white">Ethereum</span>
+                <span className="text-xl md:text-3xl font-bold text-white">Ethereum</span>
                 {/* Next.js */}
-                <span className="text-lg md:text-xl font-bold text-white">Next.js</span>
+                <span className="text-xl md:text-3xl font-bold text-white">Next.js</span>
                 {/* Supabase */}
-                <span className="text-lg md:text-xl font-bold text-white">Supabase</span>
+                <span className="text-xl md:text-3xl font-bold text-white">Supabase</span>
                 {/* Prisma (New) */}
-                <span className="text-lg md:text-xl font-bold text-white">Prisma</span>
+                <span className="text-xl md:text-3xl font-bold text-white">Prisma</span>
                 {/* MetaMask (New) */}
-                <span className="text-lg md:text-xl font-bold text-white">MetaMask</span>
+                <span className="text-xl md:text-3xl font-bold text-white">MetaMask</span>
                 {/* Vercel */}
-                <span className="text-lg md:text-xl font-bold text-white">Vercel</span>
+                <span className="text-xl md:text-3xl font-bold text-white">Vercel</span>
             </div>
         </div>
       </div>

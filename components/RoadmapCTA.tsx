@@ -52,12 +52,16 @@ export default function RoadmapCTA() {
           </button>
         </div>
 
-        {/* 補足 */}
-        <p className="text-xs text-slate-500 mt-4 leading-relaxed">
-          ※ SOLUNAはEthereum Sepolia Testnet上で稼働する<br className="md:hidden" />
-          分散型社会OSです。
-        </p>
+　　　　<p className="text-xs text-slate-500 mt-4 leading-relaxed">
+   　　 ※ SOLUNAは、Ethereum Sepolia Network 上で稼働する<br /> {/* 1行目と2行目の間に改行 */}
+   　　“透明性・分配・インセンティブ”を再設計した<br /> {/* 2行目と3行目の間に改行 */}
+    　分散型の社会インフラ〈Soluna Proto-Mainnet〉です。
+　　　</p>
       </div>
     </section>
   );
 }
+
+
+
+

@@ -1,75 +1,86 @@
-"use client";
-
-import React from "react";
-import Link from "next/link"; // Next.jsのLinkを使う場合
+import React from 'react';
+import Link from 'next/link';
 
 export default function LandingTop() {
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#030305] pt-20">
+    <section className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center text-white bg-[#0B0C15]">
       
-      {/* --- 🪐 惑星ビジュアル & 宇宙背景 (World-Class Visuals) --- */}
+      {/* 1. 背景画像レイヤー (World Class Visual) */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: "url('/header-bg.jpg')", // 作成した画像
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+
+      {/* 2. オーバーレイ (Atmosphere Layer) */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-black/50 to-[#0B0C15]/90" />
+
+      {/* 3. メインコンテンツ (Hero Content) */}
       
-      {/* 1. 星々（背景のノイズ） */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
-
-      {/* 2. メインの惑星（巨大な光の弧） */}
-      <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[180vw] h-[180vw] md:w-[120vw] md:h-[120vw] rounded-full bg-gradient-to-b from-blue-900/10 via-[#0b0b1e] to-[#030305] shadow-[0_20px_100px_rgba(59,130,246,0.1)] border-b border-white/5 blur-sm" />
-
-      {/* 3. 惑星の縁（リムライト）：青と紫のグラデーションで「反転」を表現 */}
-      <div className="absolute top-[15%] left-1/2 -translate-x-1/2 w-[100vw] h-[100px] bg-blue-500/30 blur-[100px] mix-blend-screen" />
-      <div className="absolute top-[10%] left-1/3 w-[600px] h-[600px] bg-purple-600/10 blur-[120px] rounded-full mix-blend-screen" />
-      <div className="absolute top-[10%] right-1/3 w-[600px] h-[600px] bg-blue-600/10 blur-[120px] rounded-full mix-blend-screen" />
-
-      {/* --- コンテンツ --- */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-5xl mx-auto mt-[-5vh]">
+      {/* 🚩 ロゴはLayout/Headerファイルで定義されているため、ここでは記述しません */}
+      
+      <div className="relative z-20 container mx-auto px-4 flex flex-col items-center text-center">
         
-        {/* Tagline */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs md:text-sm font-medium text-blue-200/80 backdrop-blur-md mb-8 hover:bg-white/10 transition-colors cursor-default">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500"></span>
+        {/* バッジ: グラスモーフィズム（磨りガラス）エフェクト */}
+        <div className="mb-8 inline-flex items-center px-5 py-2 rounded-full border border-indigo-500/30 bg-indigo-900/20 backdrop-blur-md shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+          <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse mr-3"></span>
+          <span className="text-sm font-medium tracking-widest text-indigo-200">
+            PUBLIC BETA COMING SOON
           </span>
-          PUBLIC BETA COMING SOON
         </div>
 
-        {/* Main Title */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white mb-6 drop-shadow-2xl">
+        {/* メインタイトルのドロップシャドウを強化 */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 drop-shadow-[0_4px_6px_rgba(0,0,0,0.9)]">
           Re-Verse Civilization
         </h1>
 
-        {/* Sub Title with Gradient */}
-        <p className="text-xl md:text-3xl font-bold tracking-wide text-blue-100/90 mb-8">
-          SOLUNA <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-extrabold italic">Proof-of-Care</span> Token
+        {/* サブタイトルのドロップシャドウを強化 */}
+        <p className="text-xl md:text-3xl font-light text-indigo-100 mb-8 tracking-wide drop-shadow-md">
+          <span className="font-semibold text-white">SOLUNA</span>{' '}
+          <span className="italic font-serif text-indigo-300">Proof-of-Care</span>{' '}
+          Token
         </p>
 
-        {/* Description */}
-        <p className="max-w-2xl text-sm md:text-base text-slate-400 leading-relaxed mb-10">
-          優しさが「制度」になる文明へ。<br className="hidden md:block" />
+        {/* 説明文 */}
+        <p className="max-w-2xl text-base md:text-lg text-gray-300 leading-relaxed mb-10 mx-auto">
+          優しさが制度になる文明へ。<br className="hidden md:block" />
           AI・Web3・福祉を統合し、見えない「ケア」を価値として証明する<br className="hidden md:block" />
           新たな社会OS。
         </p>
 
-        {/* CTA Buttons */}
+        {/* アクションボタン群 */}
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center items-center">
-          <button className="group relative px-8 py-4 rounded-full bg-blue-600 text-white font-bold text-lg shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_60px_-15px_rgba(59,130,246,0.7)]">
-            <span className="relative z-10 flex items-center gap-2">
+          
+          {/* プライマリーボタン (Whitepaper) */}
+          <Link 
+            href="/whitepaper" 
+            className="group relative px-8 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-full font-bold text-white transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.5)] hover:shadow-[0_0_30px_rgba(79,70,229,0.7)] hover:-translate-y-1 overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center">
               Whitepaperを読む
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+              <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </button>
+            {/* 光沢アニメーション */}
+            <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0"></div>
+          </Link>
 
-          <button className="px-8 py-4 rounded-full border border-white/10 bg-white/5 text-white font-medium hover:bg-white/10 transition-all backdrop-blur-sm">
+          {/* セカンダリーボタン (体験する) */}
+          <button className="px-8 py-4 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white font-medium transition-all duration-300 hover:border-white/50">
             世界観を体験する
           </button>
         </div>
 
       </div>
 
-      {/* --- ボトムフェード（下のセクションと馴染ませる） --- */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#030305] to-transparent pointer-events-none" />
+      {/* 装飾: 画面下部のスクロールインジケーター */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce text-white/50">
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+      </div>
+
     </section>
   );
 }

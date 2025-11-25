@@ -19,7 +19,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* 左：ロゴ + サイト名 */}
               <a href="/" className="flex items-center gap-2 opacity-90 hover:opacity-100 transition">
                 <img src="/logo.png" alt="ACEs Care HUB JAPAN" className="h-6 w-6 rounded" />
-                <span className="text-xs md:text-sm font-semibold tracking-wide">ACES Care HUB JAPAN</span>
+                <span className="text-indigo-200/90 drop-shadow-sm">ACES Care HUB JAPAN</span>
+
               </a>
 
               {/* 右：ナビ（修正箇所） */}
