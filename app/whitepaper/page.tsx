@@ -29,7 +29,7 @@ const WhitepaperPage = () => {
             I. 序論・ビジョン<br className="sm:hidden" /> (Vision & Problem)
           </h2>
 
-          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">Web3.0とブロックチェーンの誕生背景</h3>
+          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">Web3.0とブロックチェーン誕生背景</h3>{/* 🚩 修正 1: 「の」を削除 */}
           <p className="mb-8">Web3.0は、巨大プラットフォームが情報を独占し、個人の価値が中央集権的にコントロールされるWeb2.0の限界に対するアンチテーゼとして誕生しました。その核心的な目的は、特定の管理者に依存しない非中央集権性（Decentralization）と、改ざんや隠蔽が不可能な透明性と信頼性（Trustlessness）の確立です。</p>
           
           <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">SOLUNAへの接続</h3>
@@ -81,17 +81,17 @@ const WhitepaperPage = () => {
           <hr className="my-10 border-indigo-700" />
 
           {/* IV. ロードマップとガバナンス */}
-          <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4">IV. ロードマップとガバナンス</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4">
+            IV. ロードマップとガバナンス
+          </h2>
           
-          {/* 修正箇所 3: h3の前に空白行を追加 */}
-          <br className="sm:hidden" />
-          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">Milestones and Timeline</h3>
+          {/* 🚩 修正 2: ロードマップ直下の副題を結合し、間延びを解消 */}
+          <h3 className="text-xl md:text-2xl font-semibold mt-0 mb-3">Milestones and Timeline</h3>
           {/* ... 表のデータ ... */}
 
-          {/* 修正箇所 4: h3の前に空白行を追加 */}
-          <br className="sm:hidden" />
+          {/* 🚩 修正 3: ガバナンスの構造をシンプル化 */}
           <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">ガバナンス（統治構造）</h3>
-          <br className="sm:hidden" /> {/* 👈 ここは以前からの、h3と本文の間に入れる改行 */}
+          <br className="sm:hidden" /> {/* 👈 h3と本文の間に入れる改行 */}
 
           <p className="mb-8">初期体制はプロジェクトコアチーム（Initiative Lead）による集中的な意思決定。将来的な公共トラスト層として一般社団法人 ACEs Care HUB JAPAN を位置づけ、資金調達の完了をもって2026年Q2に設立を計画。</p>
           <p>最終目標は、Phase 3移行時に、Decentralized Governance (DAO)への移行を完了し、トークン保有者による自律分散型の意思決定を確立することです。</p>
