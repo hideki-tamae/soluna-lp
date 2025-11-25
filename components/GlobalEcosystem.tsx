@@ -72,10 +72,9 @@ const GlobalEcosystem = () => {
             <p className="text-center text-lg md:text-xl text-white font-semibold tracking-widest uppercase mb-4">
                 POWERED BY GLOBAL STANDARDS
             </p>
-　　　　　　　　<p className="text-sm md:text-lg text-blue-100/70 font-medium">
-  　　　　　　透明性の高い分散型台帳技術と世界的な<br className="sm:hidden" />開発ツールの上に構築されています。
-　　　　　　　</p>
-
+            <p className="text-center text-sm text-slate-500 mb-8 max-w-2xl mx-auto">
+                透明性の高い分散型台帳技術と世界的な開発ツールの上に構築されています。
+            </p>
 
             {/* 🚩 修正箇所 2: ロゴサイズを大きくし、存在感を強調 */}
             <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center justify-items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
