@@ -68,12 +68,11 @@ const GlobalEcosystem = () => {
 
         {/* --- パートナーロゴエリア --- */}
         <div className="mt-20 pt-10 border-t border-white/5">
-            {/* 🚩 修正箇所 1: 信頼性を訴求するキャッチフレーズの強化 */}
             <p className="text-center text-lg md:text-xl text-white font-semibold tracking-widest uppercase mb-4">
                 POWERED BY GLOBAL STANDARDS
             </p>
             <p className="text-center text-sm text-slate-500 mb-8 max-w-2xl mx-auto">
-                透明性の高い分散型台帳技術と世界的な開発ツールの上に構築されています。
+                透明性の高い分散型台帳技術と世界的な<br className="sm:hidden" />開発ツールの上に構築されています。
             </p>
 
             {/* 🚩 修正箇所 2: ロゴサイズを大きくし、存在感を強調 */}
