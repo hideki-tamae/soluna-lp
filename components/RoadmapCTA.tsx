@@ -16,7 +16,7 @@ export default function RoadmapCTA() {
         
         {/* 1. キャッチコピー：一行表示のためにフォントサイズを調整＆改行削除 */}
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-purple-200 drop-shadow-sm whitespace-nowrap">
-          その優しさが、資産に。
+          その優しさを、資産に。
         </h2>
 
         {/* 2. リード文 */}
