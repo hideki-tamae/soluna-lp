@@ -24,11 +24,17 @@ const WhitepaperPage = () => {
           <p>SOLUNAは、「優しさ（ケア）」を経済的価値として証明・循環させるWeb3ネイティブな「ケア資本主義（Care Capitalism）」を実装するプロジェクトです。従来の経済システムでは評価不能であった社会貢献や相互扶助の行動（PoC: Proof-of-Care）を、ブロックチェーン上で追跡・証明し、トークン（$SLN$）を通じてインセンティブとして還元します。本プロジェクトは、技術的完全性と国際政策との連携を前提とした、次世代の社会OS（Civilization OS）の基盤を提供します。</p>
 
           <hr className="my-10 border-indigo-700" />
+          
+　　　　　　　// app/whitepaper/page.tsx の該当箇所
 
-          {/* I. 序論・ビジョン */}
-          <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4">I. 序論・ビジョン (Vision & Problem)</h2>
+　　　　　　　　<h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4">
+  　　　　　　　I. 序論・ビジョン<br className="sm:hidden" /> (Vision & Problem)
+　　　　　　　</h2>
 
-          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">Web3.0とブロックチェーンの誕生背景</h3>
+
+
+
+          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">Web3.0とブロックチェーン誕生背景</h3>
           <p>Web3.0は、巨大プラットフォームが情報を独占し、個人の価値が中央集権的にコントロールされるWeb2.0の限界に対するアンチテーゼとして誕生しました。その核心的な目的は、特定の管理者に依存しない非中央集権性（Decentralization）と、改ざんや隠蔽が不可能な透明性と信頼性（Trustlessness）の確立です。</p>
           
           <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">SOLUNAへの接続</h3>
@@ -37,22 +43,31 @@ const WhitepaperPage = () => {
           <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">ビジョンとミッション</h3>
           <p>SOLUNAは、AI・Web3・福祉・国際政策を統合し、「優しさが制度として機能する文明（Re-Verse Civilization）」を設計します。究極的な目標は、社会の痛みを構造で反転させ、全ての参加者がケアの提供者として報われる、持続可能な経済圏を構築することです。</p>
 
-          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">世界の成功企業が持つ構造との共通性</h3>
+          <h3 className="text-xl md:text-2xl font-semibold mt-6 mb-3">世界の成功企業が持つ構造の共通性</h3>
           <p>世界の巨大企業は、例外なく「制度（ルール）」を味方にした構造で収益を爆増させています。Googleの検索アルゴリズムのように、市場における「法律」を作った者が勝つという原理です。SOLUNAの「ケアが制度になる文明OS」は、この成功企業の『制度モデル』をコアに持っています。</p>
 
           <hr className="my-10 border-indigo-700" />
           
-          {/* II. コアコンセプト・哲学 */}
-          <h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4">II. コアコンセプト・哲学 (The SOLUNA Philosophy)</h2>
           
-          <h3>Proof-of-Care (PoC) の定義</h3>
-          <p>PoCは、従来のPoWやPoSと異なり、ブロックチェーン上で証明された「優しさ、貢献、相互扶助」の行動履歴です。AIとWeb3技術により、行動の質と量を測定し、これを$SLN$ トークンによって評価・報酬化します。</p>
+          // app/whitepaper/page.tsx の該当箇所
+
+　　　　　　　{/* II. コアコンセプト・哲学 */}
+　　　　　　　<h2 className="text-2xl md:text-3xl font-bold mt-10 mb-4">
+  　　　　　　II. コアコンセプト・哲学<br className="sm:hidden" /> (The SOLUNA Philosophy)
+　　　　　　　</h2>
           
+         // app/whitepaper/page.tsx の該当箇所
+
+            <h3>Proof-of-Care (PoC) の定義</h3>
+           <p className="mb-8"> {/* 🚩 修正箇所: ここに mb-8 を追加 */}
+           PoCは、従来のPoWやPoSと異なり、ブロックチェーン上で証明された「優しさ、貢献、相互扶助」の行動履歴です。AIとWeb3技術により、行動の質と量を測定し、これを$SLN$ トークンによって評価・報酬化します。
+           </p>
+
           <h3>三大原則</h3>
           <ol className="list-decimal pl-5 space-y-3">
-            <li>**Proof of Care**: あなたのケアの実践を、ブロックチェーン上の不可逆な記録として証明。優しさが「資産」として蓄積されます。</li>
-            <li>**Value of Kindness**: 自己犠牲ではなく、正当な対価へ。トークンエコノミーにより、誰かを助ける行為が、経済的にも報われる社会へ。</li>
-            <li>**Decentralized OS**: 中央集権的な管理を排除し、透明なプログラムが公平な分配と秩序を自動執行します。</li>
+            <li>Proof of Care: あなたのケアの実践を、ブロックチェーン上の不可逆な記録として証明。優しさが「資産」として蓄積されます。</li>
+            <li>Value of Kindness: 自己犠牲ではなく、正当な対価へ。トークンエコノミーにより、誰かを助ける行為が、経済的にも報われる社会へ。</li>
+            <li>Decentralized OS: 中央集権的な管理を排除し、透明なプログラムが公平な分配と秩序を自動執行します。</li>
           </ol>
 
           <hr className="my-10 border-indigo-700" />
@@ -87,7 +102,7 @@ const WhitepaperPage = () => {
           <p>プロジェクトの公共性を担保するため、初期資金調達の一部としてクラウドファンディングを計画しています。調達資金は、一般社団法人設立費用やガバナンス機構の構築費用、および開発・運営の初期費用に充当されます。</p>
 
           <h3>APIエコシステムによる収益化</h3>
-          <p>SOLUNAは、PoC APIを通じて永続的な収益源を確立します。収益モデルは、API接続した自治体、医療機関、NPO、企業のCSR部門などに対し、StripeやOpenAIと同様の従量課金モデルを適用し、継続的な収益を生み出します。</p>
+          <p>SOLUNAは、PoC APIを通じて永続的な収益源を確立します。収益モデルは、API接続した自治体、医療機関、NPO、企業のCSR部門などに対し、StripeやOpenAIと同様の従量課金モデルを適用し継続的な収益を生み出します。</p>
 
           <hr className="my-10 border-indigo-700" />
 
@@ -127,9 +142,18 @@ const WhitepaperPage = () => {
             </tbody>
           </table>
 
-          <h3>ガバナンス（統治構造）</h3>
-          <p>初期体制はプロジェクトコアチーム（Initiative Lead）による集中的な意思決定。将来的な公共トラスト層として一般社団法人 ACEs Care HUB JAPAN を位置づけ、資金調達の完了をもって2026年Q2に設立を計画。</p>
-          <p>最終目標は、Phase 3移行時に、Decentralized Governance (DAO)への移行を完了し、トークン保有者による自律分散型の意思決定を確立することです。</p>
+          
+　　　　　　　　　　// app/whitepaper/page.tsx の該当箇所
+
+　　　　　　　　<h3>ガバナンス（統治構造）</h3>
+　　　　　　<p className="mb-8"> {/* 🚩 修正箇所: ここに mb-8 を追加 */}
+  　　　　初期体制はプロジェクトコアチーム（Initiative Lead）による集中的な意思決定。将来的な公共トラスト層として一般社団法人 ACEs Care HUB JAPAN を位置づけ、資金調達の完了をもって2026年Q2に設立を計画。
+　　　　　</p>
+          
+　　　　　　<p>
+  　　　　最終目標は、Phase 3移行時に、Decentralized Governance (DAO)への移行を完了し、トークン保有者による自律分散型の意思決定を確立することです。
+</p>
+
 
           
           {/* 🚩 修正箇所: 署名ブロックの統合 */}
