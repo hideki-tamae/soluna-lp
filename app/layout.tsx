@@ -1,5 +1,7 @@
 import "./globals.css"; 
 import { WagmiProvider } from './WagmiProvider'; 
+// ▼ 新しく作ったFooterコンポーネントを読み込み
+import Footer from '@/components/Footer'; 
 
 export const metadata = {
   title: "Re-Verse Civilization / SOLUNA",
@@ -9,31 +11,42 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body className="bg-black text-white">
-        {/* WagmiProviderは body の中に入れるのがベストプラクティスです */}
+      <body className="bg-black text-white antialiased">
         <WagmiProvider>
           
-          {/* ===== Header（共通） ===== */}
-          <header className="w-full border-b border-white/10 bg-black/50 backdrop-blur-md sticky top-0 z-50">
-            <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-              {/* 左：ロゴ + サイト名 */}
-              <a href="/" className="flex items-center gap-2 opacity-90 hover:opacity-100 transition">
-                <img src="/logo.png" alt="ACEs Care HUB JAPAN" className="h-6 w-6 rounded" />
-                <span className="text-indigo-200/90 drop-shadow-sm">ACES Care HUB JAPAN</span>
-
+          {/* ===== Header（視認性向上版） ===== */}
+          {/* 背景を少し濃く(bg-black/80)し、文字をはっきりさせました */}
+          <header className="w-full border-b border-white/10 bg-black/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+            <div className="mx-auto max-w-6xl px-5 py-4 flex items-center justify-between">
+              
+              {/* 左：ロゴ + サイト名（サイズアップ） */}
+              <a href="/" className="flex items-center gap-3 opacity-100 hover:opacity-80 transition group">
+                <img 
+                  src="/logo.png" 
+                  alt="ACEs Care HUB JAPAN" 
+                  className="h-8 w-8 rounded shadow-lg group-hover:scale-105 transition-transform" 
+                />
+                <span className="text-white font-bold tracking-wide text-sm md:text-base drop-shadow-md">
+                  ACES Care HUB JAPAN
+                </span>
               </a>
 
-              {/* 右：ナビ（修正箇所） */}
-              <nav className="flex items-center gap-4 md:gap-6">
+              {/* 右：ナビ（サイズアップ & リンク修正） */}
+              <nav className="flex items-center gap-5 md:gap-8">
+                {/* 共創参加 -> Tallyフォームへ (別タブ) */}
                 <a 
-                  href="/claim" 
-                  className="text-xs md:text-sm font-medium opacity-80 hover:opacity-100 transition-colors"
+                  href="https://tally.so/r/wM9JVY" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-bold text-gray-300 hover:text-cyan-400 transition-colors tracking-wider"
                 >
                   共創参加
                 </a>
+                
+                {/* 読者限定 -> アプリ内Claimページへ */}
                 <a 
-                  href="/thanks" 
-                  className="text-xs md:text-sm font-medium opacity-80 hover:opacity-100 transition-colors"
+                  href="/claim" 
+                  className="text-sm font-bold text-gray-300 hover:text-gold transition-colors tracking-wider"
                 >
                   読者限定
                 </a>
@@ -44,32 +57,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* コンテンツ */}
           {children}
 
-          {/* ===== Footer（共通） ===== */}
-          <footer className="w-full border-t border-white/10 bg-black">
-            <div className="mx-auto max-w-6xl px-4 py-6 flex flex-col md:flex-row items-center justify-between text-xs md:text-sm gap-4 md:gap-0">
-              {/* 左下 */}
-              <div className="opacity-70">© 2025 ACEs Care HUB JAPAN</div>
-              {/* 右下 */}
-              <div className="flex items-center gap-6">
-                <a
-                  href="https://tally.so/r/wM9JVY"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="opacity-80 hover:opacity-100 transition-colors"
-                >
-                  β参加フォーム
-                </a>
-                <a
-                  href="https://aces-care-hub-site-ru8w.vercel.app/legal/tokushoho"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="opacity-80 hover:opacity-100 transition-colors"
-                >
-                  特定商取引法
-                </a>
-              </div>
-            </div>
-          </footer>
+          {/* ===== Footer（コンポーネント読込） ===== */}
+          {/* components/Footer.tsx が全ページで自動表示されます。
+             規約・プライバシーポリシーへのリンクもここに含まれています。
+          */}
+          <Footer />
           
         </WagmiProvider>
       </body>
