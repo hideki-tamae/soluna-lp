@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
+// KDPリンクを定数として定義
+const KDP_LINK_URL = "https://x.gd/8YyVc";
+
 export default function LandingTop() {
   return (
     <section className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center text-white bg-[#0B0C15]">
@@ -20,8 +23,6 @@ export default function LandingTop() {
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-black/50 to-[#0B0C15]/90" />
 
       {/* 3. メインコンテンツ (Hero Content) */}
-      
-      {/* 🚩 ロゴはLayout/Headerファイルで定義されているため、ここでは記述しません */}
       
       <div className="relative z-20 container mx-auto px-4 flex flex-col items-center text-center">
         
@@ -55,7 +56,7 @@ export default function LandingTop() {
         {/* アクションボタン群 */}
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center items-center">
           
-          {/* プライマリーボタン (Whitepaper) - リンク先は /whitepaper で確定 */}
+          {/* プライマリーボタン (Whitepaper) - グラデーションを維持 */}
           <Link 
             href="/whitepaper" 
             className="group relative px-8 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-full font-bold text-white transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.5)] hover:shadow-[0_0_30px_rgba(79,70,229,0.7)] hover:-translate-y-1 overflow-hidden"
@@ -68,10 +69,17 @@ export default function LandingTop() {
             <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent z-0"></div>
           </Link>
 
-          {/* セカンダリーボタン (体験する) */}
-          <button className="px-8 py-4 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white font-medium transition-all duration-300 hover:border-white/50">
-            世界観を体験する
-          </button>
+          {/* セカンダリーボタン (Kindleで体験) - 控えめなスタイルに戻し、コピーを短縮 */}
+          <a
+            href={KDP_LINK_URL} // KDPリンクを適用
+            target="_blank" // 外部サイトなので別タブで開く
+            rel="noopener noreferrer"
+            // 🚩 修正: セカンダリスタイルに戻す
+            className="px-8 py-4 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white font-medium transition-all duration-300 hover:border-white/50"
+          >
+            {/* 🚩 修正: コピーを「Kindleで体験」に変更 */}
+            Kindleで体験
+          </a>
         </div>
 
       </div>
