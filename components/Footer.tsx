@@ -2,7 +2,8 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="w-full py-10 text-center bg-black border-t border-gray-900 mt-20">
+    // 🚩 修正: mt-20 を削除し、上部マージンを RoadmapCTA 側に任せる
+    <footer className="w-full py-10 text-center bg-black border-t border-gray-900">
       <div className="flex flex-col items-center gap-6">
         
         {/* Copyright */}
@@ -36,7 +37,7 @@ export default function Footer() {
 
           <span className="text-gray-800">|</span>
 
-          {/* 特定商取引法 (以前のFooterにあったため念のため維持) */}
+          {/* 特定商取引法 */}
           <a 
             href="https://aces-care-hub-site-ru8w.vercel.app/legal/tokushoho"
             target="_blank"

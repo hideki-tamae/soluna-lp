@@ -9,7 +9,8 @@ const TALLY_FORM_URL = "https://tally.so/r/wM9JVY";
 
 export default function RoadmapCTA() {
   return (
-    <section className="relative w-full py-24 overflow-hidden">
+    // 🚩 修正: py-20 に戻し、フッターとの適切な間隔を確保
+    <section className="relative w-full py-20 overflow-hidden">
       {/* 背景装飾 */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-blue-900/5 to-purple-900/10 pointer-events-none" />
 
@@ -26,7 +27,7 @@ export default function RoadmapCTA() {
           ここから書き換える。
         </p>
 
-        {/* 3. 🚩 修正箇所: Tallyフォームの埋め込みを、元のリンクボタンに戻す */}
+        {/* 3. CTAリンクボタン */}
         <div className="w-full flex justify-center pt-4">
           <a
             href={TALLY_FORM_URL} // Tallyフォームのリンクを適用
@@ -56,7 +57,7 @@ export default function RoadmapCTA() {
         </div>
 
         {/* 4. 補足（技術的な注釈） */}
-        <p className="text-xs text-slate-500 mt-4 leading-relaxed">
+        <p className="text-xs text-slate-500 mt-8 leading-relaxed">
    　　 ※ SOLUNAは、Ethereum Sepolia Network 上で稼働する<br />
    　　“透明性・分配・インセンティブ”を再設計した<br />
     　分散型の社会インフラ〈Soluna Proto-Mainnet〉です。
@@ -64,4 +65,4 @@ export default function RoadmapCTA() {
       </div>
     </section>
   );
-}
+} 
