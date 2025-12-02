@@ -1,42 +1,25 @@
-import LandingTop from '@/components/LandingTop';
-import GlobalEcosystem from '@/components/GlobalEcosystem';
-import ProblemSolution from '@/components/ProblemSolution';
-import RoadmapCTA from '@/components/RoadmapCTA';
-
-// 信頼性証明と社会実装フェーズのコンポーネントをインポート
-import ArchitectProfile from '@/components/ArchitectProfile';
-import BetaRecruitment from '@/components/BetaRecruitment';
-import TransparencySection from '@/components/TransparencySection';
+import HeroSection from '@/components/HeroSection';
 import PolicySection from '@/components/PolicySection';
+// 他に必要なセクションコンポーネントがあればここにインポートします。
+// 例: import OtherSection from '@/components/OtherSection';
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen">
+    // 【メインコンテナ】
+    <div className="min-h-screen bg-gray-900 text-white">
       
-      {/* 1. トップセクション / ヒーロー */}
-      <LandingTop />
-      
-      {/* 2. 既存コンテンツセクション */}
-      <GlobalEcosystem />
-      <ProblemSolution />
-      
-      {/* 3. CTA（市民先行登録） - フッター直前のセクション */}
-      <RoadmapCTA />
-      
-      {/* ===== 信頼性証明と社会実装セクション（Public Dashboardの核） ===== */}
-      
-      {/* 4. βテスター募集要項の組み込み */}
-      <BetaRecruitment /> 
+      {/* === 1. ヒーローセクション（動画背景） === */}
+      <HeroSection />
 
-      {/* 5. Architectプロフィールの組み込み (専門性・信頼性の証明) */}
-      <ArchitectProfile />
-
-      {/* 政策提言セクションの組み込み */}
+      {/* === 2. 政策提言セクション（ダウンロードボタン含む） === */}
       <PolicySection />
 
-      {/* 6. 透明性レポートの組み込み (監査・技術的健全性の証明) */}
-      <TransparencySection />
+      {/* === 3. 他のセクションがあればここに配置 === */}
+      {/* <OtherSection /> */}
+      
+      {/* --- フッター部分 (ここでは省略、PolicySection/app/page.tsx の下部にあるはずです) --- */}
+      {/* このコンポーネントにフッターが含まれていない場合、別途フッターコンポーネントをインポート＆配置してください。 */}
 
-    </main>
-  );
+    </div>
+  )
 }
