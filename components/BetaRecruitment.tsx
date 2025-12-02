@@ -34,13 +34,13 @@ const BetaRecruitment = () => {
             {
               role: "Protocol Engineer",
               color: "indigo",
-              persona: "Web3技術者、セキュリティ監査人、フロントエンドエンジニア",
+              // 👇 ここを修正しました：インフラエンジニアも含めたフルスタックな表現に変更
+              persona: "Web3技術者、セキュリティ監査人、フルスタックエンジニア（フロント/バックエンド/インフラ）",
               contribution: "Claim基盤、HMAC/Nonceロジック、ウォレット接続の技術的な脆弱性およびUXの検証。"
             },
             {
               role: "Care Pioneer",
               color: "cyan",
-              // 👇 ここを修正しました
               persona: "ACEs、ヤングケアラー、当事者家族、福祉従事者",
               contribution: "Claimの体験が、実際のケア現場や生活においてどれほど意味を持つか、感情的なフィードバックを提供。"
             }
