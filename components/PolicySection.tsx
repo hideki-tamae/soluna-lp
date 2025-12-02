@@ -1,7 +1,15 @@
 "use client";
 import React from 'react';
 
+// 日本語版PDFの最適化リンク (修正済み)
+const JAPANESE_PDF_LINK = "https://drive.google.com/file/d/1I0u0UUFZ55Y4bP9KDH3uTd_AYfdTh__n/preview";
+// 英語版PDFの最適化リンク (修正済み)
+const ENGLISH_PDF_LINK = "https://drive.google.com/file/d/1ui6YdsxmN1lNR6umLwR3kcajTGDIm46S/preview";
+
+
 const PolicySection = () => {
+  // 以前の言語切り替えロジック (isJapanese) は、JP/EN両方のダウンロードボタンを表示するために削除されました。
+  
   return (
     <section className="relative bg-black py-32 px-4 overflow-hidden">
       {/* 背景装飾 */}
@@ -22,14 +30,43 @@ const PolicySection = () => {
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-br from-white via-emerald-100 to-emerald-300 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               政策提言：SOLUNA Protocol
             </h2>
-            <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto font-light">
+            <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto font-light mb-10">
               「助けて」と言えない。制度の網にかからない。<br />
               トリプル・アイソレーションにある家庭へ、Web3技術で支援を届ける。<br />
               これは慈善事業ではなく、<span className="text-white font-medium border-b border-emerald-500/50">国家OSの再設計図</span>です。
             </p>
+            
+            {/* 科学的根拠 & 画像エリア (変更なし) */}
+            <div className="max-w-4xl mx-auto bg-black/40 border border-emerald-500/20 rounded-xl overflow-hidden mb-12">
+              <div className="p-6 border-b border-emerald-500/10 flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                <div className="p-3 bg-emerald-900/30 rounded-full text-emerald-400">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                </div>
+                <div>
+                  <p className="text-sm text-emerald-100 font-light">
+                    本提言は、公衆衛生学の世界的権威 <span className="font-semibold text-white">Johns Hopkins University</span> のデータと、<br className="hidden md:inline"/>最新のレジリエンス研究（<span className="font-semibold text-white">University of Minnesota</span>）に基づいています。
+                  </p>
+                </div>
+              </div>
+              
+              {/* 画像の表示 */}
+              <div className="relative group">
+                {/* publicフォルダにある jirei.jpg を表示 */}
+                <img 
+                  src="/jirei.jpg" 
+                  alt="東京都におけるリスク起因死亡数（2021年）" 
+                  className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-4 pt-12">
+                  <p className="text-[10px] md:text-xs text-gray-300 font-light leading-relaxed">
+                    図1：東京都における生産年齢人口（15-49歳）のリスク起因死亡数（2021年）。「自傷」の割合の高さは、ACEsと毒性ストレスの長期的影響を示唆している。（出所：GBD Compare）
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* 3つの柱 (Premium Design) */}
+          {/* 3つの柱 (変更なし) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 relative z-10">
             
             {/* 1. Immutable Proof */}
@@ -77,25 +114,46 @@ const PolicySection = () => {
           </div>
 
           <div className="text-center border-t border-white/10 pt-10 relative z-10">
-            <p className="text-[10px] text-gray-500 mb-2 uppercase tracking-[0.2em]">INITIATOR</p>
+            {/* INITIATOR表記 (変更なし) */}
+            <p className="text-[10px] text-gray-500 mb-2 uppercase tracking-[0.2em]">
+              Initiator
+            </p>
             <p className="text-white font-medium mb-8">田前 秀樹 <span className="text-gray-500 text-sm font-light ml-2">/ Liberal Arts Architect</span></p>
 
-            <a 
-              href="https://drive.google.com/file/d/1wg9n6ODLIqH7_v1j9NwZnAqRmtJJph5n/view?usp=sharing" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold py-4 px-10 rounded-full transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(16,185,129,0.4)]"
-            >
-              <span className="relative flex h-3 w-3 mr-1">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
-              </span>
-              【完全版】政策提言書を読む (PDF)
-              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </a>
-            <p className="mt-4 text-xs text-gray-500 font-mono">PDF DOWNLOAD • 2.4MB</p>
-          </div>
+            {/* === ここからダウンロードボタン部分 (修正済み - JP/EN両方表示) === */}
+            {/* ダウンロード用のボタンは、ご要望に合わせてJP/ENの2つを並べて表示するように変更しました。 */}
+            <div className="flex justify-center gap-4 flex-wrap">
+              {/* 日本語版ボタン */}
+              <a 
+                href={JAPANESE_PDF_LINK}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] text-sm md:text-base"
+              >
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                </span>
+                【完全版】政策提言書 (日本語)
+                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
 
+              {/* 英語版ボタン */}
+              <a 
+                href={ENGLISH_PDF_LINK}
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 bg-white/10 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] border border-white/20 text-sm md:text-base"
+              >
+                Read the Full Paper (English)
+                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              </a>
+            </div>
+            
+            <p className="mt-4 text-xs text-gray-500 font-mono">PDF DOWNLOAD • 2.4MB</p>
+            {/* ================================================= */}
+
+          </div>
         </div>
       </div>
     </section>
