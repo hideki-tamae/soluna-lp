@@ -1,42 +1,35 @@
-import LandingTop from '@/components/LandingTop';
-import GlobalEcosystem from '@/components/GlobalEcosystem';
-import ProblemSolution from '@/components/ProblemSolution';
-import RoadmapCTA from '@/components/RoadmapCTA';
-
-// 信頼性証明と社会実装フェーズのコンポーネントをインポート
-import ArchitectProfile from '@/components/ArchitectProfile';
-import BetaRecruitment from '@/components/BetaRecruitment';
-import TransparencySection from '@/components/TransparencySection';
+import HeroSection from '@/components/HeroSection';
 import PolicySection from '@/components/PolicySection';
+// 他のコンポーネントがあればインポート
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen">
+    // 【修正】全体背景に header-bg.jpg を固定設定 (bg-fixed)
+    <div 
+      className="min-h-screen text-white bg-fixed bg-cover bg-center"
+      style={{ backgroundImage: "url('/header-bg.jpg')" }}
+    >
       
-      {/* 1. トップセクション / ヒーロー */}
-      <LandingTop />
+      {/* 背景を少し暗くするためのオーバーレイ (必要に応じて) */}
+      <div className="w-full h-full bg-black/40">
       
-      {/* 2. 既存コンテンツセクション */}
-      <GlobalEcosystem />
-      <ProblemSolution />
-      
-      {/* 3. CTA（市民先行登録） - フッター直前のセクション */}
-      <RoadmapCTA />
-      
-      {/* ===== 信頼性証明と社会実装セクション（Public Dashboardの核） ===== */}
-      
-      {/* 4. βテスター募集要項の組み込み */}
-      <BetaRecruitment /> 
+          {/* === 1. ヒーローセクション（動画あり） === */}
+          <HeroSection />
 
-      {/* 5. Architectプロフィールの組み込み (専門性・信頼性の証明) */}
-      <ArchitectProfile />
+          {/* === 2. 政策提言セクション === */}
+          {/* PolicySection自体が透明または半透明なら背景が見えます */}
+          <PolicySection />
 
-      {/* 政策提言セクションの組み込み */}
-      <PolicySection />
-
-      {/* 6. 透明性レポートの組み込み (監査・技術的健全性の証明) */}
-      <TransparencySection />
-
-    </main>
-  );
+          {/* フッターなど他の要素 */}
+          <footer className="bg-black/60 border-t border-white/10 py-8 text-center text-xs text-gray-400">
+             {/* 著作権表記など */}
+             <div className="container mx-auto">
+                 <p>© 2025 Re-Verse Civilization / ACES Care HUB JAPAN</p>
+                 {/* リンク等 */}
+             </div>
+          </footer>
+      
+      </div>
+    </div>
+  )
 }
