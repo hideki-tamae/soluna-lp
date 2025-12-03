@@ -22,24 +22,21 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Discovery Column - 修正箇所 */}
+          {/* Discovery Column */}
           <div className="space-y-6">
             <h3 className="font-bold text-lg">Discovery</h3>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li>
-                {/* 修正: <Link>から<a>へ変更し、/policyへ内部遷移 */}
                 <a href="/policy" className="hover:text-blue-400 transition-colors">
                   SOLUNA Protocol & Policy
                 </a>
               </li>
               <li>
-                {/* 修正: <Link>から<a>へ変更し、/whitepaperへ内部遷移 */}
                 <a href="/whitepaper" className="hover:text-blue-400 transition-colors">
                   Whitepaper (En/Jp)
                 </a>
               </li>
               <li>
-                {/* 外部遷移（Notion） */}
                 <a 
                   href="https://www.notion.so/Public-Dashboard-2ac6197f1e5580699329eca765fce2f2" 
                   target="_blank" 
@@ -52,16 +49,16 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Transparency Column - リンク設定完了済み */}
+          {/* Transparency Column - 修正版（/audit へ同じタブで遷移） */}
           <div className="space-y-6">
             <h3 className="font-bold text-lg">Transparency</h3>
             <ul className="space-y-4 text-gray-400 text-sm">
               
-              {/* Security & Audit (ファイルリンク) */}
+              {/* Security & Audit (監査ページへ) */}
               <li>
                 <a 
-                  href="/audit/report-v1.pdf" 
-                  target="_blank" 
+                  href="/audit"
+                  target="_self" 
                   rel="noopener noreferrer" 
                   className="flex items-center gap-2 group hover:text-blue-400 transition-colors cursor-pointer"
                 >
@@ -72,11 +69,11 @@ const Footer = () => {
                 </a>
               </li>
 
-              {/* Transaction Logs (CSV) (ファイルリンク) */}
+              {/* Transaction Logs (CSV) (監査ページへ) */}
               <li>
                 <a 
-                  href="/admin"
-                  target="_blank" 
+                  href="/audit" 
+                  target="_self" 
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors cursor-pointer"
                 >
@@ -104,19 +101,16 @@ const Footer = () => {
             <h3 className="font-bold text-lg">Legal</h3>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li>
-                {/* 内部遷移（戻るボタンが出る） */}
                 <Link href="/privacy" className="hover:text-blue-400 transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                {/* 内部遷移（戻るボタンが出る） */}
                 <Link href="/terms" className="hover:text-blue-400 transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                {/* 外部遷移（新規タブで開く） */}
                 <a 
                   href="https://aces-care-hub-site-ru8w.vercel.app/legal/tokushoho"
                   target="_blank"
