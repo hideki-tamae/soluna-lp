@@ -75,7 +75,7 @@ const Footer = () => {
               {/* Transaction Logs (CSV) (ファイルリンク) */}
               <li>
                 <a 
-                  href="/logs/tx-latest.csv"
+                  href="/admin"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors cursor-pointer"
