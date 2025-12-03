@@ -1,96 +1,108 @@
 import React from 'react';
+import { Box, Heart, Globe, Layers, Sparkles, Cpu } from 'lucide-react';
 
 const GlobalEcosystem = () => {
-  return (
-    <section className="relative py-24 bg-slate-900 overflow-hidden">
-      {/* --- 背景装飾 (世界地図のメタファー) --- */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* 背景のグロー効果 */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/10 blur-[100px] rounded-full" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 blur-[80px] rounded-full" />
-        
-        {/* グリッドライン */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
-      </div>
+  const features = [
+    {
+      title: "Proof of Care",
+      description: "あなたのケアの実践を、ブロックチェーン上の不可逆な記録として証明。優しさが「資産」として蓄積されます。",
+      // Icon: A hyper-cube representing immutable data
+      icon: (
+        <div className="relative">
+          <Box className="w-12 h-12 text-cyan-400 opacity-80" strokeWidth={1} />
+          <Layers className="absolute top-0 left-0 w-12 h-12 text-blue-500 opacity-50 animate-pulse" strokeWidth={1} />
+        </div>
+      ),
+      gradient: "from-cyan-500/20 to-blue-500/20",
+      borderGlow: "group-hover:border-cyan-500/50",
+      shadowGlow: "group-hover:shadow-[0_0_50px_rgba(34,211,238,0.2)]"
+    },
+    {
+      title: "Value of Kindness",
+      description: "自己犠牲ではなく、正当な対価へ。トークンエコノミーにより、誰かを助ける行為が、経済的にも報われる社会へ。",
+      // Icon: A pulsating organic heart with energy
+      icon: (
+        <div className="relative">
+          <Heart className="w-12 h-12 text-fuchsia-400 opacity-80" strokeWidth={1} />
+          <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-purple-300 opacity-70 animate-bounce" strokeWidth={1} />
+        </div>
+      ),
+      gradient: "from-fuchsia-500/20 to-purple-500/20",
+      borderGlow: "group-hover:border-fuchsia-500/50",
+      shadowGlow: "group-hover:shadow-[0_0_50px_rgba(232,121,249,0.2)]"
+    },
+    {
+      title: "Decentralized OS",
+      description: "中央集権的な管理を排除し、透明なプログラム（Smart Contract）が公平な分配と秩序を自動執行します。",
+      // Icon: A global network processing data
+      icon: (
+        <div className="relative">
+          <Globe className="w-12 h-12 text-emerald-400 opacity-80" strokeWidth={1} />
+          <Cpu className="absolute bottom-0 right-0 w-6 h-6 text-green-300 opacity-70" strokeWidth={1} />
+        </div>
+      ),
+      gradient: "from-emerald-500/20 to-green-500/20",
+      borderGlow: "group-hover:border-emerald-500/50",
+      shadowGlow: "group-hover:shadow-[0_0_50px_rgba(52,211,153,0.2)]"
+    }
+  ];
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        {/* --- セクションヘッダー --- */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-white to-purple-200 mb-6 leading-tight">
-            共鳴する世界、
-            <br className="md:hidden" />
-            実装される優しさ。
+  return (
+    <section className="relative w-full py-32 bg-[#050505] overflow-hidden">
+      
+      {/* Ambient Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        
+        {/* Header Area */}
+        <div className="text-center mb-24">
+          <div className="inline-block px-4 py-1.5 mb-8 rounded-full border border-blue-500/30 bg-blue-900/10 backdrop-blur-sm">
+            <span className="text-xs font-mono text-blue-300 tracking-[0.2em] uppercase">
+              The Great Inversion
+            </span>
+          </div>
+          
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 tracking-tight drop-shadow-2xl">
+            世界は <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200">「反転」</span> する。
           </h2>
-          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            国境を超えた集合知と、Web3テクノロジーが融合。<br className="hidden md:block" />
-            孤立した「個」を救うための、新たな信頼インフラがここにあります。
+          
+          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light">
+            見えない「痛み」を癒やし、見えない「ケア」を価値に変える。<br className="hidden md:block" />
+            <strong className="text-white font-medium">Re-Verse Civilization</strong>は、優しさが循環する新たな経済圏OSです。
           </p>
         </div>
 
-        {/* --- トラストシグナル (3カラム) --- */}
+        {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="group relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-500 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative z-10">
-              <div className="text-4xl font-bold text-cyan-300 mb-2">185+</div>
-              <div className="text-sm font-semibold text-slate-300 tracking-wider uppercase mb-4">Countries Reached</div>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Re-Verseの思想と音楽は、すでに185ヶ国以上へ配信され、国境を超えた共感のネットワークを形成しています。
-              </p>
-            </div>
-          </div>
+          {features.map((feature, index) => (
+            <div 
+              key={index}
+              className={`group relative p-10 rounded-3xl bg-[#0A0A0A] border border-white/10 overflow-hidden transition-all duration-500 hover:-translate-y-2 ${feature.borderGlow} ${feature.shadowGlow}`}
+            >
+              {/* Internal Gradient Light */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none mix-blend-screen`} />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Icon Container - No Box, Pure Light */}
+                <div className="mb-10 p-2 inline-flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                  {feature.icon}
+                </div>
 
-          {/* Card 2 */}
-          <div className="group relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-500 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative z-10">
-              <div className="text-4xl font-bold text-purple-300 mb-2">Scientific</div>
-              <div className="text-sm font-semibold text-slate-300 tracking-wider uppercase mb-4">Evidence Based</div>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                ACEs（逆境体験）研究の世界的権威である機関の知見を参照し、科学的根拠に基づいたケアシステムを構築しています。
-              </p>
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all">
+                  {feature.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-gray-400 leading-relaxed text-sm md:text-base font-medium">
+                  {feature.description}
+                </p>
+              </div>
             </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="group relative p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-500 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="relative z-10">
-              <div className="text-4xl font-bold text-emerald-300 mb-2">SOLUNA</div>
-              <div className="text-sm font-semibold text-slate-300 tracking-wider uppercase mb-4">Proof of Care</div>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                優しさの行動証明（PoC）により、見えない善意をブロックチェーン上で永続的な価値として刻みます。
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* --- パートナーロゴエリア --- */}
-        <div className="mt-20 pt-10 border-t border-white/5">
-            <p className="text-center text-lg md:text-xl text-white font-semibold tracking-widest uppercase mb-4">
-                POWERED BY GLOBAL STANDARDS
-            </p>
-            <p className="text-center text-sm text-slate-500 mb-8 max-w-2xl mx-auto">
-                透明性の高い分散型台帳技術と世界的な<br className="sm:hidden" />開発ツールの上に構築されています。
-            </p>
-
-            {/* 🚩 修正箇所 2: ロゴサイズを大きくし、存在感を強調 */}
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center justify-items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                {/* Ethereum */}
-                <span className="text-xl md:text-3xl font-bold text-white">Ethereum</span>
-                {/* Next.js */}
-                <span className="text-xl md:text-3xl font-bold text-white">Next.js</span>
-                {/* Supabase */}
-                <span className="text-xl md:text-3xl font-bold text-white">Supabase</span>
-                {/* Prisma (New) */}
-                <span className="text-xl md:text-3xl font-bold text-white">Prisma</span>
-                {/* MetaMask (New) */}
-                <span className="text-xl md:text-3xl font-bold text-white">MetaMask</span>
-                {/* Vercel */}
-                <span className="text-xl md:text-3xl font-bold text-white">Vercel</span>
-            </div>
-        </div>
       </div>
     </section>
   );

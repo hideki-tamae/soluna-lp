@@ -54,10 +54,16 @@ const TransparencySection = () => {
               ))}
             </ul>
 
-            <button className="w-full flex items-center justify-center gap-3 py-4 rounded-xl border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 font-medium hover:bg-cyan-900/40 hover:border-cyan-400/60 transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+            {/* Card 1 ボタン: Security & Audit (リンク設定済み) */}
+            <a 
+              href="/audit/report-v1.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-3 py-4 rounded-xl border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 font-medium hover:bg-cyan-900/40 hover:border-cyan-400/60 transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] cursor-pointer"
+            >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
               内部セキュリティ検証レポート (PDF)
-            </button>
+            </a>
           </div>
 
           {/* Card 2: Transaction Report */}
@@ -92,10 +98,30 @@ const TransparencySection = () => {
               </ul>
             </div>
 
-            <button className="w-full flex items-center justify-center gap-3 py-4 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold hover:from-blue-500 hover:to-indigo-500 transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)]">
+            {/* Card 2 ボタン: Transaction Logs (CSV) (リンク設定済み) */}
+            <a
+              href="/logs/tx-latest.csv" 
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="w-full flex items-center justify-center gap-3 py-4 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold hover:from-blue-500 hover:to-indigo-500 transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] cursor-pointer"
+            >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
               Tx Log Download (CSV)
-            </button>
+            </a>
+
+            
+            {/* Smart Contract Verification (リンク設定済み) */}
+            <div className="mt-4 text-center">
+              <a 
+                href="https://sepolia.etherscan.io/token/0x3F8125C9666014e7aB889d1c7689F18a38F6F4C5" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-500 hover:text-blue-400 transition-colors border-b border-transparent hover:border-blue-400 pb-0.5"
+              >
+                Smart Contract Verification &rarr;
+              </a>
+            </div>
+
           </div>
           
         </div>

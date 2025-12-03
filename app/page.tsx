@@ -1,35 +1,42 @@
 import HeroSection from '@/components/HeroSection';
-import PolicySection from '@/components/PolicySection';
-// 他のコンポーネントがあればインポート
+import SocialProof from '@/components/SocialProof';
+import InversionSection from '@/components/InversionSection'; // ★ここを変更 (ProblemSolution -> InversionSection)
+import FearSection from '@/components/FearSection';
+import ProfileSummary from '@/components/ProfileSummary';
+import BetaRecruitment from '@/components/BetaRecruitment';
+import Benefits from '@/components/Benefits';
+import FinalCTA from '@/components/FinalCTA';
 
 export default function Home() {
   return (
-    // 【修正】全体背景に header-bg.jpg を固定設定 (bg-fixed)
-    <div 
-      className="min-h-screen text-white bg-fixed bg-cover bg-center"
-      style={{ backgroundImage: "url('/header-bg.jpg')" }}
-    >
+    <main className="min-h-screen bg-[#050511] text-white selection:bg-purple-500 selection:text-white overflow-hidden">
       
-      {/* 背景を少し暗くするためのオーバーレイ (必要に応じて) */}
-      <div className="w-full h-full bg-black/40">
-      
-          {/* === 1. ヒーローセクション（動画あり） === */}
-          <HeroSection />
+      {/* 1. Hero */}
+      <HeroSection />
 
-          {/* === 2. 政策提言セクション === */}
-          {/* PolicySection自体が透明または半透明なら背景が見えます */}
-          <PolicySection />
+      {/* 2. Social Proof */}
+      <SocialProof />
 
-          {/* フッターなど他の要素 */}
-          <footer className="bg-black/60 border-t border-white/10 py-8 text-center text-xs text-gray-400">
-             {/* 著作権表記など */}
-             <div className="container mx-auto">
-                 <p>© 2025 Re-Verse Civilization / ACES Care HUB JAPAN</p>
-                 {/* リンク等 */}
-             </div>
-          </footer>
-      
-      </div>
-    </div>
-  )
-}
+      {/* 3. Concept (世界は「反転」する。セクション) */}
+      <InversionSection /> {/* ★ここを変更 (ProblemSolution -> InversionSection) */}
+
+      {/* 4. Fear (Policyリンク付き) */}
+      <FearSection />
+
+      {/* 5. Profile (Profileリンク付き) */}
+      <ProfileSummary />
+
+      {/* 6. Recruitment */}
+      <BetaRecruitment />
+
+      {/* 7. Benefits */}
+      <Benefits />
+
+      {/* 8. Final CTA */}
+      <FinalCTA />
+       
+      {/* 9. Footerは削除 (layout.tsxに任せる) */}
+       
+    </main>
+  );
+} 

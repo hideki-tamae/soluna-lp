@@ -1,128 +1,145 @@
-"use client";
 import React from 'react';
+import { ArrowUpRight, Landmark, Cpu, Activity } from 'lucide-react';
 
 const BetaRecruitment = () => {
-  return (
-    <section className="relative bg-black py-32 px-4 overflow-hidden">
-      {/* 背景装飾 */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-6xl bg-indigo-900/10 blur-[150px] rounded-full pointer-events-none" />
+  const roles = [
+    {
+      id: '01',
+      // 文明の象徴として「神殿/構造体」を採用
+      icon: <Landmark className="w-8 h-8" strokeWidth={1} />,
+      title: 'Civilization Architect',
+      jpTitle: '文明構築者',
+      persona: '政策・制度設計 / 福祉現場 / 社会起業家',
+      contribution: 'Claimフローが社会システムとして機能する上での矛盾点、および法規制/運用面での問題提起。',
+      color: 'from-blue-400 via-cyan-400 to-teal-300',
+      glow: 'shadow-[0_0_30px_rgba(56,189,248,0.3)]',
+      textAccent: 'text-cyan-400'
+    },
+    {
+      id: '02',
+      // 知性の中枢として「CPU/回路」を採用
+      icon: <Cpu className="w-8 h-8" strokeWidth={1} />,
+      title: 'Protocol Engineer',
+      jpTitle: 'プロトコル技術者',
+      persona: 'Web3技術者 / セキュリティ監査 / フルスタック',
+      contribution: 'Claim基盤、HMAC/Nonceロジック、ウォレット接続の技術的な脆弱性およびUXの検証。',
+      color: 'from-purple-400 via-fuchsia-400 to-pink-300',
+      glow: 'shadow-[0_0_30px_rgba(232,121,249,0.3)]',
+      textAccent: 'text-fuchsia-400'
+    },
+    {
+      id: '03',
+      // 生命の探求として「鼓動/波形」を採用
+      icon: <Activity className="w-8 h-8" strokeWidth={1} />,
+      title: 'Care Pioneer',
+      jpTitle: 'ケアパイオニア',
+      persona: 'ACES / ヤングケアラー / 当事者家族',
+      contribution: 'Claimの体験が、実際のケア現場や生活においてどれほど意味を持つか、感情的なフィードバックを提供。',
+      color: 'from-amber-400 via-orange-400 to-red-300',
+      glow: 'shadow-[0_0_30px_rgba(251,146,60,0.3)]',
+      textAccent: 'text-orange-400'
+    },
+  ];
 
-      <div className="max-w-7xl mx-auto relative z-10">
+  return (
+    <section className="py-24 md:py-40 bg-[#020202] relative overflow-hidden">
+      
+      {/* Background Ambience */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-purple-900/10 rounded-full blur-[120px] mix-blend-screen opacity-40" />
+        <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-blue-900/5 rounded-full blur-[100px] opacity-30" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         
-        {/* ヘッダー */}
-        <div className="text-center mb-24">
-          <span className="inline-block py-1 px-3 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold tracking-widest uppercase mb-6">
-            Recruitment
-          </span>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-br from-white via-indigo-100 to-indigo-300 drop-shadow-[0_0_15px_rgba(165,180,252,0.3)]">
-            βテスター募集要項 (Founding Member)
+        {/* Header Section */}
+        <div className="mb-24 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_#22c55e]" />
+            <span className="text-xs font-mono text-gray-300 tracking-widest uppercase">
+              Recruitment Status: Open
+            </span>
+          </div>
+
+          {/* Title: Aurora Gradient Applied */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-blue-300 via-purple-300 to-white leading-[1.1] mb-6 whitespace-nowrap overflow-visible drop-shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+            βテスター募集要項 <span className="text-white/40 block md:inline md:text-[0.6em] md:align-middle font-light tracking-wide">(Founding Member)</span>
           </h2>
-          <p className="text-gray-400 text-lg md:text-xl tracking-wide max-w-3xl mx-auto font-light">
-            このβテストは、「ケアが制度になる文明」を共同で設計・検証する、<br className="hidden md:inline" />初期構築者を招致します。
+          
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            ただのテストではありません。<br className="md:hidden" />
+            「ケアが制度になる文明」の<strong className="text-white font-medium">初期構築（Initial Build）</strong>に参加する招待状です。
           </p>
         </div>
 
-        {/* 3カラムカード (Glassmorphism) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-          {[
-            {
-              role: "Civilization Architect",
-              color: "blue",
-              persona: "政策・制度設計、福祉現場、社会起業家",
-              contribution: "Claimフローが社会システムとして機能する上での矛盾点、および法規制/運用面での問題提起。"
-            },
-            {
-              role: "Protocol Engineer",
-              color: "indigo",
-              // 👇 ここを修正しました：インフラエンジニアも含めたフルスタックな表現に変更
-              persona: "Web3技術者、セキュリティ監査人、フルスタックエンジニア（フロント/バックエンド/インフラ）",
-              contribution: "Claim基盤、HMAC/Nonceロジック、ウォレット接続の技術的な脆弱性およびUXの検証。"
-            },
-            {
-              role: "Care Pioneer",
-              color: "cyan",
-              persona: "ACEs、ヤングケアラー、当事者家族、福祉従事者",
-              contribution: "Claimの体験が、実際のケア現場や生活においてどれほど意味を持つか、感情的なフィードバックを提供。"
-            }
-          ].map((item, index) => (
-            <div key={index} className={`group bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-2xl hover:bg-white/10 transition-all duration-500 hover:border-${item.color}-500/50 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]`}>
-              <div className={`text-${item.color}-400 text-sm font-bold tracking-widest mb-4 opacity-70`}>0{index + 1}.</div>
-              <h3 className="text-2xl font-bold mb-6 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-blue-200 transition-all">
-                {item.role}
-              </h3>
+        {/* Roles Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+          {roles.map((role) => (
+            <div 
+              key={role.id}
+              className="group relative flex flex-col h-full bg-[#080808] border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/10 hover:shadow-[0_0_60px_-20px_rgba(100,100,255,0.1)] hover:-translate-y-2"
+            >
+              {/* Active State Gradient Border via pseudo-element */}
+              <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-b ${role.color} mix-blend-overlay opacity-[0.05]`} />
               
-              <div className="mb-6 pb-6 border-b border-white/10">
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-3">Target Persona</span>
-                <p className="text-sm text-gray-300 font-light leading-relaxed">
-                  {item.persona}
-                </p>
-              </div>
-              
-              <div>
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block mb-3">Contribution</span>
-                <p className="text-sm text-gray-400 font-light leading-relaxed">
-                  {item.contribution}
-                </p>
+              <div className="p-8 md:p-10 flex flex-col h-full relative z-10">
+                
+                {/* ID & Tech-Icon */}
+                <div className="flex justify-between items-start mb-8">
+                  <span className="font-mono text-5xl font-bold text-white/5 group-hover:text-white/10 transition-colors duration-500 tracking-tighter">
+                    {role.id}
+                  </span>
+                  {/* High-End Icon: No box, just pure light and geometry */}
+                  <div className={`transition-transform duration-500 group-hover:scale-110 ${role.textAccent} drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]`}>
+                    {role.icon}
+                  </div>
+                </div>
+
+                {/* Titles */}
+                <div className="mb-8">
+                  <h3 className={`text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${role.color} transition-all duration-300`}>
+                    {role.title}
+                  </h3>
+                  <p className="text-sm font-bold text-gray-600 tracking-widest uppercase group-hover:text-gray-400 transition-colors">
+                    {role.jpTitle}
+                  </p>
+                </div>
+
+                {/* Technical Divider */}
+                <div className="w-full h-px bg-white/5 mb-8 relative overflow-hidden">
+                  <div className={`absolute inset-0 w-full h-full bg-gradient-to-r ${role.color} opacity-0 group-hover:opacity-50 transition-opacity duration-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-1000`} />
+                </div>
+                
+                {/* Details */}
+                <div className="space-y-6 flex-grow">
+                  <div>
+                    <h4 className="text-[10px] text-gray-500 font-mono uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
+                      <span className={`w-1 h-1 rounded-full ${role.textAccent}`} /> Target Persona
+                    </h4>
+                    <p className="text-gray-300 font-medium leading-relaxed">
+                      {role.persona}
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-[10px] text-gray-500 font-mono uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
+                      <span className={`w-1 h-1 rounded-full ${role.textAccent}`} /> Contribution
+                    </h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      {role.contribution}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Call to Action Indicator */}
+                <div className="mt-10 flex items-center gap-2 text-sm font-bold text-gray-600 group-hover:text-white transition-colors duration-300">
+                  <span className="uppercase tracking-widest text-[10px]">Initialize</span>
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                </div>
+
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Exclusive Benefits (Ultra Luxury Design) */}
-        <div className="relative bg-gradient-to-b from-[#0f1014] to-black border border-white/10 rounded-3xl p-10 md:p-20 overflow-hidden shadow-2xl">
-          {/* 金色の光の演出 */}
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-amber-600/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
-          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[120px] pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
-            <div className="flex-1 space-y-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-8 flex items-center gap-4">
-                <span className="w-1.5 h-10 bg-gradient-to-b from-[#C0A062] to-[#8A6E3E] rounded-full shadow-[0_0_15px_rgba(192,160,98,0.5)]" />
-                独占的なベネフィット
-              </h3>
-              
-              <ul className="space-y-6">
-                {[
-                  { title: "Founder's Claim Guarantee", desc: "SOLUNAトークンのClaim権を確約し、優先付与。" },
-                  { title: "Architects' Private Channel", desc: "コア開発チームとの限定コミュニティへの参加資格。" },
-                  { title: "Contributor Log", desc: "Public Dashboardへの貢献者（Contributor）記録。" }
-                ].map((benefit, i) => (
-                  <li key={i} className="group flex items-start gap-6 p-4 rounded-xl transition-colors hover:bg-white/5 border border-transparent hover:border-white/5">
-                    {/* アイコン部分：発光する金色のオーブ */}
-                    <div className="mt-1 flex-shrink-0 relative">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#E6C683] to-[#8E7036] p-[1px] shadow-[0_0_20px_rgba(192,160,98,0.3)]">
-                        <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
-                          <svg className="w-5 h-5 text-[#E6C683]" viewBox="0 0 24 24" fill="currentColor">
-                            <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="text-xl font-bold text-white mb-2 group-hover:text-[#E6C683] transition-colors">{benefit.title}</h4>
-                      <p className="text-gray-400 font-light leading-relaxed">{benefit.desc}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="flex-shrink-0 w-full lg:w-auto text-center">
-              <button className="group relative w-full lg:w-auto px-12 py-6 bg-gradient-to-br from-[#D4AF37] to-[#8A6E3E] text-black font-bold text-lg rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(212,175,55,0.4)]">
-                {/* ボタンの光沢エフェクト */}
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
-                
-                <span className="relative z-10 flex items-center justify-center gap-3 tracking-wide">
-                  いますぐ Founding Member に応募
-                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </span>
-              </button>
-              <p className="mt-4 text-xs text-gray-500 font-mono">
-                LIMITED SEATS AVAILABLE
-              </p>
-            </div>
-          </div>
         </div>
 
       </div>
