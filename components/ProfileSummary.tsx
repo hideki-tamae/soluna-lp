@@ -69,9 +69,12 @@ export default function ProfileSummary() {
                 <ShieldCheck className="w-6 h-6 text-gray-500 group-hover:text-white transition-colors flex-shrink-0 stroke-[1.5]" />
                 <div>
                   <p className="text-[10px] font-bold text-gray-600 uppercase tracking-wider mb-1 group-hover:text-gray-400 transition-colors">Public Health Expertise</p>
+                  
+                  {/* 既存の項目 */}
                   <p className="text-gray-300 leading-relaxed font-light group-hover:text-white transition-colors">
                     Johns Hopkins University: Essential Epidemiology Tools
                   </p>
+
                 </div>
               </div>
 

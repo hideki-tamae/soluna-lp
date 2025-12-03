@@ -55,7 +55,7 @@ export default function ArchitectProfile() {
             </ul>
           </div>
 
-          {/* Block 2: Public Health Expertise */}
+          {/* Block 2: Public Health Expertise - 修正済み */}
           <div className="group relative p-10 rounded-[4px] bg-[#0A0A0F] border border-white/5 hover:border-white/20 transition-all duration-500 hover:bg-[#0F0F16]">
             <div className="absolute left-0 top-10 bottom-10 w-[1px] bg-gradient-to-b from-transparent via-emerald-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             
@@ -68,7 +68,9 @@ export default function ArchitectProfile() {
             <ul className="space-y-4">
               {[
                 "Johns Hopkins University: Essential Epidemiology Tools Completed",
-                "Preventive Medicine Specialist / Health Management Advisor Certified"
+                "Preventive Medicine Specialist / Health Management Advisor Certified",
+                /* ★ 追加項目 ★ */
+                "Imperial College London: Global Health Governance (Near Completion)"
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-4 text-gray-400 group-hover:text-gray-300 transition-colors">
                   <CheckCircle2 className="w-4 h-4 mt-1 text-gray-600 group-hover:text-emerald-400/50 flex-shrink-0" />
