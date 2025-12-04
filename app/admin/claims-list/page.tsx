@@ -97,7 +97,8 @@ export default function AdminClaimsList() {
               <div className="text-right">
                 <p className="text-xs text-slate-400">申請額</p>
                 <p className="text-2xl font-mono font-bold text-cyan-400">
-                  {claim.amount.toLocaleString()} <span className="text-sm">SLN</span>
+
+　　　　　　　　　　{claim.amount ? Number(claim.amount).toLocaleString() : '0'} <span className="text-sm">SLN</span>
                 </p>
               </div>
 

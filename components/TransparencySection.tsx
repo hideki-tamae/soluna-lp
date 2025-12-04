@@ -57,6 +57,7 @@ const TransparencySection = () => {
             {/* Card 1 ボタン: Security & Audit (リンク設定済み) */}
             <a 
               href="/audit/SOLUNA_Security_Audit_202511.pdf"
+    
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-3 py-4 rounded-xl border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 font-medium hover:bg-cyan-900/40 hover:border-cyan-400/60 transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] cursor-pointer"
