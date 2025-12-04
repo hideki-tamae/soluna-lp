@@ -17,7 +17,6 @@ export default function AuditPage() {
         {/* 既存のヘビーなコンポーネントを表示 */}
         <TransparencySection />
       </div>
-      <Footer />
     </main>
   );
 }
