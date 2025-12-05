@@ -125,10 +125,14 @@ const InversionSection = () => {
             </span>
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 tracking-tight drop-shadow-2xl">
-            世界は<br className="md:hidden" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">「反転」</span> する。
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-8 whitespace-nowrap">
+            世界は
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">
+              「反転」
+            </span>
+            する。
           </h2>
-          
+
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light">
             見えない「痛み」を癒やし、見えない「ケア」を価値に変える。<br className="hidden md:block" />
             <strong className="text-white font-medium">Re-Verse Civilization</strong>は、優しさが循環する新たな経済圏OSです。
