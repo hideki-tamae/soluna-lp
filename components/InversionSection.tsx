@@ -126,7 +126,7 @@ const InversionSection = () => {
           </div>
           
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 tracking-tight drop-shadow-2xl">
-            世界は <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">「反転」</span> する。
+            世界は<br className="md:hidden" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">「反転」</span> する。
           </h2>
           
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light">
