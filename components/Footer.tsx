@@ -26,7 +26,8 @@ const Footer = () => {
           <div className="space-y-6">
             <h3 className="font-bold text-lg">Discovery</h3>
             <ul className="space-y-4 text-gray-400 text-sm">
-              {/* ▼ 追加：診断へのリンク (Tally) */}
+              
+              {/* Re-Verse Code Diagnosis */}
               <li>
                 <a 
                   href="https://tally.so/r/mK7Yez" 
@@ -34,7 +35,19 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors flex items-center gap-2 text-white/90 font-medium"
                 >
-                  Re-Verse Code Diagnosis 
+                  Re-Verse Code Diagnosis 🧬
+                </a>
+              </li>
+
+              {/* ▼ 追加：知的ルーツ (Library) */}
+              <li>
+                <a 
+                  href="https://www.notion.so/SOLUNA-The-Intellectual-Roots-2c06197f1e5580288650d94d468a01d2" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors flex items-center gap-2 text-white/90 font-medium"
+                >
+                  Intellectual Roots 
                 </a>
               </li>
               {/* ▲ ここまで */}
@@ -67,7 +80,7 @@ const Footer = () => {
             <h3 className="font-bold text-lg">Transparency</h3>
             <ul className="space-y-4 text-gray-400 text-sm">
               
-              {/* ▼ 追加：設計図へのリンク (Notion Blueprint) */}
+              {/* Official Blueprint */}
               <li>
                 <a 
                   href="https://www.notion.so/Project-SOLUNA-Genesis-The-Blueprint-2bf6197f1e5580b296b0f6faff4c0233" 
@@ -75,10 +88,9 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors flex items-center gap-2 text-white/90 font-medium"
                 >
-                  Official Blueprint
+                  Official Blueprint 📘
                 </a>
               </li>
-              {/* ▲ ここまで */}
 
               {/* Security & Audit (監査ページへ) */}
               <li>
