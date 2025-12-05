@@ -95,15 +95,18 @@ const Benefits = () => {
             </span>
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">
+          {/* 見出し修正：文字サイズ調整と「ベネフィット」の改行禁止処理 */}
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight mb-8">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F3E7E9] via-[#E3D5C0] to-[#C8A665]">
-              独占的なベネフィット
+              独占的な<span className="inline-block">ベネフィット</span>
             </span>
           </h2>
           
+          {/* リード文修正：PCでは適宜改行、モバイルでは「あなたには」の後で改行し「特別な権利」を強調 */}
           <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
             初期メンバーとして参加するあなたには、<br />
-            将来のSOLUNAエコシステムにおける特別な権利が付与されます。
+            将来のSOLUNAエコシステムにおける<br className="md:hidden" />
+            <span className="inline-block text-gray-300 font-medium">特別な権利が付与されます。</span>
           </p>
         </div>
 
@@ -134,7 +137,7 @@ const Benefits = () => {
             ))}
           </div>
 
-          {/* Right: CTA Card (FIXED: Mobile Responsive & Text Wrapping) */}
+          {/* Right: CTA Card */}
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-b from-[#C8A665]/20 to-transparent rounded-[2.5rem] blur opacity-30 group-hover:opacity-50 transition duration-1000" />
             
@@ -147,13 +150,17 @@ const Benefits = () => {
                 Be the First.
               </h3>
               
-              {/* テキスト修正：inline-blockで不自然な改行を防ぐ */}
+              {/* CTAテキスト修正：モバイルで見やすく改行位置を制御 */}
               <p className="text-gray-400 mb-8 md:mb-12 leading-relaxed relative z-10">
-                この「創始者枠」は、<span className="inline-block">限られています。</span><br className="hidden md:block" />
-                定員に達し次第、<span className="inline-block">第1期募集は終了します。</span>
+                この「創始者枠」は<br className="md:hidden" />
+                <span className="inline-block">限られています。</span>
+                <br className="hidden md:block" />
+                <span className="block h-2 md:hidden" /> {/* モバイル用の行間調整 */}
+                定員に達し次第、<br className="md:hidden" />
+                <span className="inline-block">第1期募集は終了します。</span>
               </p>
 
-              {/* Button修正：全体をaタグで囲み、スマホ文字サイズ調整 */}
+              {/* Button */}
               <a 
                 href="https://tally.so/r/wM9JVY" 
                 target="_blank" 
