@@ -35,7 +35,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors flex items-center gap-2 text-white/90 font-medium"
                 >
-                  Re-Verse Code Diagnosis 🧬
+                  Re-Verse Code Diagnosis 
                 </a>
               </li>
 
@@ -88,7 +88,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors flex items-center gap-2 text-white/90 font-medium"
                 >
-                  Official Blueprint 📘
+                  Official Blueprint 
                 </a>
               </li>
 

@@ -23,9 +23,9 @@ export default function ProfileSummary() {
               Liberal Arts Architect
             </span>
           </h2>
-          <p className="text-xl text-gray-500 font-light tracking-wide">
-            技術 × 制度 × 思想 を統合する <span className="text-gray-400 border-b border-gray-800 pb-1">文明OSデザイナー</span>
-          </p>
+          　<p className="text-xl text-gray-500 font-light tracking-wide">
+              技術 × 制度 × 思想 を統合する <span className="text-gray-400 border-b border-gray-800 pb-1 whitespace-nowrap">文明OSデザイナー</span>
+            </p>
         </div>
 
         {/* プロフィールカード：マットブラックの質感 */}

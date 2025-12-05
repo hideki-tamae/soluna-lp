@@ -20,9 +20,9 @@ export default function ArchitectProfile() {
               Liberal Arts Architect
             </span>
           </h1>
-          <p className="text-xl text-gray-500 font-light tracking-wider">
-            技術 × 制度 × 思想 を統合する <span className="text-gray-300 border-b border-gray-700 pb-1">文明OSデザイナー</span>
-          </p>
+            <p className="text-xl text-gray-500 font-light tracking-wider">
+              技術 × 制度 × 思想 を統合する <span className="text-gray-300 border-b border-gray-700 pb-1 whitespace-nowrap">文明OSデザイナー</span>
+            </p>
         </div>
 
         {/* 4つの権威セクション：モノリス・スタイル */}
