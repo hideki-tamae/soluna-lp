@@ -5,11 +5,18 @@ const BetaRecruitment = () => {
   const roles = [
     {
       id: '01',
-      // 文明の象徴として「神殿/構造体」を採用
       icon: <Landmark className="w-8 h-8" strokeWidth={1} />,
       title: 'Civilization Architect',
       jpTitle: '文明構築者',
-      persona: '政策・制度設計 / 福祉現場 / 社会起業家',
+      // 配列ではなく、ここでレンダリング用のJSXを直接定義する方法もありますが、
+      // 今回はmapの中で処理を分岐させるか、データ構造を少しリッチにします。
+      // 最も安全なのは、personaを「文字列の配列」にして、map側でspanで囲むことです。
+      // しかし、今の構造を維持しつつ、map側で特殊処理を行います。
+      personaValues: [
+        "政策・制度設計",
+        "福祉現場",
+        "社会起業家"
+      ],
       contribution: 'Claimフローが社会システムとして機能する上での矛盾点、および法規制/運用面での問題提起。',
       color: 'from-blue-400 via-cyan-400 to-teal-300',
       glow: 'shadow-[0_0_30px_rgba(56,189,248,0.3)]',
@@ -17,11 +24,15 @@ const BetaRecruitment = () => {
     },
     {
       id: '02',
-      // 知性の中枢として「CPU/回路」を採用
       icon: <Cpu className="w-8 h-8" strokeWidth={1} />,
       title: 'Protocol Engineer',
       jpTitle: 'プロトコル技術者',
-      persona: 'Web3技術者 / セキュリティ監査 / フルスタック',
+      // ★ここが修正の肝です
+      personaValues: [
+        "Web3",
+        "セキュリティ監査",
+        "フルスタック（Auth・Wallet・API）" // 長い塊
+      ],
       contribution: 'Claim基盤、HMAC/Nonceロジック、ウォレット接続の技術的な脆弱性およびUXの検証。',
       color: 'from-purple-400 via-fuchsia-400 to-pink-300',
       glow: 'shadow-[0_0_30px_rgba(232,121,249,0.3)]',
@@ -29,11 +40,14 @@ const BetaRecruitment = () => {
     },
     {
       id: '03',
-      // 生命の探求として「鼓動/波形」を採用
       icon: <Activity className="w-8 h-8" strokeWidth={1} />,
       title: 'Care Pioneer',
       jpTitle: 'ケアパイオニア',
-      persona: 'ACES / ヤングケアラー / 当事者家族',
+      personaValues: [
+        "ACES",
+        "ヤングケアラー",
+        "当事者家族"
+      ],
       contribution: 'Claimの体験が、実際のケア現場や生活においてどれほど意味を持つか、感情的なフィードバックを提供。',
       color: 'from-amber-400 via-orange-400 to-red-300',
       glow: 'shadow-[0_0_30px_rgba(251,146,60,0.3)]',
@@ -61,7 +75,6 @@ const BetaRecruitment = () => {
             </span>
           </div>
 
-          {/* Title: Aurora Gradient Applied */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-blue-300 via-purple-300 to-white leading-[1.1] mb-6 whitespace-nowrap overflow-visible drop-shadow-[0_0_20px_rgba(168,85,247,0.2)]">
             βテスター募集要項 <span className="text-white/40 block md:inline md:text-[0.6em] md:align-middle font-light tracking-wide">(Founding Member)</span>
           </h2>
@@ -79,7 +92,6 @@ const BetaRecruitment = () => {
               key={role.id}
               className="group relative flex flex-col h-full bg-[#080808] border border-white/5 rounded-3xl overflow-hidden transition-all duration-500 hover:border-white/10 hover:shadow-[0_0_60px_-20px_rgba(100,100,255,0.1)] hover:-translate-y-2"
             >
-              {/* Active State Gradient Border via pseudo-element */}
               <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-b ${role.color} mix-blend-overlay opacity-[0.05]`} />
               
               <div className="p-8 md:p-10 flex flex-col h-full relative z-10">
@@ -89,7 +101,6 @@ const BetaRecruitment = () => {
                   <span className="font-mono text-5xl font-bold text-white/5 group-hover:text-white/10 transition-colors duration-500 tracking-tighter">
                     {role.id}
                   </span>
-                  {/* High-End Icon: No box, just pure light and geometry */}
                   <div className={`transition-transform duration-500 group-hover:scale-110 ${role.textAccent} drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]`}>
                     {role.icon}
                   </div>
@@ -105,7 +116,7 @@ const BetaRecruitment = () => {
                   </p>
                 </div>
 
-                {/* Technical Divider */}
+                {/* Divider */}
                 <div className="w-full h-px bg-white/5 mb-8 relative overflow-hidden">
                   <div className={`absolute inset-0 w-full h-full bg-gradient-to-r ${role.color} opacity-0 group-hover:opacity-50 transition-opacity duration-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-1000`} />
                 </div>
@@ -116,8 +127,20 @@ const BetaRecruitment = () => {
                     <h4 className="text-[10px] text-gray-500 font-mono uppercase tracking-[0.2em] mb-3 flex items-center gap-2">
                       <span className={`w-1 h-1 rounded-full ${role.textAccent}`} /> Target Persona
                     </h4>
+                    
+                    {/* ★ ここを修正: personaValuesをマッピングしてinline-block化 */}
                     <p className="text-gray-300 font-medium leading-relaxed">
-                      {role.persona}
+                      {role.personaValues.map((val, i) => (
+                        <React.Fragment key={i}>
+                          <span className="inline-block whitespace-nowrap">
+                            {val}
+                          </span>
+                          {/* 最後の要素でなければスラッシュを追加 */}
+                          {i < role.personaValues.length - 1 && (
+                            <span className="mx-2 text-gray-600">/</span>
+                          )}
+                        </React.Fragment>
+                      ))}
                     </p>
                   </div>
                   
@@ -131,7 +154,7 @@ const BetaRecruitment = () => {
                   </div>
                 </div>
 
-                {/* Call to Action Indicator */}
+                {/* CTA */}
                 <div className="mt-10 flex items-center gap-2 text-sm font-bold text-gray-600 group-hover:text-white transition-colors duration-300">
                   <span className="uppercase tracking-widest text-[10px]">Initialize</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
