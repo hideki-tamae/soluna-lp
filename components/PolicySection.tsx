@@ -29,15 +29,22 @@ const PolicySection = () => {
               政策提言：<br className="md:hidden" />SOLUNA Protocol
             </h2>
             
-            {/* 修正箇所: 改行位置と単語結合の調整 */}
+            {/* 修正箇所: ご提案の2行ブロック構成に変更 */}
             <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-light mb-10">
-              「助けて」と言えない。<br />
-              {/* 「制度の網にかからない。」を単独行にする */}
-              制度の網にかからない。<br />
-              <br className="md:hidden" /> {/* スマホでは少し間隔を空ける */}
-              トリプル・アイソレーションにある家庭へ、<br className="md:hidden" />Web3技術で支援を届ける。<br />
+              {/* ブロック1 */}
+              「助けて」と言えない。<br className="md:hidden" />
+              制度の網にかからない。
+              
+              <br className="md:hidden" /><br className="md:hidden" /> {/* スマホ用ブロック間余白 */}
+
+              {/* ブロック2 */}
+              <span className="inline-block">トリプル・アイソレーションにある家庭へ、</span><br className="md:hidden" />
+              <span className="inline-block">Web3技術で支援を届ける。</span>
+
+              <br className="md:hidden" /><br className="md:hidden" /> {/* スマホ用ブロック間余白 */}
+              
+              {/* ブロック3 */}
               これは慈善事業ではなく、<br className="md:hidden" />
-              {/* 「国家OSの再設計図です。」をひとまとまりにして改行崩れを防ぐ */}
               <span className="inline-block whitespace-nowrap">
                 <span className="text-white font-medium border-b border-emerald-500/50">国家OSの再設計図</span>
                 です。
