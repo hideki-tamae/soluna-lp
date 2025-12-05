@@ -1,4 +1,4 @@
-¥import React from 'react';
+import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const FinalCTA = () => {
@@ -43,7 +43,7 @@ const FinalCTA = () => {
             className="
               group relative 
               w-full max-w-xs md:max-w-fit  /* スマホでは幅制限、PCでは中身に合わせる */
-              px-6 py-5 md:px-14 md:py-6     /* スマホとPCで余白を変える */
+              px-6 py-4 md:px-14 md:py-6     /* スマホでの上下パディングを少し調整 */
               bg-gradient-to-r from-blue-600/90 to-purple-600/90 
               rounded-full overflow-hidden 
               transition-all duration-500 
@@ -57,9 +57,12 @@ const FinalCTA = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
             
             {/* Text & Icon */}
-            <span className="relative flex items-center justify-center gap-3 md:gap-4 text-xl md:text-3xl font-bold text-white tracking-wider drop-shadow-md whitespace-nowrap">
-              第1期・市民先行登録
-              <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-white/90 group-hover:translate-x-2 transition-transform duration-300" />
+            <span className="relative flex items-center justify-center gap-3 md:gap-4 text-xl md:text-3xl font-bold text-white tracking-wider drop-shadow-md text-center">
+              {/* テキスト部分：スマホでのみ改行を入れる */}
+              <span>
+                第1期・市民<br className="block sm:hidden" />先行登録
+              </span>
+              <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-white/90 group-hover:translate-x-2 transition-transform duration-300 flex-shrink-0" />
             </span>
             
             {/* Tag */}
@@ -74,12 +77,13 @@ const FinalCTA = () => {
           </span>
         </div>
 
-        {/* Technical Disclaimer (Line-break Fixed) */}
+        {/* Technical Disclaimer (Fixed for readability) */}
         <div className="mt-20 pt-10 border-t border-white/10 max-w-xl mx-auto px-2">
           <p className="text-xs text-gray-400 font-mono leading-relaxed tracking-wider drop-shadow">
-            ※ SOLUNAは、<span className="inline-block">Ethereum Sepolia Network 上で稼働する</span><br className="hidden md:block" />
+            {/* 修正：長い英語部分は改行を許可し、文末の重要語句だけを inline-block で守る */}
+            ※ SOLUNAは、Ethereum Sepolia Network 上で<span className="inline-block">稼働する</span><br className="hidden md:block" />
             “透明性・分配・インセンティブ”を<span className="inline-block">再設計した</span><br className="hidden md:block" />
-            <span className="inline-block">分散型の社会インフラ</span> <span className="inline-block">〈Soluna Proto-Mainnet〉です。</span>
+            分散型の社会インフラ <span className="inline-block">〈Soluna Proto-Mainnet〉です。</span>
           </p>
         </div>
 
