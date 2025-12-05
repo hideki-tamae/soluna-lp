@@ -1,25 +1,21 @@
-import React from 'react';
+¥import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const FinalCTA = () => {
   return (
     <section className="relative w-full py-40 md:py-64 overflow-hidden bg-[#050505] border-t border-white/10">
       
-      {/* Background Image: The Universe (Replaces CSS Gradients) */}
+      {/* Background Image: The Universe */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Image Layer - Opacity adjusted for elegance */}
         <img 
           src="/header-bg.jpg" 
           alt="Universe Background" 
           className="w-full h-full object-cover opacity-50 mix-blend-screen select-none"
         />
         
-        {/* Overlays for Depth & Readability */}
-        {/* 上部からのフェード（前のセクションとの馴染み） */}
+        {/* Overlays */}
         <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-[#050505] to-transparent" />
-        {/* 全体のトーンダウン（文字を浮き立たせる） */}
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-        {/* 下部からのフェード（フッターへの接続） */}
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050505] to-transparent" />
       </div>
 
@@ -38,44 +34,52 @@ const FinalCTA = () => {
           ここから書き換える。
         </p>
 
-        {/* The Button */}
-        <div className="flex flex-col items-center justify-center gap-8">
-          <button className="group relative px-14 py-6 bg-gradient-to-r from-blue-600/90 to-purple-600/90 rounded-full overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_80px_rgba(124,58,237,0.6)] border border-white/20 backdrop-blur-md">
+        {/* The Button (Responsive Fixed) */}
+        <div className="flex flex-col items-center justify-center gap-8 w-full px-4">
+          <a 
+            href="https://tally.so/r/wM9JVY" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="
+              group relative 
+              w-full max-w-xs md:max-w-fit  /* スマホでは幅制限、PCでは中身に合わせる */
+              px-6 py-5 md:px-14 md:py-6     /* スマホとPCで余白を変える */
+              bg-gradient-to-r from-blue-600/90 to-purple-600/90 
+              rounded-full overflow-hidden 
+              transition-all duration-500 
+              hover:scale-105 hover:shadow-[0_0_80px_rgba(124,58,237,0.6)] 
+              border border-white/20 backdrop-blur-md
+              flex items-center justify-center
+            "
+          >
             {/* Inner Glow Layer */}
             <div className="absolute inset-0 bg-white/20 group-hover:bg-white/10 transition-colors duration-500" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
             
             {/* Text & Icon */}
-            <span className="relative flex items-center gap-4 text-2xl md:text-3xl font-bold text-white tracking-wider drop-shadow-md">
-              <a 
-                href="https://tally.so/r/wM9JVY" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="..." // 既存のクラスネームを維持
-                >
-                第1期・市民先行登録
-            　</a>
-              <ArrowRight className="w-8 h-8 text-white/90 group-hover:translate-x-2 transition-transform duration-300" />
+            <span className="relative flex items-center justify-center gap-3 md:gap-4 text-xl md:text-3xl font-bold text-white tracking-wider drop-shadow-md whitespace-nowrap">
+              第1期・市民先行登録
+              <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-white/90 group-hover:translate-x-2 transition-transform duration-300" />
             </span>
             
             {/* Tag */}
-            <span className="absolute -top-1 -right-1 flex h-5 w-5">
+            <span className="absolute top-3 right-3 md:-top-1 md:-right-1 flex h-3 w-3 md:h-5 md:w-5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-5 w-5 bg-purple-500"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 md:h-5 md:w-5 bg-purple-500"></span>
             </span>
-          </button>
+          </a>
           
           <span className="text-base text-blue-200/80 font-medium tracking-widest uppercase drop-shadow-md">
             Free Access / Beta Version
           </span>
         </div>
 
-        {/* Technical Disclaimer */}
-        <div className="mt-20 pt-10 border-t border-white/10 max-w-xl mx-auto">
+        {/* Technical Disclaimer (Line-break Fixed) */}
+        <div className="mt-20 pt-10 border-t border-white/10 max-w-xl mx-auto px-2">
           <p className="text-xs text-gray-400 font-mono leading-relaxed tracking-wider drop-shadow">
-            ※ SOLUNAは、Ethereum Sepolia Network 上で稼働する<br />
-            “透明性・分配・インセンティブ”を再設計した<br />
-            分散型の社会インフラ〈Soluna Proto-Mainnet〉です。
+            ※ SOLUNAは、<span className="inline-block">Ethereum Sepolia Network 上で稼働する</span><br className="hidden md:block" />
+            “透明性・分配・インセンティブ”を<span className="inline-block">再設計した</span><br className="hidden md:block" />
+            <span className="inline-block">分散型の社会インフラ</span> <span className="inline-block">〈Soluna Proto-Mainnet〉です。</span>
           </p>
         </div>
 
