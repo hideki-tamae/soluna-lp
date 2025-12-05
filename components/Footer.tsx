@@ -26,6 +26,19 @@ const Footer = () => {
           <div className="space-y-6">
             <h3 className="font-bold text-lg">Discovery</h3>
             <ul className="space-y-4 text-gray-400 text-sm">
+              {/* ▼ 追加：診断へのリンク (Tally) */}
+              <li>
+                <a 
+                  href="https://tally.so/r/mK7Yez" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors flex items-center gap-2 text-white/90 font-medium"
+                >
+                  Re-Verse Code Diagnosis 
+                </a>
+              </li>
+              {/* ▲ ここまで */}
+
               <li>
                 <a href="/policy" className="hover:text-blue-400 transition-colors">
                   SOLUNA Protocol & Policy
@@ -49,11 +62,24 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Transparency Column - 修正版（/audit へ同じタブで遷移） */}
+          {/* Transparency Column */}
           <div className="space-y-6">
             <h3 className="font-bold text-lg">Transparency</h3>
             <ul className="space-y-4 text-gray-400 text-sm">
               
+              {/* ▼ 追加：設計図へのリンク (Notion Blueprint) */}
+              <li>
+                <a 
+                  href="https://www.notion.so/Project-SOLUNA-Genesis-The-Blueprint-2bf6197f1e5580b296b0f6faff4c0233" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors flex items-center gap-2 text-white/90 font-medium"
+                >
+                  Official Blueprint
+                </a>
+              </li>
+              {/* ▲ ここまで */}
+
               {/* Security & Audit (監査ページへ) */}
               <li>
                 <a 
