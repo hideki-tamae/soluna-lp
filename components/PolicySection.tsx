@@ -2,7 +2,7 @@
 import React from 'react';
 
 // 日本語版PDFの最適化リンク
-const JAPANESE_PDF_LINK = "https://drive.google.com/file/d/1_-jUNoMTB6sm3rhhGVetAqQkyhvdbcbh/uc?export=download"; // ✨ この行を新しいURLに書き換えました
+const JAPANESE_PDF_LINK = "https://drive.google.com/file/d/1cPfHoqKse3H06wPi5QT2zX534ZXF3lJT/uc?export=download"; // ✨ 新しいIDと直接ダウンロード形式に更新しました
 // 英語版PDFの最適化リンク
 const ENGLISH_PDF_LINK = "https://drive.google.com/file/d/1ui6YdsxmN1lNR6umLwR3kcajTGDIm46S/preview";
 
