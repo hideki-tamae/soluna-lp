@@ -104,7 +104,7 @@ const Benefits = () => {
           
           {/* リード文修正：PCでは適宜改行、モバイルでは「あなたには」の後で改行し「特別な権利」を強調 */}
           <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
-            初期メンバーとして参加するあなたには、<br />
+            初期メンバーとなるあなたには、<br />
             将来のSOLUNAエコシステムにおける<br className="md:hidden" />
             <span className="inline-block text-gray-300 font-medium">特別な権利が付与されます。</span>
           </p>
