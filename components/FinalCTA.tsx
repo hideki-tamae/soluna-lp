@@ -66,9 +66,9 @@ const FinalCTA = () => {
             </span>
             
             {/* Tag */}
-            <span className="absolute top-3 right-3 md:-top-1 md:-right-1 flex h-3 w-3 md:h-5 md:w-5">
+            <span className="absolute top-3 right-3 md:-top-1 md:-right-1 flex h-3 w-3 md:h-5 w-5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 md:h-5 md:w-5 bg-purple-500"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 md:h-5 w-5 bg-purple-500"></span>
             </span>
           </a>
           
@@ -77,13 +77,14 @@ const FinalCTA = () => {
           </span>
         </div>
 
-        {/* Technical Disclaimer (Fixed for readability) */}
+        {/* Technical Disclaimer (Fixed for readability) - 【修正済み】モバイル改行を制御 */}
         <div className="mt-20 pt-10 border-t border-white/10 max-w-xl mx-auto px-2">
           <p className="text-xs text-gray-400 font-mono leading-relaxed tracking-wider drop-shadow">
-            {/* 修正：長い英語部分は改行を許可し、文末の重要語句だけを inline-block で守る */}
-            ※ SOLUNAは、Ethereum Sepolia Network 上で<span className="inline-block">稼働する</span><br className="hidden md:block" />
-            “透明性・分配・インセンティブ”を<span className="inline-block">再設計した</span><br className="hidden md:block" />
-            分散型の社会インフラ <span className="inline-block">〈Soluna Proto-Mainnet〉です。</span>
+            ※ SOLUNAは、Ethereum Sepolia Network
+            <br class="md:hidden" />
+            上で稼働する“透明性・分配・インセンティブ”を再設計した
+            <br class="md:hidden" />
+            分散型の社会インフラ〈Soluna Proto-Mainnet〉です。
           </p>
         </div>
 

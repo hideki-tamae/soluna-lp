@@ -56,13 +56,15 @@ export default function RoadmapCTA() {
           </a>
         </div>
 
-        {/* 4. 補足（技術的な注釈） */}
+        {/* 4. 補足（技術的な注釈） - 【修正済み】モバイル改行を制御 */}
         <p className="text-xs text-slate-500 mt-8 leading-relaxed">
-   　　 ※ SOLUNAは、Ethereum Sepolia Network 上で稼働する<br />
-   　　“透明性・分配・インセンティブ”を再設計した<br />
-    　分散型の社会インフラ〈Soluna Proto-Mainnet〉です。
-　　　</p>
+          ※ SOLUNAは、Ethereum Sepolia Network
+          <br class="md:hidden" />
+          上で稼働する“透明性・分配・インセンティブ”を再設計した
+          <br class="md:hidden" />
+          分散型の社会インフラ〈Soluna Proto-Mainnet〉です。
+        </p>
       </div>
     </section>
   );
-} 
+}
