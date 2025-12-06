@@ -62,7 +62,7 @@ const FinalCTA = () => {
               <span>
                 第1期・市民<br className="block sm:hidden" />先行登録
               </span>
-              <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-white/90 group-hover:translate-x-2 transition-transform duration-300 flex-shrink-0" />
+              <ArrowRight className="w-6 h-6 md:w-8 h-8 text-white/90 group-hover:translate-x-2 transition-transform duration-300 flex-shrink-0" />
             </span>
             
             {/* Tag */}
@@ -77,14 +77,17 @@ const FinalCTA = () => {
           </span>
         </div>
 
-        {/* Technical Disclaimer (Fixed for readability) - 【修正済み】モバイル改行を制御 */}
-        <div className="mt-20 pt-10 border-t border-white/10 max-w-xl mx-auto px-2">
-          <p className="text-xs text-gray-400 font-mono leading-relaxed tracking-wider drop-shadow">
-            ※ SOLUNAは、Ethereum Sepolia Network
-            <br class="md:hidden" />
-            上で稼働する“透明性・分配・インセンティブ”を再設計した
-            <br class="md:hidden" />
-            分散型の社会インフラ〈Soluna Proto-Mainnet〉です。
+        {/* Technical Disclaimer (最終修正版: フォントサイズとinline-blockで可読性向上) */}
+        <div className="mt-20 pt-10 border-t border-white/10 max-w-xl mx-auto px-4">
+          <p className="text-[10px] text-gray-400 font-mono leading-normal tracking-wider drop-shadow">
+            {/* 稼働する、透明性・分配、Proto-Mainnetを塊として守り、文字サイズを最小限に抑える */}
+            ※ SOLUNAは、
+            <span className="inline-block">Ethereum Sepolia Network</span>
+            上で<span className="inline-block">稼働する</span>
+            “透明性・分配・インセンティブ”を<span className="inline-block">再設計した</span>
+            <br className="hidden md:block" />
+            <span className="inline-block">分散型の社会インフラ</span>
+            <span className="inline-block">〈Soluna Proto-Mainnet〉です。</span>
           </p>
         </div>
 
