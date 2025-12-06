@@ -43,9 +43,10 @@ const HeroSection = () => {
       icon: <Box className="w-6 h-6 text-emerald-400" />,
       description: (
         <>
-          優しさの行動証明を
-          {/* 文節保護：PC表示での孤立改行を防ぐ */}
-          <span className="whitespace-nowrap">ブロックチェーンに刻み、</span>
+          優しさの行動証明を<br className="hidden md:block" />
+          {/* 文節をひとかたまりにして、PCでの「刻み、」の孤立を防ぐ */}
+          <span className="inline-block">ブロックチェーンに刻み、</span>
+          <br className="hidden md:block" />
           不変の価値として資産化する。
         </>
       ),
@@ -62,10 +63,10 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden bg-black pb-20">
+    <section className="relative w-full flex flex-col items-center justify-start overflow-hidden bg-black pb-20">
       
       {/* Background Video Layer */}
-      <div className="absolute inset-0 z-0 h-[120vh]">
+      <div className="absolute inset-0 z-0 h-[140vh]">
         <video
           autoPlay
           loop
@@ -79,11 +80,11 @@ const HeroSection = () => {
         {/* Overlay Gradients */}
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/80 to-transparent" />
         <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-x-0 bottom-0 h-[800px] bg-gradient-to-t from-black via-black/90 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black via-black/90 to-transparent" />
       </div>
 
-      {/* --- HERO CONTENT AREA --- */}
-      <div className="relative z-10 container mx-auto px-6 text-center pt-32 md:pt-48 mb-32">
+      {/* --- HERO TEXT CONTENT AREA (幅狭め: max-w-4xl) --- */}
+      <div className="relative z-10 container mx-auto px-6 text-center pt-32 md:pt-48 mb-24 max-w-5xl">
         
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-black/40 border border-white/20 backdrop-blur-md animate-fade-in-up">
@@ -118,7 +119,7 @@ const HeroSection = () => {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-24">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-16">
           <Link 
             href="/whitepaper"
             className="group relative px-8 py-4 bg-blue-600/90 hover:bg-blue-500 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] overflow-hidden backdrop-blur-sm border border-white/10"
@@ -144,15 +145,16 @@ const HeroSection = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="animate-bounce opacity-80 drop-shadow-md mb-24">
+        <div className="animate-bounce opacity-80 drop-shadow-md">
           <div className="w-6 h-10 rounded-full border-2 border-white/50 flex justify-center p-1 mx-auto">
             <div className="w-1 h-2 bg-white rounded-full animate-scroll-down" />
           </div>
         </div>
       </div>
 
-      {/* --- CARDS SECTION AREA --- */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
+      {/* --- CARDS SECTION AREA (幅広め: max-w-7xl) --- */}
+      {/* 以前のように大きなサイズで表示されるよう、コンテナ幅を7xlに拡大 */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 mt-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-blue-100 to-blue-300 tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
             共鳴する世界、実装される優しさ。
@@ -163,7 +165,7 @@ const HeroSection = () => {
           {cards.map((card, index) => (
             <div 
               key={index}
-              className={`group p-8 rounded-2xl bg-[#050505]/80 backdrop-blur-sm border border-white/10 transition-all duration-500 hover:-translate-y-1 ${card.borderHover} ${card.bgHover} shadow-lg`}
+              className={`group p-8 rounded-2xl bg-[#050505] border border-white/10 transition-all duration-500 hover:-translate-y-1 ${card.borderHover} ${card.bgHover} shadow-lg`}
             >
               <div className="flex flex-col h-full justify-between">
                 <div>
@@ -179,6 +181,7 @@ const HeroSection = () => {
                     {card.title}
                   </h3>
                   
+                  {/* descriptionのフォントサイズや行間を調整して見やすく */}
                   <div className="text-gray-400 font-medium leading-relaxed">
                     {card.description}
                   </div>
