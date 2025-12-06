@@ -2,7 +2,7 @@
 import React from 'react';
 
 // 日本語版PDFの最適化リンク
-const JAPANESE_PDF_LINK = "https://drive.google.com/file/d/1I0u0UUFZ55Y4bP9KDH3uTd_AYfdTh__n/preview";
+const JAPANESE_PDF_LINK = "https://drive.google.com/file/d/1_-jUNoMTB6sm3rhhGVetAqQkyhvdbcbh/uc?export=download"; // ✨ この行を新しいURLに書き換えました
 // 英語版PDFの最適化リンク
 const ENGLISH_PDF_LINK = "https://drive.google.com/file/d/1ui6YdsxmN1lNR6umLwR3kcajTGDIm46S/preview";
 
@@ -66,7 +66,7 @@ const PolicySection = () => {
               
               <div className="relative group">
                 <img 
-                  src="/GBD.png" 
+                  src="/GBD.png" // ✨ GBD.pngに修正されています
                   alt="東京都におけるリスク起因死亡数（2021年）" 
                   className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                 />
