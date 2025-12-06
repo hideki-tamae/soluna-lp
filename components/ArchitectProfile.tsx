@@ -42,7 +42,8 @@ const ArchitectProfile = () => {
         "Athletic Grit: National Futsal Player / Kyushu Championship Qualifier (800m) / Half-Marathon Record Holder (Unbroken)",
         "Musical Artistry: Vocal Competition JOYSOUND Award Winner (Kagoshima Championship Finals)",
         "Cultural Arts: Minami-Nihon Calligraphy: 8th Dan Master Rank (Kaisho Style) (1997)",
-        "Lived Experience: Deep understanding as an ACEs survivor / Young Carer (Since 1986)"
+        // 修正: Sinceと1986の間に改行禁止スペース(\u00A0)を入れ、分断を防ぐ
+        "Lived Experience: Deep understanding as an ACEs survivor / Young Carer (Since\u00A01986)"
       ]
     }
   ];
@@ -61,11 +62,16 @@ const ArchitectProfile = () => {
           <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 tracking-tight mb-6 drop-shadow-sm">
             Liberal Arts Architect
           </h1>
-          <p className="text-xl md:text-3xl text-gray-400 font-light tracking-wider flex items-center justify-center gap-3">
+          
+          {/* サブタイトル修正: モバイルで改行を制御し視認性を向上 */}
+          <div className="text-xl md:text-3xl text-gray-400 font-light tracking-wider flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3">
             <span className="hidden md:inline-block w-12 h-[1px] bg-gradient-to-r from-transparent to-gray-600"></span>
-            技術 × 制度 × 思想 を統合する 文明OSデザイナー
+            
+            <span className="block md:inline">技術 × 制度 × 思想 を統合する</span>
+            <span className="block md:inline text-gray-300">文明OSデザイナー</span>
+            
             <span className="hidden md:inline-block w-12 h-[1px] bg-gradient-to-l from-transparent to-gray-600"></span>
-          </p>
+          </div>
         </div>
 
         {/* カードグリッド */}
