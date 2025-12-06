@@ -42,13 +42,12 @@ const HeroSection = () => {
       subtitle: "PROTOCOL",
       icon: <Box className="w-6 h-6 text-emerald-400" />,
       description: (
-        <>
-          優しさの行動証明を<br className="hidden md:block" />
-          {/* 文節をひとかたまりにして、PCでの「刻み、」の孤立を防ぐ */}
-          <span className="inline-block">ブロックチェーンに刻み、</span>
-          <br className="hidden md:block" />
-          不変の価値として資産化する。
-        </>
+        <span>
+          {/* PC(md以上)では強制的にブロック要素にして改行させる。モバイル(inline)では自然な折り返し。 */}
+          <span className="inline md:block">優しさの行動証明を</span>
+          <span className="inline md:block">ブロックチェーンに刻み、</span>
+          <span className="inline md:block">不変の価値として資産化する。</span>
+        </span>
       ),
       gradient: "from-emerald-400 via-teal-300 to-teal-100",
       borderHover: "group-hover:border-emerald-500/50",
@@ -83,7 +82,7 @@ const HeroSection = () => {
         <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black via-black/90 to-transparent" />
       </div>
 
-      {/* --- HERO TEXT CONTENT AREA (幅狭め: max-w-4xl) --- */}
+      {/* --- HERO TEXT CONTENT AREA (幅狭め: max-w-5xl) --- */}
       <div className="relative z-10 container mx-auto px-6 text-center pt-32 md:pt-48 mb-24 max-w-5xl">
         
         {/* Badge */}
@@ -153,7 +152,6 @@ const HeroSection = () => {
       </div>
 
       {/* --- CARDS SECTION AREA (幅広め: max-w-7xl) --- */}
-      {/* 以前のように大きなサイズで表示されるよう、コンテナ幅を7xlに拡大 */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 mt-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-blue-100 to-blue-300 tracking-tight drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
