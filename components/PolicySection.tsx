@@ -2,7 +2,8 @@
 import React from 'react';
 
 // 日本語版PDFの最適化リンク
-const JAPANESE_PDF_LINK = "https://drive.google.com/file/d/1cPfHoqKse3H06wPi5QT2zX534ZXF3lJT/uc?export=download"; // ✨ 新しいIDと直接ダウンロード形式に更新しました
+// ✨ 最新のファイルID (policy-final-2025.pdf) に更新し、直接ダウンロード形式にしました
+const JAPANESE_PDF_LINK = "https://drive.google.com/file/d/15xxw-eHVTiSxF38eFMPE2Fzjb5Zwf_Ey/uc?export=download";
 // 英語版PDFの最適化リンク
 const ENGLISH_PDF_LINK = "https://drive.google.com/file/d/1ui6YdsxmN1lNR6umLwR3kcajTGDIm46S/preview";
 
