@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, BookOpen } from 'lucide-react';
-import Link from 'next/link'; // ← このインポートを追加
+import Link from 'next/link';
 
 const HeroSection = () => {
   return (
