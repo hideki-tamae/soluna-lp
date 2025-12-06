@@ -21,7 +21,7 @@ const ArchitectProfile = () => {
         "Johns Hopkins University: Essential Epidemiology Tools Completed",
         "Preventive Medicine Specialist / Health Management Advisor Certified",
         "Imperial College London: Global Health Governance (Near Completion)",
-        "Certified Biohacking & Super Health Consultant (Completed 2019)"
+        "Evidence-Informed Health Optimization Certified (2019)"
       ]
     },
     {
