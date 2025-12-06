@@ -66,7 +66,7 @@ const PolicySection = () => {
               
               <div className="relative group">
                 <img 
-                  src="/jirei.jpg" 
+                  src="/GBD.png" 
                   alt="東京都におけるリスク起因死亡数（2021年）" 
                   className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                 />
