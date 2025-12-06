@@ -3,7 +3,7 @@ import React from 'react';
 const SocialProof = () => {
   const stats = [
     {
-      // Global Reach: データが地球を覆うネットワーク・スフィア
+      // Global Reach
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-12 h-12 drop-shadow-[0_0_15px_rgba(59,130,246,0.6)]">
           <defs>
@@ -20,13 +20,10 @@ const SocialProof = () => {
             </filter>
           </defs>
           <g filter="url(#glowBlue)" fill="none" stroke="url(#blueGrad)" strokeWidth="1.5" strokeLinecap="round">
-            {/* 地球儀グリッド */}
             <circle cx="32" cy="32" r="24" strokeOpacity="0.5" className="animate-pulse" style={{animationDuration: '4s'}}/>
             <path d="M32 8c0 0-12 12-12 24s12 24 12 24M32 8c0 0 12 12 12 24s-12 24-12 24" strokeOpacity="0.4"/>
             <path d="M8 32h48M12 20h40M12 44h40" strokeOpacity="0.4"/>
-            {/* データネットワークの光 */}
             <path d="M52 20L36 32l-8-4-16 12" stroke="#60a5fa" strokeWidth="2" className="animate-pulse" style={{animationDuration: '3s'}}/>
-            {/* アクティブノード */}
             <circle cx="36" cy="32" r="2.5" fill="#93c5fd" className="animate-ping" style={{animationDuration: '2s'}}/>
             <circle cx="52" cy="20" r="1.5" fill="#93c5fd" className="animate-ping" style={{animationDuration: '3s', animationDelay: '1s'}}/>
           </g>
@@ -47,7 +44,7 @@ const SocialProof = () => {
       titleColor: "text-white group-hover:text-blue-200"
     },
     {
-      // Evidence Based: 光るDNAとデータ解析のホログラム
+      // Evidence Based
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-12 h-12 drop-shadow-[0_0_15px_rgba(168,85,247,0.6)]">
           <defs>
@@ -64,13 +61,9 @@ const SocialProof = () => {
             </filter>
           </defs>
           <g filter="url(#glowPurple)" fill="none" strokeLinecap="round" strokeLinejoin="round">
-            {/* DNA二重螺旋構造 */}
             <path d="M20 8c0 8 8 12 8 20s-8 12-8 20M44 8c0 8-8 12-8 20s8 12 8 20" stroke="url(#purpleGrad)" strokeWidth="2" />
-            {/* 塩基対の接続 */}
             <path d="M24 16h16M28 28h8M24 40h16M28 52h8" stroke="url(#purpleGrad)" strokeWidth="1.5" opacity="0.6" />
-            {/* データ解析の光 */}
             <circle cx="32" cy="28" r="16" stroke="#e879f9" strokeWidth="1" strokeDasharray="4 4" className="animate-[spin_8s_linear_infinite]" opacity="0.5"/>
-            {/* エビデンスの抽出点 */}
             <circle cx="32" cy="28" r="3" fill="#e879f9" className="animate-pulse" style={{animationDuration: '2.5s'}}/>
             <path d="M32 28l16-12" stroke="#e879f9" strokeWidth="1" opacity="0.5"/>
             <circle cx="48" cy="16" r="1.5" fill="#f0abfc" className="animate-ping" style={{animationDuration: '2s'}}/>
@@ -92,7 +85,7 @@ const SocialProof = () => {
       titleColor: "text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300"
     },
     {
-      // Protocol: 連結するブロックチェーンと光るコア
+      // Protocol
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className="w-12 h-12 drop-shadow-[0_0_15px_rgba(16,185,129,0.6)]">
           <defs>
@@ -109,16 +102,12 @@ const SocialProof = () => {
             </filter>
           </defs>
           <g filter="url(#glowGreen)" fill="none" stroke="url(#greenGrad)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            {/* 上部のブロック */}
             <path d="M32 8l16 8v12l-16 8-16-8V16z" strokeOpacity="0.8" className="animate-pulse" style={{animationDuration: '4s'}}/>
             <path d="M32 18v10M24 22l16-8" strokeOpacity="0.4"/>
-            {/* 下部のブロック */}
             <path d="M32 36l16 8v12l-16 8-16-8V44z" strokeOpacity="0.8" className="animate-pulse" style={{animationDuration: '4s', animationDelay: '0.5s'}}/>
             <path d="M32 46v10M24 50l16-8" strokeOpacity="0.4"/>
-            {/* 連結リンクとコア */}
             <path d="M32 28v8" strokeWidth="2" stroke="#34d399"/>
             <circle cx="32" cy="32" r="5" stroke="#34d399" strokeWidth="2" className="animate-ping" style={{animationDuration: '3s'}}/>
-            {/* SOLUNAの「S」コア */}
             <path d="M34 30c-2 0-4 1-4 2s2 2 4 2 4 1 4 2-2 2-4 2" stroke="#86efac" strokeWidth="2"/>
           </g>
         </svg>
@@ -127,10 +116,12 @@ const SocialProof = () => {
       value: "SOLUNA",
       isTextValue: true,
       description: (
-        <p className="text-pretty">
-          優しさの行動証明をブロックチェーンに刻み、<br className="hidden lg:block" />
-          不変の価値として資産化する。
-        </p>
+        // 修正箇所: 文節ごとに inline-block を適用し、文節途中での改行を防ぐ
+        <span className="block leading-relaxed">
+          <span className="inline-block">優しさの行動証明を</span>
+          <span className="inline-block">ブロックチェーンに刻み、</span>
+          <span className="inline-block">不変の価値として資産化する。</span>
+        </span>
       ),
       gradient: "from-emerald-400 to-teal-300",
       hoverBorder: "hover:border-emerald-500/30",
@@ -145,7 +136,8 @@ const SocialProof = () => {
       {/* Background Ambience */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-blue-900/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      {/* 幅広レイアウトのために max-w-7xl を適用 */}
+      <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
         
         {/* 1. Section Header */}
         <div className="text-center mb-20">
@@ -161,14 +153,13 @@ const SocialProof = () => {
           </h2>
         </div>
 
-        {/* 2. Stats Cards: Holographic Icons Update */}
+        {/* 2. Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-24">
           {stats.map((stat, index) => (
             <div 
               key={index}
               className={`group p-8 rounded-3xl bg-[#0A0A0A] border border-white/10 ${stat.hoverBorder} transition-all duration-300 ${stat.hoverShadow} flex flex-col`}
             >
-              {/* Icon Container - Removed bg/padding, added hover effect */}
               <div className="mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1">
                 {stat.icon}
               </div>
