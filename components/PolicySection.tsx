@@ -6,7 +6,7 @@ import React from "react";
 const JAPANESE_PDF_LINK = "/docs/policy-final-2025_official.pdf";
 
 // 英語版PDF（必要なら後でローカルに移行OK）
-const ENGLISH_PDF_LINK = "https://drive.google.com/file/d/1ui6YdsxmN1lNR6umLwR3kcajTGDIm46S/preview";
+const ENGLISH_PDF_LINK = "/docs/En_HAIKEI_watermark.pdf";
 
 const PolicySection = () => {
   return (
