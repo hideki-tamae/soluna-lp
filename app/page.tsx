@@ -1,11 +1,12 @@
 import HeroSection from '@/components/HeroSection';
 import SocialProof from '@/components/SocialProof';
-import InversionSection from '@/components/InversionSection'; // ★ここを変更 (ProblemSolution -> InversionSection)
+import ProblemSolution from '@/components/ProblemSolution'; // 👈 ここを確実にファイル名と合わせる
 import FearSection from '@/components/FearSection';
 import ProfileSummary from '@/components/ProfileSummary';
 import BetaRecruitment from '@/components/BetaRecruitment';
 import Benefits from '@/components/Benefits';
 import FinalCTA from '@/components/FinalCTA';
+import ProofOfCommitment from '@/components/ProofOfCommitment'; // 🆕 AIオラクル
 
 export default function Home() {
   return (
@@ -17,13 +18,13 @@ export default function Home() {
       {/* 2. Social Proof */}
       <SocialProof />
 
-      {/* 3. Concept (世界は「反転」する。セクション) */}
-      <InversionSection /> {/* ★ここを変更 (ProblemSolution -> InversionSection) */}
+      {/* 3. Concept (ProblemSolutionに戻しました) */}
+      <ProblemSolution />
 
-      {/* 4. Fear (Policyリンク付き) */}
+      {/* 4. Fear */}
       <FearSection />
 
-      {/* 5. Profile (Profileリンク付き) */}
+      {/* 5. Profile */}
       <ProfileSummary />
 
       {/* 6. Recruitment */}
@@ -32,11 +33,14 @@ export default function Home() {
       {/* 7. Benefits */}
       <Benefits />
 
-      {/* 8. Final CTA */}
+      {/* 8. Proof of Commitment (AI Oracle) */}
+      <div className="py-10 relative z-20">
+        <ProofOfCommitment />
+      </div>
+
+      {/* 9. Final CTA */}
       <FinalCTA />
-       
-      {/* 9. Footerは削除 (layout.tsxに任せる) */}
-       
+      
     </main>
   );
-} 
+}
