@@ -113,11 +113,13 @@ const InversionSection = () => {
             </span>
           </div>
           
-          {/* 修正箇所: フォントサイズを調整し、スマホで改行するように修正 */}
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight">
+          {/* 修正: 
+            1. text-3xl (スマホ) ~ md:text-6xl (PC) にサイズを調整
+            2. whitespace-nowrap を追加して1行に強制
+            3. 途中の br タグを削除
+          */}
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight whitespace-nowrap">
             世界は
-            {/* スマホ(md未満)では改行を入れる */}
-            <br className="block md:hidden" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">
               「反転」
             </span>
