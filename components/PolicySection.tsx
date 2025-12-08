@@ -3,7 +3,7 @@ import React from "react";
 
 // ✅ 日本語版PDF（透かし付き・ローカル配信）
 // public/docs/policy-final-2025_official.pdf を参照
-const JAPANESE_PDF_LINK = "/docs/policy-final-2025_official.pdf";
+const JAPANESE_PDF_LINK = "/docs/JP_Haikei_official.pdf";
 
 // 英語版PDF（必要なら後でローカルに移行OK）
 const ENGLISH_PDF_LINK = "/docs/En_HAIKEI_watermark.pdf";

@@ -1,6 +1,6 @@
 import React from "react";
 
-const WHITEPAPER_JP_PDF = "/docs/JP_Haikei_official.pdf";
+const WHITEPAPER_JP_PDF = "/docs/policy-final-2025_official.pdf";
 
 const WhitepaperPage = () => {
   return (
