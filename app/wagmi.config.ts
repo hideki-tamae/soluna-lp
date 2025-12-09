@@ -1,19 +1,18 @@
-import { http, createConfig } from 'wagmi';
-import { mainnet, sepolia } from 'wagmi/chains';
-import { injected } from 'wagmi/connectors';
+import { getDefaultConfig } from '@rainbow-me/rainbowkit';
+import { mainnet, sepolia, base } from 'wagmi/chains';
 
-export const config = createConfig({
-  // 1. 接続するチェーンを定義
-  chains: [mainnet, sepolia],
+// 世界最高のUXを実現するデュアルコア設定
+export const config = getDefaultConfig({
+  appName: 'ACES CARE HUB JAPAN',
   
-  // 2. 接続方法を定義 (例: MetaMaskなど)
-  connectors: [
-    injected(),
-  ],
-  
-  // 3. 各チェーンへの接続設定 (RPC URL)
-  transports: {
-    [mainnet.id]: http(),
-    [sepolia.id]: http(), // <-- エラーの原因となっていた不要なコードを削除し、修正しました
-  },
+  // WalletConnect Cloud (https://cloud.walletconnect.com/) で取得したID推奨
+  // ※開発中は 'YOUR_PROJECT_ID' のままでも動きますが、本番公開前に取得してください
+  projectId: 'YOUR_PROJECT_ID', 
+
+  // 使用するチェーン定義
+  // Baseを追加することでスマートウォレット（顔認証）の体験が向上します
+  chains: [mainnet, sepolia, base],
+
+  // Server Side Rendering有効化（Next.js App Router必須）
+  ssr: true, 
 });

@@ -1,7 +1,9 @@
 import "./globals.css";
-import { WagmiProvider } from "./WagmiProvider";
+import { Web3Provider } from "@/components/Web3Provider";
 import Footer from "@/components/Footer";
 import DisableContextMenu from "./DisableContextMenu";
+// 👇 追加 1: ボタンの部品をインポート
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export const metadata = {
   title: "Re-Verse Civilization / SOLUNA",
@@ -13,20 +15,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // ホバーカラーの変数定義
   const hoverColorClass = "hover:text-cyan-400";
 
   return (
     <html lang="ja">
       <body className="bg-black text-white antialiased">
-        {/* 右クリック禁止：LP全体に適用 */}
         <DisableContextMenu />
 
-        <WagmiProvider>
+        <Web3Provider>
           {/* ===== Header ===== */}
           <header className="w-full border-b border-white/10 bg-black/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
             <div className="mx-auto max-w-6xl px-5 py-4 flex items-center justify-between">
-              {/* 🚩 修正 1: ACES Care HUB JAPAN ホバーカラー修正 */}
+              
+              {/* ロゴエリア */}
               <a
                 href="/"
                 className={`flex items-center gap-3 opacity-100 ${hoverColorClass} transition-colors`}
@@ -41,10 +42,10 @@ export default function RootLayout({
                 </span>
               </a>
 
-              {/* 🚩 修正 2 & 3: ナビゲーションを四角で囲み、間隔を強制確保 */}
-              <nav className="flex items-center gap-2 whitespace-nowrap">
+              {/* ナビゲーションエリア */}
+              <nav className="flex items-center gap-4 whitespace-nowrap">
                 {/* 共創参加 */}
-                <div className="rounded-md border border-transparent hover:border-cyan-400 transition-colors">
+                <div className="hidden md:block rounded-md border border-transparent hover:border-cyan-400 transition-colors">
                   <a
                     href="https://tally.so/r/wM9JVY"
                     target="_blank"
@@ -56,7 +57,7 @@ export default function RootLayout({
                 </div>
 
                 {/* 読者限定 */}
-                <div className="rounded-md border border-transparent hover:border-cyan-400 transition-colors">
+                <div className="hidden md:block rounded-md border border-transparent hover:border-cyan-400 transition-colors">
                   <a
                     href="/claim"
                     className={`text-sm font-bold text-gray-300 ${hoverColorClass} transition-colors tracking-wider px-3 py-1`}
@@ -64,16 +65,25 @@ export default function RootLayout({
                     読者限定
                   </a>
                 </div>
+
+                {/* 👇 追加 2: ここに「指紋認証への入り口」を配置！ */}
+                <div className="ml-2">
+                    <ConnectButton 
+                        label="Connect ID" 
+                        accountStatus="avatar" 
+                        chainStatus="icon"
+                        showBalance={false}
+                    />
+                </div>
+
               </nav>
             </div>
           </header>
 
-          {/* コンテンツ */}
           {children}
 
-          {/* ===== Footer（コンポーネント読込） ===== */}
           <Footer />
-        </WagmiProvider>
+        </Web3Provider>
       </body>
     </html>
   );
