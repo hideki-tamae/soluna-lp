@@ -113,16 +113,19 @@ const InversionSection = () => {
             </span>
           </div>
           
-          {/* 修正箇所: 
-             1. whitespace-nowrap で強制的に1行に
-             2. text-[2rem] (32px) sm:text-5xl ... でスマホでのサイズを微調整し、はみ出しを防ぐ
+          {/* 【修正ポイント】
+            1. 親タグから whitespace-nowrap を削除（画面からはみ出し防止）
+            2. 「反転」から「する。」までを <span className="inline-block whitespace-nowrap"> で囲む
+               → これにより「る。」だけの改行を物理的に阻止
           */}
-          <h2 className="text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight whitespace-nowrap">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight">
             世界は
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">
-              「反転」
+            <span className="inline-block whitespace-nowrap ml-2 md:ml-3">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">
+                「反転」
+              </span>
+              する。
             </span>
-            する。
           </h2>
 
           <p className="text-gray-400 text-base md:text-xl max-w-3xl mx-auto leading-relaxed font-light px-2">
