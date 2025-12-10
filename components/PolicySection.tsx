@@ -130,7 +130,7 @@ const PolicySection = () => {
             </p>
 
             <div className="flex justify-center gap-4 flex-wrap">
-              {/* 修正点 1: 日本語ボタンを PDF ダウンロードから /policy ページへの遷移に変更 */}
+              {/* 修正点 1: 日本語ボタンを PDF ダウンロードから /policy ページへの遷移に変更 (現状維持) */}
               <a
                 href="/policy"
                 className="group inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] text-sm md:text-base w-full sm:w-auto justify-center"
@@ -145,9 +145,9 @@ const PolicySection = () => {
                 </svg>
               </a>
 
-              {/* 修正点 2: 英語ボタンを PDF ダウンロードから /en-policy ページへの遷移に変更 */}
+              {/* ⭐ 修正点 2: 英語ボタンのリンクを /en-policy から /policy/en に修正！ */}
               <a
-                href="/en-policy"
+                href="/policy/en" // ここを修正しました
                 // 外部リンクではなく内部遷移になるため、target="_blank" と rel="noopener noreferrer" を削除
                 className="group inline-flex items-center gap-3 bg-white/10 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] border border-white/20 text-sm md:text-base w-full sm:w-auto justify-center"
               >
