@@ -63,7 +63,8 @@ const GlobalEcosystem = () => {
             </span>
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 tracking-tight drop-shadow-2xl">
+          {/* 👇 修正点: whitespace-nowrap を追加し、モバイルでの強制1行表示を実現 */}
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-10 tracking-tight drop-shadow-2xl whitespace-nowrap">
             世界は <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200">「反転」</span> する。
           </h2>
           
