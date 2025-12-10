@@ -1,16 +1,23 @@
-// app/policy/en/page.tsx (政策提言書・英語版専用ページ)
+// app/policy/en/page.tsx
+
 'use client'; 
 
 import React from "react";
 import AntiCopyWrapper from "@/components/utils/AntiCopyWrapper"; 
 import Link from 'next/link'; 
+import Image from 'next/image'; // 1. Imageコンポーネントをインポート
 
-// 🚨 政策提言書・英語版の確定パス
-const POLICY_PAGE_EN_COVER = "/images/En0.png"; 
-const POLICY_PAGE_EN_1_IMG = "/images/En1.png"; 
-const POLICY_PAGE_EN_2_IMG = "/images/En2.png";
-const POLICY_PAGE_EN_3_IMG = "/images/En3.png";
-const POLICY_PAGE_EN_4_IMG = "/images/En4.png";
+// 2. 画像ファイルを直接インポートする（public/imagesからの相対パス）
+// 画像ファイル名が En0.png, En1.png ... であることを前提とします。
+import EnCover from "/public/images/En0.png"; 
+import EnPage1 from "/public/images/En1.png"; 
+import EnPage2 from "/public/images/En2.png";
+import EnPage3 from "/public/images/En3.png";
+import EnPage4 from "/public/images/En4.png";
+
+// 元の定数宣言は削除またはコメントアウト
+// const POLICY_PAGE_EN_COVER = "/images/En0.png"; 
+// ...
 
 const PolicyEnPage = () => {
   return (
@@ -43,23 +50,49 @@ const PolicyEnPage = () => {
             
             {/* ページ (カバー) */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Cover</h2>
-            <img src={POLICY_PAGE_EN_COVER} alt="Policy Cover Page" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
+            {/* 🌟 3. Image コンポーネントに置き換え */}
+            <Image 
+              src={EnCover} 
+              alt="Policy Cover Page" 
+              className="w-full h-auto rounded-xl shadow-2xl border border-white/10" 
+              sizes="100vw"
+            />
 
             {/* ページ 1 */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 1 (Introduction/Challenge)</h2>
-            <img src={POLICY_PAGE_EN_1_IMG} alt="Policy Page 1" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
+            <Image 
+              src={EnPage1} 
+              alt="Policy Page 1" 
+              className="w-full h-auto rounded-xl shadow-2xl border border-white/10" 
+              sizes="100vw"
+            />
             
             {/* ページ 2 */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 2 (Tech/Scientific Basis)</h2>
-            <img src={POLICY_PAGE_EN_2_IMG} alt="Policy Page 2" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
+            <Image 
+              src={EnPage2} 
+              alt="Policy Page 2" 
+              className="w-full h-auto rounded-xl shadow-2xl border border-white/10" 
+              sizes="100vw"
+            />
 
             {/* ページ 3 */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 3 (Resilience/Economic Rationality)</h2>
-            <img src={POLICY_PAGE_EN_3_IMG} alt="Policy Page 3" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
+            <Image 
+              src={EnPage3} 
+              alt="Policy Page 3" 
+              className="w-full h-auto rounded-xl shadow-2xl border border-white/10" 
+              sizes="100vw"
+            />
 
             {/* ページ 4 */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 4 (Roadmap/Conclusion)</h2>
-            <img src={POLICY_PAGE_EN_4_IMG} alt="Policy Page 4" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
+            <Image 
+              src={EnPage4} 
+              alt="Policy Page 4" 
+              className="w-full h-auto rounded-xl shadow-2xl border border-white/10" 
+              sizes="100vw"
+            />
 
           </div>
         </AntiCopyWrapper>

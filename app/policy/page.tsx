@@ -26,6 +26,16 @@ const PolicyPage = () => {
           </h1>
           <p className="text-xl text-gray-400">日本語版 / 閲覧専用・著作権保護</p>
           
+          {/* 🌟 政策提言書: 英語版へのリンクをここに追加 🌟 */}
+          <div className="mt-4 mb-4 text-center">
+              <Link href="/policy/en" passHref>
+                  <span className="text-sm text-gray-500 hover:text-white transition-colors cursor-pointer border-b border-gray-600 hover:border-white">
+                      View English Version →
+                  </span>
+              </Link>
+          </div>
+          {/* ------------------------------------------- */}
+
           <div className="mt-8">
             <h3 className="text-lg text-red-500 font-bold">
               ※閲覧専用・著作権保護PDFダウンロードは終了しました。<br/>以下はコピペ防止処理が施された閲覧専用です。
