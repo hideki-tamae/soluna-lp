@@ -1,12 +1,7 @@
 "use client";
 import React from "react";
 
-// ✅ 日本語版PDF（透かし付き・ローカル配信）
-// public/docs/policy-final-2025_official.pdf を参照
-const JAPANESE_PDF_LINK = "/docs/JP_Haikei_official.pdf";
-
-// 英語版PDF（必要なら後でローカルに移行OK）
-const ENGLISH_PDF_LINK = "/docs/En_HAIKEI_watermark.pdf";
+// PDFリンクの定数は不要になりましたが、コードの整合性のため残します。
 
 const PolicySection = () => {
   return (
@@ -135,10 +130,9 @@ const PolicySection = () => {
             </p>
 
             <div className="flex justify-center gap-4 flex-wrap">
-              {/* ✅ 日本語：ローカルPDFへ */}
+              {/* 修正点 1: 日本語ボタンを PDF ダウンロードから /policy ページへの遷移に変更 */}
               <a
-                href={JAPANESE_PDF_LINK}
-                download
+                href="/policy"
                 className="group inline-flex items-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] text-sm md:text-base w-full sm:w-auto justify-center"
               >
                 <span className="relative flex h-3 w-3">
@@ -151,11 +145,10 @@ const PolicySection = () => {
                 </svg>
               </a>
 
-              {/* 英語：現状維持 */}
+              {/* 修正点 2: 英語ボタンを PDF ダウンロードから /en-policy ページへの遷移に変更 */}
               <a
-                href={ENGLISH_PDF_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/en-policy"
+                // 外部リンクではなく内部遷移になるため、target="_blank" と rel="noopener noreferrer" を削除
                 className="group inline-flex items-center gap-3 bg-white/10 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] border border-white/20 text-sm md:text-base w-full sm:w-auto justify-center"
               >
                 Read the Full Paper (English)
@@ -165,7 +158,8 @@ const PolicySection = () => {
               </a>
             </div>
 
-            <p className="mt-4 text-xs text-gray-500 font-mono">PDF DOWNLOAD</p>
+            {/* ダウンロード廃止に伴い、PDF DOWNLOADの文言を修正または削除を推奨 */}
+            <p className="mt-4 text-xs text-gray-500 font-mono">VIEW ONLY (PDF DOWNLOAD ENDED)</p>
           </div>
         </div>
       </div>
