@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 export default function ProofOfCommitment() {
@@ -50,12 +51,11 @@ export default function ProofOfCommitment() {
         </p>
 
         {/* Dashboard Button */}
-        <button className="group relative px-8 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-amber-500/30 transition-all duration-500 overflow-hidden hover:shadow-[0_0_30px_rgba(245,158,11,0.3)]">
-          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]"></div>
-          <span className="relative text-amber-50 text-sm tracking-widest uppercase font-medium">
-            Enter Dashboard (Coming Soon)
-          </span>
-        </button>
+        <Link href="/dashboard">
+          <button className="px-8 py-3 rounded-full border border-yellow-600/50 text-yellow-100 hover:bg-yellow-900/20 transition-all tracking-widest text-sm">
+            ENTER DASHBOARD
+          </button>
+        </Link>
 
         <style jsx>{`
           @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -72,9 +72,21 @@ export default function ProofOfCommitment() {
     <div className="w-full max-w-2xl bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-3xl p-10 relative overflow-hidden group hover:border-amber-500/30 transition-all duration-500">
       <div className="relative z-10 flex flex-col items-center text-center">
         <h2 className="text-3xl font-bold text-white mb-6">Re-Verse Civilization<br/><span className="text-slate-400 text-2xl font-light">への誓い</span></h2>
-        <p className="text-slate-300 mb-10 leading-relaxed max-w-lg">
-          私は、ケア資本主義の実装者として、<br/>優しさが循環する社会を創り上げることを宣言します。
+        
+        {/* 👇 文節改行とCare Capitalism適用済みテキスト */}
+        <p className="text-slate-300 mb-10 leading-relaxed max-w-lg mx-auto">
+          {/* モバイルで崩れないよう、意味のまとまりで改行を制御 */}
+          <span className="inline-block">私は、</span>
+          <span className="inline-block">ケア資本主義</span>
+          <span className="inline-block">（Care Capitalism）の</span>
+          <span className="inline-block">実装者として、</span>
+          {/* PCではここで改行を入れるが、スマホでは自然な流れに任せる */}
+          <br className="hidden sm:block" />
+          <span className="inline-block">優しさが循環する社会を</span>
+          <span className="inline-block">創り上げることを</span>
+          <span className="inline-block">宣言します。</span>
         </p>
+
         <button
           onClick={handleSign}
           disabled={status === 'signing'}
