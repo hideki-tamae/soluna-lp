@@ -22,7 +22,7 @@ const WhitepaperPage = () => {
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-white to-purple-300 mb-2">
             SOLUNA Proof-of-Care Token
           </h1>
-          <p className="text-xl text-gray-400">Whitepaper (閲覧専用・著作権保護)</p>
+          <p className="text-xl text-gray-400">Whitepaper (※閲覧専用・著作権保護)</p>
           
           <div className="mt-8">
             <h3 className="text-lg text-red-400 font-bold">
@@ -57,14 +57,6 @@ const WhitepaperPage = () => {
             <img 
               src={WHITEPAPER_PAGE_3_IMG} 
               alt="Whitepaper Page 3 - Unauthorized Copy" 
-              className="w-full h-auto rounded-xl shadow-2xl border border-white/10"
-            />
-
-            {/* 政策提言書のセクション */}
-            <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Policy Proposal (政策提言)</h2>
-            <img 
-              src={POLICY_PROPOSAL_IMG} 
-              alt="Policy Proposal - Unauthorized Copy" 
               className="w-full h-auto rounded-xl shadow-2xl border border-white/10"
             />
           </div>
