@@ -2,8 +2,11 @@ import "./globals.css";
 import { Web3Provider } from "@/components/Web3Provider";
 import Footer from "@/components/Footer";
 import DisableContextMenu from "./DisableContextMenu";
-// 👇 追加 1: ボタンの部品をインポート
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+// 👇 ConnectButtonの直接インポートを削除
+// import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+// 👇 修正点 1: 新しいモバイル認証ボタンをインポート
+import MobileAuthButton from "@/components/MobileAuthButton"; 
 
 export const metadata = {
   title: "Re-Verse Civilization / SOLUNA",
@@ -66,14 +69,9 @@ export default function RootLayout({
                   </a>
                 </div>
 
-                {/* 👇 追加 2: ここに「指紋認証への入り口」を配置！ */}
+                {/* 👇 修正点 2: ConnectButton を MobileAuthButton に置き換え */}
                 <div className="ml-2">
-                    <ConnectButton 
-                        label="Connect ID" 
-                        accountStatus="avatar" 
-                        chainStatus="icon"
-                        showBalance={false}
-                    />
+                    <MobileAuthButton /> 
                 </div>
 
               </nav>
