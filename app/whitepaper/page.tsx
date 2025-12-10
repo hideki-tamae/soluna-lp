@@ -26,7 +26,7 @@ const WhitepaperPage = () => {
           
           <div className="mt-8">
             <h3 className="text-lg text-red-400 font-bold">
-              PDFダウンロードリンクは撤去しました。<br/>以下はコピペ防止処理が施された閲覧専用です。
+              PDFダウンロードリンクは終了しました。<br/>以下はコピペ防止処理が施された閲覧専用です。
             </h3>
           </div>
         </div>
