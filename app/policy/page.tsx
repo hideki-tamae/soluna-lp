@@ -28,7 +28,7 @@ const PolicyPage = () => {
           
           <div className="mt-8">
             <h3 className="text-lg text-red-500 font-bold">
-              PDFダウンロードはできません。<br/>以下はコピペ防止処理が施された閲覧専用です。
+              ※PDFダウンロードは終了しました。<br/>以下はコピペ防止処理が施された閲覧専用です。
             </h3>
           </div>
           
