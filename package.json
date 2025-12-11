@@ -56,7 +56,7 @@
     "@types/react-dom": "18.3.0",
     "autoprefixer": "10.4.20",
     "chai": "^4.5.0",
-    "hardhat": "^2.27.0",
+    "hardhat": "^2.27.2",
     "hardhat-gas-reporter": "^2.3.0",
     "postcss": "8.4.45",
     "prisma": "^5.22.0",
