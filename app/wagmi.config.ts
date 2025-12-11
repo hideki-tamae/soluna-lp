@@ -1,18 +1,18 @@
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
-import { mainnet, sepolia, base } from 'wagmi/chains';
+import { base, mainnet, sepolia } from 'wagmi/chains';
 
-// 世界最高のUXを実現するデュアルコア設定
+// 世界最高のUXを実現する「Smart Walletファースト」設定
 export const config = getDefaultConfig({
   appName: 'ACES CARE HUB JAPAN',
   
-  // WalletConnect Cloud (https://cloud.walletconnect.com/) で取得したID推奨
-  // ※開発中は 'YOUR_PROJECT_ID' のままでも動きますが、本番公開前に取得してください
+  // WalletConnect Cloud ID (本番時は必ず取得してください)
   projectId: 'YOUR_PROJECT_ID', 
 
-  // 使用するチェーン定義
-  // Baseを追加することでスマートウォレット（顔認証）の体験が向上します
-  chains: [mainnet, sepolia, base],
+  // ★重要変更: 'base' を配列の [0]番目（先頭）にします。
+  // これにより、デフォルトの接続先がBaseになり、
+  // RainbowKitは自動的に「Smart Wallet (顔認証)」を推奨表示にします。
+  chains: [base, mainnet, sepolia],
 
-  // Server Side Rendering有効化（Next.js App Router必須）
+  // Server Side Rendering有効化
   ssr: true, 
 });

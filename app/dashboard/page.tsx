@@ -1,10 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import React from 'react'; 
-// 👇 wagmiのインポートを追加
+import React, { useState } from 'react'; 
 import { useAccount, useWaitForTransactionReceipt, useWriteContract } from 'wagmi';
+
+// 👇 作成したコンポーネントをインポート
+import ClaimRewardFlow from '../../components/claim/ClaimRewardFlow';
 
 // 仮のコントラクト情報 (実際のアドレスとABIに置き換えてください)
 const REWARD_CONTRACT_ADDRESS = '0xYourContractAddressHere'; 
@@ -16,30 +18,30 @@ const REWARD_CONTRACT_ABI = [
     "stateMutability": "nonpayable",
     "type": "function"
   },
-  // 他のABI定義もここに追加します...
 ];
 
 export default function DashboardPage() {
+  // ▼ モーダルの開閉状態を管理
+  const [isClaiming, setIsClaiming] = useState(false);
+
   const { isConnected } = useAccount();
 
-  // 1. コントラクト書き込みフックの設定
+  // 1. コントラクト書き込みフック
   const { data: hash, isPending, writeContract } = useWriteContract();
 
-  // 2. トランザクション完了待ちフックの設定
+  // 2. トランザクション完了待ちフック
   const { isLoading: isConfirming, isSuccess: isConfirmed } = 
     useWaitForTransactionReceipt({ 
       hash, 
     });
 
-  // 3. 請求ロジック
+  // 3. 請求ロジック (現在は直接呼び出さず、将来的にフローと連携可能)
   const handleClaim = () => {
     if (!isConnected) return;
-
     writeContract({
       address: REWARD_CONTRACT_ADDRESS,
       abi: REWARD_CONTRACT_ABI,
       functionName: 'claimReward',
-      // args: [必要であれば引数をここに]
     });
   };
 
@@ -67,21 +69,19 @@ export default function DashboardPage() {
     isDisabled = false;
   }
 
-
   // ----------------------------------------------------
   // UIレンダリング
   // ----------------------------------------------------
   return (
-    <div className="min-h-screen bg-black text-white p-8">
-      {/* ヘッダーエリア（変更なし） */}
-      <header className="flex justify-between items-center mb-12">
+    <div className="min-h-screen bg-black text-white p-8 relative">
+      {/* ヘッダーエリア */}
+      <header className="flex justify-between items-center mb-12 relative z-10">
         <h1 className="text-2xl font-bold tracking-widest text-gray-200">
           DASHBOARD
         </h1>
         
         <div className="flex items-center gap-4">
           <ConnectButton.Custom>
-             {/* ... (ConnectButtonのロジックは省略 - 変更なし) ... */}
             {({ account, chain, openAccountModal, openChainModal, openConnectModal, authenticationStatus, mounted, }) => {
               const ready = mounted && authenticationStatus !== 'loading';
               const connected = ready && account && chain && (!authenticationStatus || authenticationStatus === 'authenticated');
@@ -120,9 +120,9 @@ export default function DashboardPage() {
       </header>
 
       {/* メインコンテンツエリア */}
-      <main className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <main className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
         
-        {/* 左カラム：ステータス表示（変更なし） */}
+        {/* 左カラム：ステータス表示 */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ export default function DashboardPage() {
           <p className="text-xs text-gray-500 mt-2">Proof Verified via Kindle</p>
         </motion.div>
 
-        {/* 右カラム：リワード請求カード（wagmi連携に変更） */}
+        {/* 右カラム：リワード請求カード */}
         <div className="col-span-1 md:col-span-2 space-y-6">
           <motion.div 
              initial={{ opacity: 0, y: 20 }}
@@ -151,9 +151,10 @@ export default function DashboardPage() {
                 Gold Member限定のオーナーNFT（Proof-of-Care Token）を請求できます。
              </p>
 
-             {/* 請求ボタン (wagmiの状態を反映) */}
+             {/* 請求ボタン (フロー起動) */}
              <button
-               onClick={handleClaim}
+               // ▼ handleClaimからモーダル起動に変更
+               onClick={() => setIsClaiming(true)} 
                disabled={isDisabled}
                className={`
                  px-8 py-3 rounded-full font-bold text-sm tracking-widest transition-all duration-300
@@ -177,8 +178,33 @@ export default function DashboardPage() {
 
           </motion.div>
         </div>
-
       </main>
+
+      {/* ▼▼▼ Proof-of-Care Claim Modal ▼▼▼ */}
+      <AnimatePresence>
+        {isClaiming && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
+          >
+            {/* Close Button */}
+            <button 
+              onClick={() => setIsClaiming(false)}
+              className="absolute top-6 right-6 text-gray-500 hover:text-[#C89F53] transition-colors z-50 flex items-center gap-2 group"
+            >
+              <span className="text-xs tracking-widest uppercase group-hover:text-white transition-colors">Close</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-white transition-colors"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            {/* Content Container */}
+            <div className="w-full max-w-5xl relative">
+              <ClaimRewardFlow />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
