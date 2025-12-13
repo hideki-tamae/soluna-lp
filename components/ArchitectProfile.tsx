@@ -39,7 +39,7 @@ const ArchitectProfile = () => {
       icon: <Feather className="w-7 h-7 text-white/90" />,
       items: [
         "Social Impact: Japan Social Business Summit: Jury’s Special Award Winner (2019)",
-        "Athletic Grit: National Futsal Qualifier / Kyushu Championships 800m Finalist / Half-Marathon Record Holder (Unbroken)",
+        "Athletic Grit: National Futsal Qualifier / Kyushu Championships 800m Finalist / Half-Marathon Champion & Meet Record Holder (Unbroken)",
         "Musical Artistry: Japan Studio Vocal Grand Prix: JOYSOUND Award Winner (Prefectural Finals)",
         "Cultural Arts: Minami-Nihon Calligraphy: 8th Dan Master Rank (Kaisho Style) (1997)",
         // 修正: Sinceと1986の間に改行禁止スペース(\u00A0)を入れ、分断を防ぐ
