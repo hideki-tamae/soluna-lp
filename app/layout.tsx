@@ -1,12 +1,16 @@
+// app/layout.tsx
 import "./globals.css";
-import { Web3Provider } from "@/components/Web3Provider";
-import Footer from "@/components/Footer";
+// 🚨 修正: '../src/components/' から 'src/' を削除
+import { Web3Provider } from "../components/Web3Provider"; 
+import Footer from "../components/Footer";
 import DisableContextMenu from "./DisableContextMenu";
-// 👇 ConnectButtonの直接インポートを削除
+// ConnectButtonの直接インポートを削除（変更なし）
 // import { ConnectButton } from '@rainbow-me/rainbowkit';
 
-// 👇 修正点 1: 新しいモバイル認証ボタンをインポート
-import MobileAuthButton from "@/components/MobileAuthButton"; 
+// 🚨 修正: '../src/components/' から 'src/' を削除
+import MobileAuthButton from "../components/MobileAuthButton"; 
+
+// 🚨 【削除】一時的なWeb3Providerプレースホルダー関数を削除しました。
 
 export const metadata = {
   title: "Re-Verse Civilization / SOLUNA",
@@ -25,12 +29,13 @@ export default function RootLayout({
       <body className="bg-black text-white antialiased">
         <DisableContextMenu />
 
-        <Web3Provider>
+        {/* <Web3Provider> は本来のコンポーネントとして機能します */}
+        <Web3Provider> 
           {/* ===== Header ===== */}
           <header className="w-full border-b border-white/10 bg-black/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
             <div className="mx-auto max-w-6xl px-5 py-4 flex items-center justify-between">
               
-              {/* ロゴエリア */}
+              {/* ロゴエリア (変更なし) */}
               <a
                 href="/"
                 className={`flex items-center gap-3 opacity-100 ${hoverColorClass} transition-colors`}
@@ -47,7 +52,7 @@ export default function RootLayout({
 
               {/* ナビゲーションエリア */}
               <nav className="flex items-center gap-4 whitespace-nowrap">
-                {/* 共創参加 */}
+                {/* 共創参加 (変更なし) */}
                 <div className="hidden md:block rounded-md border border-transparent hover:border-cyan-400 transition-colors">
                   <a
                     href="https://tally.so/r/wM9JVY"
@@ -59,7 +64,7 @@ export default function RootLayout({
                   </a>
                 </div>
 
-                {/* 読者限定 */}
+                {/* 読者限定 (変更なし) */}
                 <div className="hidden md:block rounded-md border border-transparent hover:border-cyan-400 transition-colors">
                   <a
                     href="/claim"
@@ -69,7 +74,7 @@ export default function RootLayout({
                   </a>
                 </div>
 
-                {/* 👇 修正点 2: ConnectButton を MobileAuthButton に置き換え */}
+                {/* MobileAuthButton の利用を復元 */}
                 <div className="ml-2">
                     <MobileAuthButton /> 
                 </div>

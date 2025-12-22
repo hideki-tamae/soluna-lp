@@ -1,4 +1,5 @@
 "use client";
+
 import React from 'react';
 
 const TransparencySection = () => {
@@ -54,10 +55,9 @@ const TransparencySection = () => {
               ))}
             </ul>
 
-            {/* Card 1 ボタン: Security & Audit (リンク設定済み) */}
+            {/* Card 1 ボタン: Security & Audit */}
             <a 
               href="/audit/SOLUNA_Security_Audit_202511.pdf"
-    
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-3 py-4 rounded-xl border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 font-medium hover:bg-cyan-900/40 hover:border-cyan-400/60 transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] cursor-pointer"
@@ -99,19 +99,18 @@ const TransparencySection = () => {
               </ul>
             </div>
 
-            {/* Card 2 ボタン: Transaction Logs (CSV) (リンク設定済み) */}
-            <a
-             　href="/audit/SOLUNA_Tx_Log_20251204.csv"
+            {/* Card 2 ボタン: Transaction Logs (CSV) */}
+            <a 
+              href="/audit/SOLUNA_Tx_Log_20251204.csv"
               target="_blank"
               rel="noopener noreferrer" 
               className="w-full flex items-center justify-center gap-3 py-4 rounded-xl border border-blue-500/30 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold hover:from-blue-500 hover:to-indigo-500 transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] cursor-pointer"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
               Tx Log Download (CSV)
+            </a>
             
-          </a>
-            
-            {/* Smart Contract Verification (リンク設定済み) */}
+            {/* Smart Contract Verification */}
             <div className="mt-4 text-center">
               <a 
                 href="https://sepolia.etherscan.io/token/0x3F8125C9666014e7aB889d1c7689F18a38F6F4C5" 

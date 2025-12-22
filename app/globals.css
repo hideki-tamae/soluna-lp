@@ -1,11 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* app/globals.css */
 
-:root { color-scheme: dark; }
-body { @apply bg-neutral-950 text-neutral-50; }
-.container { @apply max-w-6xl mx-auto px-4; }
-.card { @apply rounded-2xl border border-neutral-800 bg-neutral-900/60 p-5; }
-.btn { @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-medium border border-neutral-700 hover:bg-neutral-800 transition; }
-.input { @apply w-full rounded-2xl bg-neutral-900 border border-neutral-800 px-4 py-3; }
-.label { @apply block mb-1 text-sm text-neutral-300; }
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* カスタムCSS変数を全て削除し、基本的なフォントと背景だけを残す */
+body {
+  /* 念のため、フォント定義も一時的に削除 */
+  background: #0a0a0a; /* レイアウトで指定された背景色 */
+  color: #ededed;      /* レイアウトで指定された文字色 */
+}
+
+/* ⚠ その他の @theme や :root の定義は全て削除またはコメントアウトしてください */
+/*
+@theme inline {
+  ...
+}
+:root {
+  ...
+}
+*/

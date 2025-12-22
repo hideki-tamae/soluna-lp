@@ -2,7 +2,8 @@
 'use client'; // イベントハンドラを使用するためクライアントコンポーネント化
 
 import React from "react";
-import AntiCopyWrapper from "@/components/utils/AntiCopyWrapper"; 
+// ✅ 修正：実際のファイル位置である utils フォルダを経由させる
+import AntiCopyWrapper from "../../components/utils/AntiCopyWrapper";
 import Link from 'next/link'; 
 
 // 🚨 政策提言書の確定パス（public/imagesフォルダ内）
@@ -26,7 +27,7 @@ const PolicyPage = () => {
           </h1>
           <p className="text-xl text-gray-400">日本語版 / 閲覧専用・著作権保護</p>
           
-          {/* 🌟 政策提言書: 英語版へのリンクをここに追加 🌟 */}
+          {/* 🌟 政策提言書: 英語版へのリンク */}
           <div className="mt-4 mb-4 text-center">
               <Link href="/policy/en" passHref>
                   <span className="text-sm text-gray-500 hover:text-white transition-colors cursor-pointer border-b border-gray-600 hover:border-white">
@@ -34,7 +35,6 @@ const PolicyPage = () => {
                   </span>
               </Link>
           </div>
-          {/* ------------------------------------------- */}
 
           <div className="mt-8">
             <h3 className="text-lg text-red-500 font-bold">
@@ -58,27 +58,27 @@ const PolicyPage = () => {
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Cover</h2>
             <img src={POLICY_PAGE_COVER} alt="Policy Cover Page" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
 
-            {/* ページ 1 */}
+            {/* ページ 1 (序論/課題) */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 1 (序論/課題)</h2>
             <img src={POLICY_PAGE_1_IMG} alt="Policy Page 1" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
             
-            {/* ページ 2 */}
+            {/* ページ 2 (Immutable/Permissionless Care) */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 2 (Immutable/Permissionless Care)</h2>
             <img src={POLICY_PAGE_2_IMG} alt="Policy Page 2" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
 
-            {/* ページ 3 */}
+            {/* ページ 3 (科学的根拠) */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 3 (科学的根拠)</h2>
             <img src={POLICY_PAGE_3_IMG} alt="Policy Page 3" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
 
-            {/* ページ 4 */}
+            {/* ページ 4 (レジリエンスの再定義) */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 4 (レジリエンスの再定義)</h2>
             <img src={POLICY_PAGE_4_IMG} alt="Policy Page 4" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
 
-            {/* ページ 5 */}
+            {/* ページ 5 (社会的インパクト) */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 5 (社会的インパクト)</h2>
             <img src={POLICY_PAGE_5_IMG} alt="Policy Page 5" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
             
-            {/* ページ 6 */}
+            {/* ページ 6 (実装ロードマップ) */}
             <h2 className="text-3xl font-bold text-white pt-10 border-t border-red-700">Page 6 (実装ロードマップ)</h2>
             <img src={POLICY_PAGE_6_IMG} alt="Policy Page 6" className="w-full h-auto rounded-xl shadow-2xl border border-white/10" />
           </div>

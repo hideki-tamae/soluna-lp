@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import useIsMobile from '@/hooks/useIsMobile';
+// 🚨 修正: '@/hooks/...' を '../hooks/...' に変更 (相対パス)
+import useIsMobile from '../hooks/useIsMobile';
 
 // Passkey認証を開始する関数 (実際の実装に置き換える必要があります)
 // CEO、この関数名は、あなたのプロジェクトでPasskey認証を開始する関数に置き換えてください。
