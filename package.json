@@ -14,7 +14,6 @@
   "dependencies": {
     "@prisma/client": "^5.22.0",
     "@rainbow-me/rainbowkit": "^2.2.10",
-    "@react-native-async-storage/async-storage": "^2.2.0",
     "@safe-global/api-kit": "^4.0.0",
     "@safe-global/protocol-kit": "^6.1.1",
     "@supabase/supabase-js": "^2.83.0",
