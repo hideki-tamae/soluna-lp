@@ -1,4 +1,4 @@
-import ArchitectProfile from '@/components/ArchitectProfile';
+import ArchitectProfile from '../../components/ArchitectProfile';
 
 export default function ProfilePage() {
   return (

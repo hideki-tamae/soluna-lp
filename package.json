@@ -12,13 +12,16 @@
     "postinstall": "npx prisma generate"
   },
   "dependencies": {
+    "@metamask/sdk": "^0.34.0",
     "@prisma/client": "^5.22.0",
     "@rainbow-me/rainbowkit": "^2.2.10",
+    "@react-native-async-storage/async-storage": "^2.2.0",
     "@safe-global/api-kit": "^4.0.0",
     "@safe-global/protocol-kit": "^6.1.1",
     "@supabase/supabase-js": "^2.83.0",
     "@tanstack/react-query": "^5.90.12",
     "@vercel/kv": "^3.0.0",
+    "@wagmi/connectors": "^6.2.0",
     "canvas-confetti": "^1.9.4",
     "dotenv": "^17.2.3",
     "ethers": "^6.15.0",

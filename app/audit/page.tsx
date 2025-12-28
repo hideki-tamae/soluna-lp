@@ -1,5 +1,5 @@
-import TransparencySection from '@/components/TransparencySection'; // 既存のコンポーネントを読み込み
-import Footer from '@/components/Footer';
+import TransparencySection from '../../components/TransparencySection'; // 既存のコンポーネントを読み込み
+import Footer from '../../components/Footer';
 
 export default function AuditPage() {
   return (

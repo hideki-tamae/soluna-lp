@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useCallback } from 'react';
+import Link from 'next/link';
 import { 
   Upload, 
   CheckCircle2, 
@@ -18,7 +19,8 @@ import {
   Ticket,
   Music,
   Users,
-  Zap
+  Zap,
+  Sparkles
 } from 'lucide-react';
 
 // --- Custom High-End Icons (SVG) ---
@@ -54,10 +56,7 @@ const CyberLockIcon = ({ className }: { className?: string }) => (
 
 const PremiumAmazonIcon = ({ className }: { className?: string }) => (
   <div className={`relative flex items-center justify-center ${className}`}>
-    {/* IMPROVED: Gold color scheme instead of orange */}
     <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-500/20 via-yellow-500/10 to-amber-600/20 blur-xl animate-pulse" />
-    
-    {/* NEW: Breathing effect */}
     <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-400/10 to-yellow-400/10 animate-[pulse_3s_ease-in-out_infinite]" />
     
     <div className="relative w-full h-full flex items-center justify-center">
@@ -78,7 +77,6 @@ const PremiumAmazonIcon = ({ className }: { className?: string }) => (
         <path d="M9 17c2 1.5 4 1.5 6 0" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
       </svg>
       
-      {/* NEW: Animated glow dot with pulse */}
       <div className="absolute w-2 h-2 bg-amber-300 rounded-full blur-sm animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]" style={{top: '45%'}} />
       <div className="absolute w-2 h-2 bg-yellow-400 rounded-full blur-sm animate-pulse" style={{top: '45%'}} />
     </div>
@@ -88,8 +86,6 @@ const PremiumAmazonIcon = ({ className }: { className?: string }) => (
 const PremiumKindleIcon = ({ className }: { className?: string }) => (
   <div className={`relative flex items-center justify-center ${className}`}>
     <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/20 via-cyan-500/10 to-blue-600/20 blur-xl animate-pulse" />
-    
-    {/* NEW: Breathing effect */}
     <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400/10 to-cyan-400/10 animate-[pulse_3s_ease-in-out_infinite]" />
     
     <div className="relative w-full h-full flex items-center justify-center">
@@ -111,7 +107,6 @@ const PremiumKindleIcon = ({ className }: { className?: string }) => (
         <path d="M6 6v12" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
       </svg>
       
-      {/* NEW: Animated glow dot with pulse */}
       <div className="absolute w-2 h-2 bg-blue-300 rounded-full blur-sm animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]" style={{top: '50%', left: '55%'}} />
       <div className="absolute w-2 h-2 bg-blue-400 rounded-full blur-sm animate-pulse" style={{top: '50%', left: '55%'}} />
     </div>
@@ -229,11 +224,37 @@ const UploadSection = () => {
                     </div>
                  </div>
               </div>
-              <button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 sm:py-5 rounded-xl shadow-[0_0_40px_rgba(16,185,129,0.4)] transition-all flex items-center justify-center gap-3 group relative overflow-hidden text-sm sm:text-base">
+              <button className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold py-4 sm:py-5 rounded-xl shadow-[0_0_40px_rgba(16,185,129,0.4)] transition-all flex items-center justify-center gap-3 group relative overflow-hidden text-sm sm:text-base mb-6">
                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                  <span className="relative z-10 tracking-widest">CITIZEN PORTAL へ進む</span>
                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
               </button>
+
+              {/* ========================================
+                  NEW: NFT Mint への誘導セクション
+                  ======================================== */}
+              <div className="mt-8 p-6 bg-gradient-to-br from-purple-900/10 to-indigo-900/10 border border-purple-500/20 rounded-xl backdrop-blur-sm">
+                <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-5 h-5 text-purple-400 animate-pulse" />
+                  <p className="text-purple-300 text-sm font-bold tracking-wide">さらに特典を受け取る</p>
+                </div>
+                <p className="text-gray-400 text-xs mb-4 leading-relaxed">
+                  あなたの存在証明をブロックチェーンに永久保存し、<br className="hidden sm:block" />
+                  プラチナ NFT カードを手に入れましょう。
+                </p>
+                <Link 
+                  href="/claim"
+                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-4 rounded-xl shadow-[0_0_40px_rgba(147,51,234,0.4)] hover:shadow-[0_0_60px_rgba(147,51,234,0.6)] transition-all flex items-center justify-center gap-3 group"
+                >
+                  <span className="tracking-wider">Proof-of-Care NFT を Mint する</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <p className="text-xs text-gray-500 mt-3 text-center font-mono">
+                  Visual + Vital 証明で Genesis Edition を獲得
+                </p>
+              </div>
+              {/* ======================================== */}
+
            </div>
         </div>
       );
@@ -291,11 +312,37 @@ const UploadSection = () => {
                     <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-emerald-400" />
                  </div>
               </div>
-              <button className="w-full bg-gradient-to-r from-cyan-700 to-blue-700 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-4 sm:py-5 rounded-xl shadow-[0_0_30px_rgba(34,211,238,0.2)] transition-all flex items-center justify-center gap-3 group relative overflow-hidden text-sm sm:text-base">
+              <button className="w-full bg-gradient-to-r from-cyan-700 to-blue-700 hover:from-cyan-600 hover:to-blue-600 text-white font-bold py-4 sm:py-5 rounded-xl shadow-[0_0_30px_rgba(34,211,238,0.2)] transition-all flex items-center justify-center gap-3 group relative overflow-hidden text-sm sm:text-base mb-6">
                  <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                  <span className="relative z-10 tracking-widest">CLAIM MICRO TOKEN</span>
                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
               </button>
+
+              {/* ========================================
+                  NEW: NFT Mint への誘導セクション（NOMAD版）
+                  ======================================== */}
+              <div className="mt-8 p-6 bg-gradient-to-br from-purple-900/10 to-indigo-900/10 border border-purple-500/20 rounded-xl backdrop-blur-sm">
+                <div className="flex items-center gap-2 mb-4">
+                  <Sparkles className="w-5 h-5 text-purple-400 animate-pulse" />
+                  <p className="text-purple-300 text-sm font-bold tracking-wide">NOMAD も NFT を獲得できます</p>
+                </div>
+                <p className="text-gray-400 text-xs mb-4 leading-relaxed">
+                  あなたの存在証明をブロックチェーンに刻み、<br className="hidden sm:block" />
+                  プラチナ NFT カードを手に入れましょう。
+                </p>
+                <Link 
+                  href="/claim"
+                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold py-4 rounded-xl shadow-[0_0_40px_rgba(147,51,234,0.4)] hover:shadow-[0_0_60px_rgba(147,51,234,0.6)] transition-all flex items-center justify-center gap-3 group"
+                >
+                  <span className="tracking-wider">Proof-of-Care NFT を Mint する</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <p className="text-xs text-gray-500 mt-3 text-center font-mono">
+                  Visual + Vital 証明で Genesis Edition を獲得
+                </p>
+              </div>
+              {/* ======================================== */}
+
            </div>
         </div>
       );
@@ -420,13 +467,11 @@ const UploadSection = () => {
                 ) : (
                   <>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full mb-6 sm:mb-8">
-                      {/* IMPROVED: Amazon Card with GOLD color + enhanced animations */}
                       <button 
                         onClick={() => setActiveCard('amazon')}
                         className={`group relative p-4 sm:p-6 bg-[#0A0A12] border rounded-xl transition-all duration-500 text-left hover:transform hover:-translate-y-1 ${activeCard === 'amazon' ? 'border-amber-500 bg-[#0E0E1A] shadow-[0_0_40px_rgba(251,191,36,0.3)]' : 'border-white/10 hover:border-amber-500/30 hover:shadow-[0_0_25px_rgba(251,191,36,0.15)]'}`}
                       >
                         <div className="flex items-start justify-between mb-4">
-                          {/* IMPROVED: GOLD theme with stronger animations */}
                           <div className={`p-3 sm:p-4 rounded-xl border transition-all duration-500 ${activeCard === 'amazon' ? 'bg-amber-900/30 border-amber-500/60 shadow-[0_0_30px_rgba(251,191,36,0.4)]' : 'bg-gray-900/50 border-white/10'} group-hover:scale-105 group-hover:shadow-[0_0_40px_rgba(251,191,36,0.6)]`}>
                             <PremiumAmazonIcon className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16" />
                           </div>
@@ -437,7 +482,6 @@ const UploadSection = () => {
                         <span className="absolute top-3 sm:top-4 right-3 sm:right-4 text-[9px] sm:text-[10px] font-bold tracking-widest text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity">FOR CITIZEN</span>
                       </button>
 
-                      {/* IMPROVED: Kindle Card with enhanced animations */}
                       <button 
                         onClick={() => setActiveCard('kindle')}
                         className={`group relative p-4 sm:p-6 bg-[#0A0A12] border rounded-xl transition-all duration-500 text-left hover:transform hover:-translate-y-1 ${activeCard === 'kindle' ? 'border-cyan-500 bg-[#0E0E1A] shadow-[0_0_40px_rgba(6,182,212,0.3)]' : 'border-white/10 hover:border-cyan-500/30 hover:shadow-[0_0_25px_rgba(6,182,212,0.15)]'}`}
