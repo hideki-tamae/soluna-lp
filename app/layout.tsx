@@ -67,7 +67,7 @@ export default function RootLayout({
                 {/* 読者限定 (変更なし) */}
                 <div className="hidden md:block rounded-md border border-transparent hover:border-cyan-400 transition-colors">
                   <a
-                    href="/claim"
+                    href="/tester-claim"
                     className={`text-sm font-bold text-gray-300 ${hoverColorClass} transition-colors tracking-wider px-3 py-1`}
                   >
                     読者限定
